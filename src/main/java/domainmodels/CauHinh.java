@@ -38,7 +38,7 @@ public class CauHinh extends PrimaryEntity {
     private Rom idRom;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idManHinh")
+    @JoinColumn(name = "idManHinh",referencedColumnName = "id")
     private ManHinh idManHinh;
 
 }

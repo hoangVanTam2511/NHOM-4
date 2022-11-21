@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "NhanVien")
-public class NhanVien extends PrimaryEntity implements  IsIdentified,Serializable{
+public class User extends PrimaryEntity implements  IsIdentified,Serializable{
     
     @Column(name = "ma",length = EntityProperties.LENGTH_MA)
     private String ma;
@@ -40,6 +40,9 @@ public class NhanVien extends PrimaryEntity implements  IsIdentified,Serializabl
     
     @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
     private String sdt;
+    
+     @Column(name = "cccd",length = EntityProperties.LENGT_PHONE)
+    private String cccd;
     
     @Column(name = "trangThai")
     private int trangThai;

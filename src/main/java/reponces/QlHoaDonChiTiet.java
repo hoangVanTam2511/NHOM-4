@@ -63,7 +63,7 @@ public class QlHoaDonChiTiet {
     public Object getData(int stt) {
         double thanhTien = this.soLuong * this.donGia;
         return new Object[]{
-            stt, this.idChiTietSanPham.getIdSanPham().getMa(), this.idChiTietSanPham.getIdSanPham().getTen(), this.soLuong, this.donGia, thanhTien
+            stt, this.idChiTietSanPham.getIdSanPham().getSoImei(), this.idChiTietSanPham.getIdSanPham().getTen(), this.soLuong, this.donGia, thanhTien
         };
     }
 

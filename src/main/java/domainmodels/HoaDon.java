@@ -37,30 +37,27 @@ public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
     @Column(name = "ma",length = EntityProperties.LENGTH_MA)
     private String ma;
     
-    @Column(name = "TenNguoiNhan",length = EntityProperties.LENGT_FULL_NAME)
-    private String tenNguoiNhan;
-    
-    @Column(name = "Sdt",length = EntityProperties.LENGT_PHONE)
+    @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
     private String sdt;
     
-    @Column(name = "DiaChi",length = EntityProperties.LENGT_ADDRESS)
+    @Column(name = "diaChi",length = EntityProperties.LENGT_ADDRESS)
     private String diaChi;
     
-    @Column(name = "NgayNhan")
-    private Date ngayNhan;
+    @Column(name = "created")
+    private Date created;
     
-    @Column(name = "NgayTao")
-    private Date ngayTao;
+    @Column(name = "updated")
+    private Date updated;
     
-    @Column(name = "NgayThanhToan")
+    @Column(name = "ngayThanhToan")
     private Date ngayThanhToan;
     
-    @Column(name = "TinhTang")
+    @Column(name = "tinhTrang")
     private int tinhTrang;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdNV",nullable = false)
-    private NhanVien idNhanVien;
+    @JoinColumn(name = "idUser",nullable = false)
+    private User idNhanVien;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "IdKH",nullable = false)

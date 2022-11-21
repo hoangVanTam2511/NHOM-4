@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Getter 
 @Setter
 @Entity
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "anh")
@@ -28,9 +30,9 @@ public class Anh extends PrimaryEntity{
     @Column(name = "ten")
     private String ten;
     
-    @Column(name = "duongDan")
+    @Column(name = "duong_dan")
     private String duongDan;
     
-    @Column(name = "trangThai")
+    @Column(name = "trang_thai")
     private int trangThai;
 }
