@@ -5,8 +5,7 @@
 package reponces;
 
 import domainmodels.ChucVu;
-import domainmodels.CuaHang;
-import domainmodels.NhanVien;
+import domainmodels.User;
 import infrastructure.convert.FormUtil;
 import java.util.Date;
 import java.util.UUID;
@@ -28,11 +27,9 @@ public class QlNhanVien {
     private String sdt;
     private String matKhau;
     private int trangThai;
-    private CuaHang idCuaHang;
     private ChucVu idChucVu;
-    private NhanVien idGuiBc;
 
-    public QlNhanVien(UUID id, String ma, String ho, String ten, String tenDem, Date ngaySinh, String gioiTinh, String diaChi, String sdt, String matKhau, int trangThai, CuaHang idCuaHang, ChucVu idChucVu, NhanVien idGuiBc) {
+    public QlNhanVien(UUID id, String ma, String ho, String ten, String tenDem, Date ngaySinh, String gioiTinh, String diaChi, String sdt, String matKhau, int trangThai, ChucVu idChucVu, User idGuiBc) {
         this.id = id;
         this.ma = ma;
         this.ho = ho;
@@ -44,12 +41,10 @@ public class QlNhanVien {
         this.sdt = sdt;
         this.matKhau = matKhau;
         this.trangThai = trangThai;
-        this.idCuaHang = idCuaHang;
         this.idChucVu = idChucVu;
-        this.idGuiBc = idGuiBc;
     }
 
-    public QlNhanVien(UUID id, String ma, String fullName, Date ngaySinh, String gioiTinh, String diaChi, String sdt, String matKhau, int trangThai, CuaHang idCuaHang, ChucVu idChucVu, NhanVien idGuiBc) {
+    public QlNhanVien(UUID id, String ma, String fullName, Date ngaySinh, String gioiTinh, String diaChi, String sdt, String matKhau, int trangThai, ChucVu idChucVu, User idGuiBc) {
         String title[] = fullName.split(" ");
         this.id = id;
         this.ma = ma;
@@ -66,9 +61,7 @@ public class QlNhanVien {
         this.sdt = sdt;
         this.matKhau = matKhau;
         this.trangThai = trangThai;
-        this.idCuaHang = idCuaHang;
         this.idChucVu = idChucVu;
-        this.idGuiBc = idGuiBc;
     }
 
     public QlNhanVien() {
@@ -166,29 +159,13 @@ public class QlNhanVien {
     public void setTrangThai(int trangThai) {
         this.trangThai = trangThai;
     }
-
-    public CuaHang getIdCuaHang() {
-        return idCuaHang;
-    }
-
-    public void setIdCuaHang(CuaHang idCuaHang) {
-        this.idCuaHang = idCuaHang;
-    }
-
+    
     public ChucVu getIdChucVu() {
         return idChucVu;
     }
 
     public void setIdChucVu(ChucVu idChucVu) {
         this.idChucVu = idChucVu;
-    }
-
-    public NhanVien getIdGuiBc() {
-        return idGuiBc;
-    }
-
-    public void setIdGuiBc(NhanVien idGuiBc) {
-        this.idGuiBc = idGuiBc;
     }
 
     public String getFullName() {
@@ -214,7 +191,7 @@ public class QlNhanVien {
     
     @Override
     public String toString() {
-        return "QlNhanVien{" + "id=" + id + ", ma=" + ma + ", ho=" + ho + ", ten=" + ten + ", tenDem=" + tenDem + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", sdt=" + sdt + ", matKhau=" + matKhau + ", trangThai=" + trangThai + ", idCuaHang=" + idCuaHang + ", idChucVu=" + idChucVu + ", idGuiBc=" + idGuiBc + '}';
+        return "QlNhanVien{" + "id=" + id + ", ma=" + ma + ", ho=" + ho + ", ten=" + ten + ", tenDem=" + tenDem + ", ngaySinh=" + ngaySinh + ", gioiTinh=" + gioiTinh + ", diaChi=" + diaChi + ", sdt=" + sdt + ", matKhau=" + matKhau + ", trangThai=" + trangThai  + ", idChucVu=" + idChucVu  + '}';
     }
 
 }

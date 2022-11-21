@@ -6,14 +6,13 @@ package infrastructure.convert;
 
 import domainmodels.ChiTietSanPham;
 import domainmodels.ChucVu;
-import domainmodels.CuaHang;
 import domainmodels.DongSp;
 import domainmodels.HoaDon;
 import domainmodels.HoaDonChiTiet;
 import domainmodels.KhachHang;
 import domainmodels.MauSac;
 import domainmodels.NSX;
-import domainmodels.NhanVien;
+import domainmodels.User;
 import domainmodels.SanPham;
 import reponces.QlChiTietSanPham;
 import reponces.QlChucVu;
@@ -42,15 +41,15 @@ import org.modelmapper.ModelMapper;
  */
 public class FormUtil {
 
-    public static QlNhanVien convertFromNhanVienToQlNhanVien(NhanVien nhanVien) {
+    public static QlNhanVien convertFromNhanVienToQlNhanVien(User nhanVien) {
         ModelMapper mapper = new ModelMapper();
         QlNhanVien qlNhanVien = mapper.map(nhanVien, QlNhanVien.class);
         return qlNhanVien;
     }
 
-    public static NhanVien convertFromQlNhanVienToNhanVien(QlNhanVien qlNhanVien) {
+    public static User convertFromQlNhanVienToNhanVien(QlNhanVien qlNhanVien) {
         ModelMapper mapper = new ModelMapper();
-        NhanVien nv = mapper.map(qlNhanVien, NhanVien.class);
+        User nv = mapper.map(qlNhanVien, User.class);
         nv.setId(qlNhanVien.getId());
         return nv;
     }
@@ -92,19 +91,6 @@ public class FormUtil {
         NSX nsx = mapper.map(qlNhaSanXuat, NSX.class);
         nsx.setId(qlNhaSanXuat.getId());
         return nsx;
-    }
-
-    public static QlCuaHang convertFromCuaHangToQlCuaHang(CuaHang cuaHang) {
-        ModelMapper mapper = new ModelMapper();
-        QlCuaHang qlCuaHang = mapper.map(cuaHang, QlCuaHang.class);
-        return qlCuaHang;
-    }
-
-    public static CuaHang convertFromQlCuaHangToCuaHang(QlCuaHang qlCuaHang) {
-        ModelMapper mapper = new ModelMapper();
-        CuaHang cuaHang = mapper.map(qlCuaHang, CuaHang.class);
-        cuaHang.setId(qlCuaHang.getId());
-        return cuaHang;
     }
 
     public static QlHoaDon convertFromHoaDonToQlHoaDon(HoaDon hoaDon) {

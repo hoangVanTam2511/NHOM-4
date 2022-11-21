@@ -4,35 +4,32 @@
  */
 package domainmodels;
 
-import domainmodels.base.PrimaryEntity;
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  *
  * @author Admin
  */
-@Getter 
-@Setter
 @Entity
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "anh")
-public class Anh extends PrimaryEntity{
-    
-    @Column(name = "ten")
-    private String ten;
-    
-    @Column(name = "duong_dan")
-    private String duongDan;
-    
-    @Column(name = "trang_thai")
-    private int trangThai;
+@Data
+@Table(name = "HoaDonChiTiet")
+public class ChiTietKhuyenMai implements Serializable {
+
+    @EmbeddedId
+    private ChiTietKhuyenMaiId chiTietKhuyenMaiId;
+
 }

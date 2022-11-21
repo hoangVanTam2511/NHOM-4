@@ -30,10 +30,10 @@ import lombok.ToString;
 @Table(name ="SanPham")
 public class SanPham extends PrimaryEntity implements IsIdentified,Serializable{
     
-    @Column(name = "Ma",length = EntityProperties.LENGTH_MA)
-    private String ma;
+    @Column(name = "soImei",length = EntityProperties.LENGTH_MA)
+    private String soImei;
     
-    @Column(name = "Ten",length = EntityProperties.LENGT_SHORT_NAME)
+    @Column(name = "ten",length = EntityProperties.LENGT_SHORT_NAME)
     private String ten;
      
     

@@ -59,11 +59,6 @@ public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serial
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     @JoinColumn(name = "idSP",nullable = true)
     private SanPham idSanPham;
-    
-    
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idImei",nullable = true)
-    private Imei idImei;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "idAnh",nullable = true)

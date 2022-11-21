@@ -5,7 +5,7 @@
 package domainmodels;
 
 import domainmodels.base.PrimaryEntity;
-import javax.persistence.CascadeType;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,24 +21,30 @@ import lombok.Setter;
  *
  * @author Admin
  */
+@Entity
 @Getter
 @Setter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CauHinh")
-public class CauHinh extends PrimaryEntity {
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRam")
-    private Ram idRam;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRom")
-    private Rom idRom;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idManHinh",referencedColumnName = "id")
-    private ManHinh idManHinh;
-
+@Table(name = "PhieuBaoHanh")
+public class PhieuBaoHanh extends PrimaryEntity{
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idHoaDon")
+    private HoaDon idHoaDon;
+    
+    @Column(name = "moTa")
+    private String moTa;
+    
+    @Column(name = "ngayBatDau")
+    private Date ngayBatDau;
+    
+    @Column(name = "ngayKetThuc")
+    private Date ngayKetThuc;
+    
+    @Column(name = "trangThai")
+    private int trangThai;
+    
+    @Column(name = "soImei")
+    private int soImei;
 }

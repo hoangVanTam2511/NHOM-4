@@ -11,6 +11,6 @@ package application;
 public class DuAnMauApplication {
     
     public static void main(String[] args) {
-       
+        System.out.println("hello");
     }
 }

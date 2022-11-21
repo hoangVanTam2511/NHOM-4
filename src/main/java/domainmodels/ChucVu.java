@@ -29,10 +29,10 @@ import lombok.ToString;
 @Table(name = "ChucVu")
 public class ChucVu extends PrimaryEntity implements IsIdentified,Serializable{
     
-    @Column(name = "Ma",nullable = true)
+    @Column(name = "ma",nullable = true)
     private String ma;
     
-    @Column(name = "Ten",nullable = false )
+    @Column(name = "ten",nullable = false )
     private String ten;
     
 }

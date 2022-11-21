@@ -5,7 +5,7 @@
 package reponces;
 
 import domainmodels.KhachHang;
-import domainmodels.NhanVien;
+import domainmodels.User;
 import java.util.Date;
 import java.util.UUID;
 
@@ -24,13 +24,13 @@ public class QlHoaDon {
     private Date ngayTao;
     private Date ngayThanhToan;
     private int tinhTrang;
-    private NhanVien idNhanVien;
+    private User idNhanVien;
     private KhachHang idKhachHang;
 
     public QlHoaDon() {
     }
 
-    public QlHoaDon(UUID id, String ma, String tenNguoiNhan, String sdt, String diaChi, Date ngayNhan, Date ngayTao, Date ngayThanhToan, int tinhTrang, NhanVien idNhanVien, KhachHang idKhachHang) {
+    public QlHoaDon(UUID id, String ma, String tenNguoiNhan, String sdt, String diaChi, Date ngayNhan, Date ngayTao, Date ngayThanhToan, int tinhTrang, User idNhanVien, KhachHang idKhachHang) {
         this.id = id;
         this.ma = ma;
         this.tenNguoiNhan = tenNguoiNhan;
@@ -44,7 +44,7 @@ public class QlHoaDon {
         this.idKhachHang = idKhachHang;
     }
     
-     public QlHoaDon(UUID id, String ma,Date ngayTao, int tinhTrang, NhanVien idNhanVien, KhachHang idKhachHang) {
+     public QlHoaDon(UUID id, String ma,Date ngayTao, int tinhTrang, User idNhanVien, KhachHang idKhachHang) {
         this.id = id;
         this.ma = ma;
         this.tenNguoiNhan = tenNguoiNhan;
@@ -122,11 +122,11 @@ public class QlHoaDon {
         this.ngayThanhToan = ngayThanhToan;
     }
 
-    public NhanVien getIdNhanVien() {
+    public User getIdNhanVien() {
         return idNhanVien;
     }
 
-    public void setIdNhanVien(NhanVien idNhanVien) {
+    public void setIdNhanVien(User idNhanVien) {
         this.idNhanVien = idNhanVien;
     }
 

@@ -5,7 +5,7 @@
 package reponces;
 
 import domainmodels.KhachHang;
-import domainmodels.NhanVien;
+import domainmodels.User;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,12 +23,12 @@ public class QlGioHang {
     private Date ngayTao;
     private int tinhTrang;
     private KhachHang idKhachHang;
-    private NhanVien idNhanVien;
+    private User idNhanVien;
 
     public QlGioHang() {
     }
 
-    public QlGioHang(UUID id, String ma, String tenNguoiNhan, String sdt, String diaChi, Date ngayTao, int tinhTrang, KhachHang idKhachHang, NhanVien idNhanVien) {
+    public QlGioHang(UUID id, String ma, String tenNguoiNhan, String sdt, String diaChi, Date ngayTao, int tinhTrang, KhachHang idKhachHang, User idNhanVien) {
         this.id = id;
         this.ma = ma;
         this.tenNguoiNhan = tenNguoiNhan;
@@ -104,11 +104,11 @@ public class QlGioHang {
         this.idKhachHang = idKhachHang;
     }
 
-    public NhanVien getIdNhanVien() {
+    public User getIdNhanVien() {
         return idNhanVien;
     }
 
-    public void setIdNhanVien(NhanVien idNhanVien) {
+    public void setIdNhanVien(User idNhanVien) {
         this.idNhanVien = idNhanVien;
     }
     

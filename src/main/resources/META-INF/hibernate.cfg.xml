@@ -11,7 +11,7 @@
         </property>
 
         <property name="connection.url">
-            jdbc:sqlserver://localhost:1433;databaseName=du_an_1;encrypt=true;trustServerCertificate=true;
+            jdbc:sqlserver://localhost:1433;databaseName=du-an-1;encrypt=true;trustServerCertificate=true;
         </property>
 
         <property name="connection.username">sa</property>
@@ -22,6 +22,8 @@
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+        
+        <property name="ddl-auto">create</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
@@ -31,19 +33,26 @@
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
+        
+        <property name="show_sql">true</property>
        
-        <mapping class="DomainModels.MauSac" />
-        <mapping class="DomainModels.DongSp" />
-        <mapping class="DomainModels.NSX" />
-        <mapping class="DomainModels.CuaHang" />
-        <mapping class="DomainModels.NhanVien" />
-        <mapping class="DomainModels.ChucVu" />
-        <mapping class="DomainModels.ChiTietSanPham" />
-        <mapping class="DomainModels.SanPham" />
-        <mapping class="DomainModels.HoaDon" />
-        <mapping class="DomainModels.KhachHang" />
-        <mapping class="DomainModels.HoaDonChiTiet" />
-        <mapping class="DomainModels.GioHang" />
-        <mapping class="DomainModels.GioHangChiTiet" />
+        <mapping class="domainmodels.Anh" />
+        <mapping class="domainmodels.KhuyenMai" />
+        <mapping class="domainmodels.ManHinh" />
+        <mapping class="domainmodels.MauSac" />
+        <mapping class="domainmodels.Ram" />
+        <mapping class="domainmodels.Rom" />
+        <mapping class="domainmodels.CauHinh" />
+        <mapping class="domainmodels.DongSp" />
+        <mapping class="domainmodels.NSX" />
+        <mapping class="domainmodels.User" />
+        <mapping class="domainmodels.ChucVu" />
+        <mapping class="domainmodels.ChiTietSanPham" />
+        <mapping class="domainmodels.ChiTietKhuyenMai" />
+        <mapping class="domainmodels.PhieuBaoHanh" />
+        <mapping class="domainmodels.SanPham" />
+        <mapping class="domainmodels.HoaDon" />
+        <mapping class="domainmodels.KhachHang" />
+        <mapping class="domainmodels.HoaDonChiTiet" />
     </session-factory>
 </hibernate-configuration>

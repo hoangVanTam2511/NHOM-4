@@ -134,7 +134,7 @@ public class QlChiTietSanPham {
 
     public Object getData(int stt){
         return new Object[]{
-         stt,this.idSanPham.getMa(),this.idSanPham.getTen(),this.namBh,this.moTa,this.soLuongTon,this.giaNhap,this.giaBan
+         stt,this.idSanPham.getSoImei(),this.idSanPham.getTen(),this.namBh,this.moTa,this.soLuongTon,this.giaNhap,this.giaBan
         };
     }
    
