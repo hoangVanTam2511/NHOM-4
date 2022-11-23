@@ -28,7 +28,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "phieu_bao_hanh")
-
 @ToString
 
 public class PhieuBaoHanh extends PrimaryEntity {
@@ -37,18 +36,18 @@ public class PhieuBaoHanh extends PrimaryEntity {
     @JoinColumn(name = "id_hoa_don")
     private HoaDon idHoaDon;
 
-    @Column(name = "mo_ta")
+    @Column(name = "mo_ta",nullable = true)
     private String moTa;
 
-    @Column(name = "ngay_bat_dau")
+    @Column(name = "ngay_bat_dau",nullable = true)
     private Date ngayBatDau;
 
-    @Column(name = "ngay_ket_thuc")
+    @Column(name = "ngay_ket_thuc",nullable = true)
     private Date ngayKetThuc;
 
-    @Column(name = "trang_thai")
+    @Column(name = "trang_thai",nullable = true)
     private int trangThai;
 
-    @Column(name = "so_imei")
+    @Column(name = "so_imei",nullable = true)
     private int soImei;
 }

@@ -52,7 +52,7 @@ public class User extends PrimaryEntity implements  IsIdentified,Serializable{
     private String matKhau;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_chuc_vu")
+    @JoinColumn(name = "id_chuc_vu",nullable = false)
     private ChucVu idChucVu;
 
     public String getMa() {

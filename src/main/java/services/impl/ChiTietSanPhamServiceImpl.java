@@ -47,6 +47,11 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
         ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByMa(ma);
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
+    
+     public QlChiTietSanPham findOneByImei(String imei) {
+        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByImei(imei);
+        return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
+    }
 
     @Override
     public String save(QlChiTietSanPham t) {

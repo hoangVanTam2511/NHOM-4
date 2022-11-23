@@ -34,6 +34,20 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         }
         return chiTietSanPhams;
     }
+    
+     public ChiTietSanPham findOneByImei(String imei) {
+        ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "SELECT ct FROM ChiTietSanPham ct where ct.idSanPham.soImei = :imei";
+            TypedQuery query = session.createQuery(hql, ChiTietSanPham.class);
+            query.setParameter("imei", imei);
+            chiTietSanPham = (ChiTietSanPham) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return chiTietSanPham;
+    }
 
     public List<ChiTietSanPham> findAllByName(String ten) {
         List<ChiTietSanPham> chiTietSanPhams = new ArrayList<>();
@@ -92,7 +106,20 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
 
     @Override
     public boolean delete(ChiTietSanPham t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+           try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            Transaction trans = session.getTransaction();
+            trans.begin();
+            try {
+                session.delete(t);
+                trans.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                trans.rollback();
+                return false;
+            }
+            return true;
+        }
     }
 
     public static void main(String[] args) {

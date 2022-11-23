@@ -40,7 +40,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public HoaDonChiTiet findOneByMaSanPhamAndMaHoaDon(String ma, String maSanPham) {
         HoaDonChiTiet dongSp = new HoaDonChiTiet();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id and p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ma = :maSanPham";
+            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id and p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei = :maSanPham";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             query.setParameter("maSanPham", maSanPham);

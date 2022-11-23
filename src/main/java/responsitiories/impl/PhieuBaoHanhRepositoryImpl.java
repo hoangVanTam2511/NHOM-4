@@ -89,4 +89,7 @@ public class PhieuBaoHanhRepositoryImpl implements IReponsitory<PhieuBaoHanh> {
         return false;
     }
 
+    public static void main(String[] args) {
+        System.out.println(new PhieuBaoHanhRepositoryImpl().findAll());
+    }
 }
