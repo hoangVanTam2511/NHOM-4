@@ -96,6 +96,6 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
     }
 
     public static void main(String[] args) {
-        System.out.println(new ChiTietSanPhamReponsitoryImpl().findAllByName("S"));
+        System.out.println(new ChiTietSanPhamReponsitoryImpl().findAll());
     }
 }

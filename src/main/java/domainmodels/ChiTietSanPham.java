@@ -53,6 +53,10 @@ public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serial
     private MauSac idMauSac;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_cau_hinh",nullable = true)
+    private CauHinh idCauHinh;
+    
+    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_nsx",nullable = true)
     private NSX idNsx;
     

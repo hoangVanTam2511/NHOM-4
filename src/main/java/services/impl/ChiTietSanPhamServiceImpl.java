@@ -86,6 +86,6 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ChiTietSanPhamServiceImpl().findOne("SP01"));
+        System.out.println(new ChiTietSanPhamServiceImpl().findAll());
     }
 }
