@@ -47,10 +47,14 @@ public class QlChiTietSanPham {
     private Anh idAnh;   
    
     public Object getData(int stt){
-        
         return new Object[]{
         stt,this.idSanPham.getSoImei(),this.idSanPham.getTen(),this.idNsx.getTen(),this.idDongSp.getTen(),this.idMauSac.getTen(),this.idCauHinh.getIdManHinh().getDoPhanGiai(),this.idCauHinh.getIdManHinh().getKichThuoc(),this.idCauHinh.getIdRam().getKichThuoc(),this.idCauHinh.getIdRom().getKichThuoc(),this.soLuongTon,this.getDonGia()
         };
     }
    
+    public Object getData1(int stt){
+        return new Object[]{
+        stt,this.idSanPham.getSoImei(),this.idSanPham.getTen(),this.idNsx.getTen(),this.idDongSp.getTen(),this.idMauSac.getTen(),this.soLuongTon,this.getDonGia()
+        };
+    }
 }

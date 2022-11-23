@@ -60,7 +60,6 @@ public class FormUtil {
     public static User convertFromQlNhanVienToNhanVien(QlUser qlNhanVien) {
         ModelMapper mapper = new ModelMapper();
         User nv = mapper.map(qlNhanVien, User.class);
-        nv.setId(qlNhanVien.getId());
         return nv;
     }
 

@@ -9,7 +9,7 @@ import domainmodels.KhachHang;
 import domainmodels.User;
 import responsitiories.impl.HoaDonReponsitoryImpl;
 import responsitiories.impl.KhachHangReponsitoryImpl;
-import responsitiories.impl.NhanVienReponsitoryImpl;
+import responsitiories.impl.UserReponsitoryImpl;
 import services.IHoaDonService;
 import services.IService;
 import reponces.QlHoaDon;
@@ -77,7 +77,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
     
     public QlHoaDon createHoaDon(){
         Date today = new Date();
-        NhanVien nv = new NhanVienReponsitoryImpl().findOneByMa("NV02");
+        NhanVien nv = new UserReponsitoryImpl().findOneByMa("NV02");
         KhachHang kh = new KhachHangReponsitoryImpl().findOneByMa("KH01");
         String ma = genMaTuDong(); 
         return new QlHoaDon(null, ma, today, 1, nv, kh);

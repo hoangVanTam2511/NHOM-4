@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Repositories.impl;
+package responsitiories.impl;
 
-import DomainModels.NhanVien;
-import Repositories.IReponsitory;
-import Utilities.HibernateUtil;
-import ViewModels.QlNhanVien;
+import domainmodels.User;
+import responsitiories.IReponsitory;
+import ultilities.HibernateUtil;
+import reponces.QlUser;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -21,14 +21,14 @@ import org.hibernate.query.Query;
  *
  * @author Admin
  */
-public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
+public class UserReponsitoryImpl implements IReponsitory<User> {
 
     @Override
-    public List<NhanVien> findAll() {
-        List<NhanVien> listNhanVien = new ArrayList<>();
+    public List<User> findAll() {
+        List<User> listNhanVien = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            Query query = session.createQuery("SELECT n FROM NhanVien n");
+            Query query = session.createQuery("SELECT n FROM User n");
             listNhanVien = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,32 +36,30 @@ public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
         return listNhanVien;
     }
 
-    @Override
-    public NhanVien findOneByMa(String ma) {
-        List<NhanVien> nhanViens = new ArrayList<>() ;
+     public List<User> findAllByNV() {
+        List<User> listNhanVien = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            String hql = "FROM NhanVien where ma = :ma";
-            Query query = session.createQuery(hql);
-            query.setParameter("ma", ma);
-            nhanViens =  query.getResultList();
-            if(nhanViens.size()==0)return null;
+            Query query = session.createQuery("SELECT n FROM User n WHERE  n.idChucVu.ma = 'NV'");
+            listNhanVien = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return nhanViens.get(0);
+        return listNhanVien;
     }
     
-       @Override
-    public NhanVien findOneByID(UUID id) {
-        List<NhanVien> nhanViens = new ArrayList<>() ;
+    @Override
+    public User findOneByMa(String ma) {
+        List<User> nhanViens = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            String hql = "FROM NhanVien where id = :ma";
+            String hql = "FROM User where ma = :ma";
             Query query = session.createQuery(hql);
-            query.setParameter("ma", id);
-            nhanViens =  query.getResultList();
-            if(nhanViens.size()==0)return null;
+            query.setParameter("ma", ma);
+            nhanViens = query.getResultList();
+            if (nhanViens.size() == 0) {
+                return null;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,7 +67,25 @@ public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
     }
 
     @Override
-    public boolean save(NhanVien nhanVien) {
+    public User findOneByID(UUID id) {
+        List<User> nhanViens = new ArrayList<>();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "FROM User where id = :ma";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", id);
+            nhanViens = query.getResultList();
+            if (nhanViens.size() == 0) {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nhanViens.get(0);
+    }
+
+    @Override
+    public boolean save(User nhanVien) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction trans = session.getTransaction();
             trans.begin();
@@ -86,7 +102,7 @@ public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
     }
 
     @Override
-    public boolean delete(NhanVien nv) {
+    public boolean delete(User nv) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction trans = session.getTransaction();
             trans.begin();
@@ -103,7 +119,7 @@ public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
     }
 
     @Override
-    public boolean update(NhanVien nhanVien) {
+    public boolean update(User nhanVien) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             Transaction trans = session.getTransaction();
             trans.begin();
@@ -118,14 +134,19 @@ public class NhanVienReponsitoryImpl implements IReponsitory<NhanVien> {
         return true;
     }
 
-    //test
-    public static void main(String[] args) {
-        // test du an mau
-        NhanVien nv = new NhanVienReponsitoryImpl().findOneByMa("NV01");
-        System.out.println(nv.toString());
-        nv.setDiaChi("ha noi ");
-        nv.setTen("tam");
-        System.out.println(nv);
-        System.out.println(new NhanVienReponsitoryImpl().update(nv));
+    public User checkSoDienthoaiAnhPass(String sdt, String pass) {
+        User user = null;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "FROM User p WHERE p.matKhau = :pass and p.sdt = :sdt ";
+            Query query = session.createQuery(hql);
+            query.setParameter("pass", pass);
+            query.setParameter("sdt", sdt);
+            user = (User) query.getSingleResult();
+            return user;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       return null;
     }
 }
