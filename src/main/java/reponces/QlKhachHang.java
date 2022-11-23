@@ -6,18 +6,22 @@ package reponces;
 
 import java.util.Date;
 import java.util.UUID;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Admin
  */
+@Getter
+@Setter
+@ToString
 public class QlKhachHang {
 
     private UUID id;
     private String ma;
     private String ten;
-    private String tenDem;
-    private String ho;
     private String diaChi;
     private String sdt;
     private Date ngaySinh;
@@ -32,8 +36,6 @@ public class QlKhachHang {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
-        this.tenDem = tenDem;
-        this.ho = ho;
         this.diaChi = diaChi;
     }
 
@@ -41,8 +43,6 @@ public class QlKhachHang {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
-        this.tenDem = tenDem;
-        this.ho = ho;
         this.diaChi = diaChi;
         this.sdt = sdt;
         this.ngaySinh = ngaySinh;
@@ -73,22 +73,6 @@ public class QlKhachHang {
 
     public void setTen(String ten) {
         this.ten = ten;
-    }
-
-    public String getTenDem() {
-        return tenDem;
-    }
-
-    public void setTenDem(String tenDem) {
-        this.tenDem = tenDem;
-    }
-
-    public String getHo() {
-        return ho;
-    }
-
-    public void setHo(String ho) {
-        this.ho = ho;
     }
 
     public String getDiaChi() {
@@ -137,16 +121,6 @@ public class QlKhachHang {
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
-    }
-    public String getFullName(){
-        return this.tenDem + " " + this.ten+ " "+ this.ho;
-    }
-    
-    
-    public Object getData(){
-        return new Object[]{
-          this.ma,getFullName(),this.diaChi
-        };
     }
 
 }

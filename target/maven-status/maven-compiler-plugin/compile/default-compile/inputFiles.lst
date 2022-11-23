@@ -17,6 +17,7 @@ D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IHoaDonChiTietReponsitory.jav
 D:\FPT Poly\DA1\DuAn\src\main\java\ultilities\HibernateUtil.java
 D:\FPT Poly\DA1\DuAn\src\main\java\services\IService.java
 D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\convert\FormUtil.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\impl\KhachHangRepositoryImpl.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\Rom.java
 D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IReponsitory.java
 D:\FPT Poly\DA1\DuAn\src\main\java\ultilities\JpaUtils.java
@@ -28,6 +29,7 @@ D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\DongSp.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\Anh.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\MauSac.java
 D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\responce\QlHoaDonChiTietReponce.java
+D:\FPT Poly\DA1\DuAn\src\main\java\services\impl\KhuyenMaiServiceImpl.java
 D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlMauSac.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\CauHinh.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\HoaDon.java
@@ -43,7 +45,6 @@ D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\impl\AnhReponsitoryImpl.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ChiTietSanPham.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\NSX.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\PhieuBaoHanh.java
-D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IKhachHangService.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\User.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ManHinh.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\SanPham.java

@@ -23,7 +23,6 @@ ultilities\Migrator.class
 DomainModels\NSX.class
 DomainModels\User.class
 reponces\QlNhanVien.class
-responsitiories\IKhachHangService.class
 reponces\QlCuaHang.class
 DomainModels\base\IsIdentified.class
 reponces\QlHoaDon.class
