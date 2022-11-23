@@ -9,6 +9,7 @@ import domainmodels.base.PrimaryEntity;
 import infrastructure.constant.EntityProperties;
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,12 +56,12 @@ public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
     @Column(name = "tinh_trang")
     private int tinhTrang;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_user",nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_user")
     private User idNhanVien;
     
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "Idkh",nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+    @JoinColumn(name = "Idkh")
     private KhachHang idKhachHang;
 }
 

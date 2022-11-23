@@ -19,6 +19,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
 
     private KhachHangServiceImpl khachHangServiceImpl;
     private DefaultTableModel tableModel;
+    private QlUser qlUser = null;
 
     /**
      * Creates new form ViewNhanVien
@@ -26,6 +27,17 @@ public class ViewKhachHang extends javax.swing.JDialog {
     public ViewKhachHang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.khachHangServiceImpl = new KhachHangServiceImpl();
+        this.tableModel = (DefaultTableModel) tableKhachHang.getModel();
+        String title[] = {"Stt", "Mã", "Tên", "Địa chỉ"};
+        tableModel.setColumnIdentifiers(title);
+        showDataOnTable();
+        this.setLocationRelativeTo(null);
+    }
+     public ViewKhachHang(java.awt.Frame parent, boolean modal,QlUser qlUser) {
+        super(parent, modal);
+        initComponents();
+        this.qlUser = qlUser;
         this.khachHangServiceImpl = new KhachHangServiceImpl();
         this.tableModel = (DefaultTableModel) tableKhachHang.getModel();
         String title[] = {"Stt", "Mã", "Tên", "Địa chỉ"};
@@ -137,7 +149,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
         String ma = (String) tableModel.getValueAt(row, 1);
         QlKhachHang qlKhachHang = this.khachHangServiceImpl.findOne(ma);
         this.dispose();
-        new ViewCuaHangBanDienThoai(qlKhachHang).setVisible(true);
+        new ViewCuaHangBanDienThoai(this.qlUser,qlKhachHang).setVisible(true);
     }//GEN-LAST:event_btnChonActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed

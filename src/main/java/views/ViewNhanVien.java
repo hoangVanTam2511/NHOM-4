@@ -6,6 +6,7 @@ package views;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import reponces.QlKhachHang;
 import services.impl.UserServiceImpl;
 import reponces.QlUser;
 
@@ -17,8 +18,7 @@ public class ViewNhanVien extends javax.swing.JDialog {
 
     private UserServiceImpl userServiceImpl;
     private DefaultTableModel tableModel;
-    private QlUser qlUserDangNhap = new QlUser();
-
+    private QlKhachHang qlKhachHang = null;
     /**
      * Creates new form ViewNhanVien
      */
@@ -33,6 +33,17 @@ public class ViewNhanVien extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
 
+    public ViewNhanVien(java.awt.Frame parent, boolean modal,QlKhachHang qlKhachHang) {
+        super(parent, modal);
+        initComponents();
+        this.qlKhachHang = qlKhachHang;
+        this.userServiceImpl = new UserServiceImpl();
+        this.tableModel = (DefaultTableModel) tableNhanVien.getModel();
+        String title[] = {"Stt", "Mã", "Tên", "Địa chỉ"};
+        tableModel.setColumnIdentifiers(title);
+        showDataOnTable();
+        this.setLocationRelativeTo(null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,7 +147,7 @@ public class ViewNhanVien extends javax.swing.JDialog {
         String ma = (String) tableModel.getValueAt(row, 1);
         QlUser qlUser = this.userServiceImpl.findOne(ma);
         this.dispose();
-        new ViewCuaHangBanDienThoai(qlUser).setVisible(true);
+        new ViewCuaHangBanDienThoai(qlUser,this.qlKhachHang).setVisible(true);
     }//GEN-LAST:event_btnChonActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed

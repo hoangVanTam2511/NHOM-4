@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Services.impl;
+package services.impl;
 
 import domainmodels.ChucVu;
 import responsitiories.impl.ChucVuReponsitoryImpl;
@@ -57,4 +57,7 @@ public class ChucVuServiceImpl implements IService<QlChucVu>{
        return this.chucVuReponsitoryImpl.update(chucVu)==true?"Sửa thành công":"Sửa thất bại";
     }
     
+    public static void main(String[] args) {
+        System.out.println(new ChucVuServiceImpl().findAll());
+    }
 }

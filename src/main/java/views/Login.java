@@ -187,7 +187,7 @@ public class Login extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(rootPane, "Bạn đã nhập sai sdt hoặc mật khẩu .Vui lòng đăng nhập lại");
       } else{
           this.dispose();
-          new ViewCuaHangBanDienThoai(user).setVisible(true);
+          new ViewCuaHangBanDienThoai(user,null).setVisible(true);
       }
     }
 }
