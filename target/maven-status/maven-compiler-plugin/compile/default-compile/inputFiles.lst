@@ -1,4 +1,57 @@
 <<<<<<< HEAD
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlNhanVien.java
+D:\FPT Poly\DA1\DuAn\src\main\java\services\IHoaDonService.java
+D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\config\ModelMapperConfig.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlChucVu.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ChiTietKhuyenMaiId.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\base\PrimaryEntity.java
+D:\FPT Poly\DA1\DuAn\src\main\java\application\DuAnMauApplication.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\base\IsIdentified.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlHoaDon.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlKhachHang.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\HoaDonChiTiet.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlCuaHang.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\KhachHang.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlDongSp.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IHoaDonReponsitory.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IHoaDonChiTietReponsitory.java
+D:\FPT Poly\DA1\DuAn\src\main\java\ultilities\HibernateUtil.java
+D:\FPT Poly\DA1\DuAn\src\main\java\services\IService.java
+D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\convert\FormUtil.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\impl\KhachHangRepositoryImpl.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\Rom.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\IReponsitory.java
+D:\FPT Poly\DA1\DuAn\src\main\java\ultilities\JpaUtils.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlHoaDonChiTiet.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlNhaSanXuat.java
+D:\FPT Poly\DA1\DuAn\src\main\java\ultilities\Migrator.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ChucVu.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\DongSp.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\Anh.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\MauSac.java
+D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\responce\QlHoaDonChiTietReponce.java
+D:\FPT Poly\DA1\DuAn\src\main\java\services\impl\KhuyenMaiServiceImpl.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlMauSac.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\CauHinh.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\HoaDon.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlSanPham.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\Ram.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlGioHang.java
+D:\FPT Poly\DA1\DuAn\src\main\java\services\IHoaDonChiTietService.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\HoaDonChiTietId.java
+D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\constant\EntityProperties.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\KhuyenMai.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ChiTietKhuyenMai.java
+D:\FPT Poly\DA1\DuAn\src\main\java\responsitiories\impl\AnhReponsitoryImpl.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ChiTietSanPham.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\NSX.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\PhieuBaoHanh.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\User.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ManHinh.java
+D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\SanPham.java
+D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlChiTietSanPham.java
+=======
+<<<<<<< HEAD
 C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\KhachHang.java
 C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\KhuyenMai.java
 C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\HoaDon.java
@@ -102,4 +155,5 @@ E:\New folder (5)\du_an_1\src\main\java\reponces\QlMauSac.java
 E:\New folder (5)\du_an_1\src\main\java\domainmodels\ManHinh.java
 E:\New folder (5)\du_an_1\src\main\java\domainmodels\base\IsIdentified.java
 E:\New folder (5)\du_an_1\src\main\java\reponces\QlHoaDon.java
+>>>>>>> develop_tamhv
 >>>>>>> develop_tamhv

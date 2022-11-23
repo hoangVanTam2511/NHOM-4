@@ -13,29 +13,31 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Admin
  */
 @Entity
-@Getter 
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "khuyen_mai")
-public class KhuyenMai extends PrimaryEntity{
-    
+@ToString
+public class KhuyenMai extends PrimaryEntity {
+
     @Column(name = "ten")
     private String ten;
-    
+
     @Column(name = "muc_khuyen_mai")
     private int mucKhuyenMai;
-    
+
     @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
-    
+
     @Column(name = "ngay_ket_thuc")
     private Date ngayKetThuc;
-    
+
 }

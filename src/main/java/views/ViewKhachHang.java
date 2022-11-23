@@ -6,8 +6,10 @@ package views;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import reponces.QlKhachHang;
 import services.impl.UserServiceImpl;
 import reponces.QlUser;
+import services.impl.KhachHangServiceImpl;
 
 /**
  *
@@ -15,9 +17,8 @@ import reponces.QlUser;
  */
 public class ViewKhachHang extends javax.swing.JDialog {
 
-    private UserServiceImpl userServiceImpl;
+    private KhachHangServiceImpl khachHangServiceImpl;
     private DefaultTableModel tableModel;
-    private QlUser qlUserDangNhap = new QlUser();
 
     /**
      * Creates new form ViewNhanVien
@@ -25,8 +26,8 @@ public class ViewKhachHang extends javax.swing.JDialog {
     public ViewKhachHang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.userServiceImpl = new UserServiceImpl();
-        this.tableModel = (DefaultTableModel) tableNhanVien.getModel();
+        this.khachHangServiceImpl = new KhachHangServiceImpl();
+        this.tableModel = (DefaultTableModel) tableKhachHang.getModel();
         String title[] = {"Stt", "Mã", "Tên", "Địa chỉ"};
         tableModel.setColumnIdentifiers(title);
         showDataOnTable();
@@ -44,17 +45,17 @@ public class ViewKhachHang extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtTen = new javax.swing.JTextField();
+        txtTimKiemKhachHang = new javax.swing.JTextField();
         btnChon = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableNhanVien = new javax.swing.JTable();
+        tableKhachHang = new javax.swing.JTable();
         btnThoat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Danh sách nhân viên");
+        jLabel1.setText("Danh sách khách hàng");
 
         jLabel2.setText("Tìm theo tên:");
 
@@ -65,7 +66,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
             }
         });
 
-        tableNhanVien.setModel(new javax.swing.table.DefaultTableModel(
+        tableKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -73,12 +74,12 @@ public class ViewKhachHang extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tableNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableNhanVienMouseClicked(evt);
+                tableKhachHangMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tableNhanVien);
+        jScrollPane1.setViewportView(tableKhachHang);
 
         btnThoat.setText("Thoát");
         btnThoat.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +100,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)
-                        .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTimKiemKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnChon, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -117,7 +118,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnChon, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtTen, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtTimKiemKhachHang, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 22, Short.MAX_VALUE))
@@ -128,24 +129,24 @@ public class ViewKhachHang extends javax.swing.JDialog {
 
     private void btnChonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonActionPerformed
         // TODO add your handling code here:
-        int row = tableNhanVien.getSelectedRow();
+        int row = tableKhachHang.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(rootPane, "Bạn phải chọn 1 dòng tương ứng");
             return;
         }
         String ma = (String) tableModel.getValueAt(row, 1);
-        QlUser qlUser = this.userServiceImpl.findOne(ma);
+        QlKhachHang qlKhachHang = this.khachHangServiceImpl.findOne(ma);
         this.dispose();
-        new ViewCuaHangBanDienThoai(qlUser).setVisible(true);
+        new ViewCuaHangBanDienThoai(qlKhachHang).setVisible(true);
     }//GEN-LAST:event_btnChonActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnThoatActionPerformed
 
-    private void tableNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableNhanVienMouseClicked
+    private void tableKhachHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableKhachHangMouseClicked
 
-    }//GEN-LAST:event_tableNhanVienMouseClicked
+    }//GEN-LAST:event_tableKhachHangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -196,14 +197,14 @@ public class ViewKhachHang extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableNhanVien;
-    private javax.swing.JTextField txtTen;
+    private javax.swing.JTable tableKhachHang;
+    private javax.swing.JTextField txtTimKiemKhachHang;
     // End of variables declaration//GEN-END:variables
 
     private void showDataOnTable() {
         tableModel.setRowCount(0);
         int i = 1;
-        for (QlUser user : this.userServiceImpl.findAllByMaNv()) {
+        for (QlKhachHang user : this.khachHangServiceImpl.findAll()) {
             tableModel.addRow((Object[]) user.getData(i));
             i++;
         }

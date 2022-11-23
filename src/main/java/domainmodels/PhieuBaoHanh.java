@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -27,24 +28,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "phieu_bao_hanh")
-public class PhieuBaoHanh extends PrimaryEntity{
-    
+
+@ToString
+
+public class PhieuBaoHanh extends PrimaryEntity {
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_hoa_don")
     private HoaDon idHoaDon;
-    
+
     @Column(name = "mo_ta")
     private String moTa;
-    
+
     @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
-    
+
     @Column(name = "ngay_ket_thuc")
     private Date ngayKetThuc;
-    
+
     @Column(name = "trang_thai")
     private int trangThai;
-    
+
     @Column(name = "so_imei")
     private int soImei;
 }

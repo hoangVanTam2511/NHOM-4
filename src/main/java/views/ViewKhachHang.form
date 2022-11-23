@@ -31,7 +31,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="txtTen" min="-2" pref="154" max="-2" attributes="0"/>
+                      <Component id="txtTimKiemKhachHang" min="-2" pref="154" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnChon" min="-2" pref="79" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -54,7 +54,7 @@
                       <Component id="btnChon" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnThoat" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtTen" alignment="1" max="32767" attributes="0"/>
+                  <Component id="txtTimKiemKhachHang" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="319" max="-2" attributes="0"/>
@@ -70,7 +70,7 @@
           <Font name="Dialog" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch kh&#xe1;ch h&#xe0;ng"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -78,7 +78,7 @@
         <Property name="text" type="java.lang.String" value="T&#xec;m theo t&#xea;n:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtTen">
+    <Component class="javax.swing.JTextField" name="txtTimKiemKhachHang">
     </Component>
     <Component class="javax.swing.JButton" name="btnChon">
       <Properties>
@@ -95,7 +95,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tableNhanVien">
+        <Component class="javax.swing.JTable" name="tableKhachHang">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="0">
@@ -134,7 +134,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableNhanVienMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableKhachHangMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>

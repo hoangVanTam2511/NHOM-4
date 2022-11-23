@@ -9,6 +9,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import reponces.QlChiTietSanPham;
+import reponces.QlKhachHang;
 import reponces.QlUser;
 import services.impl.ChiTietSanPhamServiceImpl;
 
@@ -26,7 +27,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     private DefaultTableModel tableModelSanPhamSanPham;
     private ChiTietSanPhamServiceImpl chiTietSanPhamServiceImpl;
     private QlUser qlUser = new QlUser();
-
+    private QlKhachHang qlKhachHang = new QlKhachHang();
+    
     public ViewCuaHangBanDienThoai() {
         initComponents();
         setColorLabel();
@@ -44,6 +46,16 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.labelBanHang.setOpaque(true);
         init();
         this.labelDonHangNhanVien.setText(qlUser.getTen());
+
+    }
+     public ViewCuaHangBanDienThoai(QlKhachHang qlKhachHang) {
+        initComponents();
+        setColorLabel();
+        this.qlKhachHang = qlKhachHang;
+        this.labelBanHang.setBackground(Color.white);
+        this.labelBanHang.setOpaque(true);
+        init();
+        this.jLabel14.setText(qlKhachHang.getTen());
 
     }
 
@@ -958,8 +970,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDonHangThayDoiNhanVienActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-
+        this.dispose();
+        new ViewKhachHang(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

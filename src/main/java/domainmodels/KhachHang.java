@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
@@ -27,6 +28,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "khach_hang")
+@ToString
 public class KhachHang extends PrimaryEntity implements IsIdentified,Serializable{
     
     @Column(name = "ma",length = EntityProperties.LENGTH_MA)

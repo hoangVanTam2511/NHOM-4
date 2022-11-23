@@ -17,6 +17,8 @@ import domainmodels.NSX;
 import domainmodels.Ram;
 import domainmodels.Rom;
 import domainmodels.Anh;
+import domainmodels.KhuyenMai;
+import domainmodels.PhieuBaoHanh;
 import domainmodels.User;
 import domainmodels.SanPham;
 import reponces.QlChiTietSanPham;
@@ -40,7 +42,9 @@ import org.modelmapper.ModelMapper;
 import reponces.QLRam;
 import reponces.QlAnh;
 import reponces.QlCauHinh;
+import reponces.QlKhuyenMai;
 import reponces.QlManHinh;
+import reponces.QlPhieuBaoHanh;
 import reponces.QlRom;
 
 /**
@@ -265,6 +269,26 @@ public class FormUtil {
         ModelMapper mapper = new ModelMapper();
         Anh anh = mapper.map(qlAnh, Anh.class);
         return anh;
+    }
+    public static QlKhuyenMai convertQlKhuyenMaiToKhuyenMai(KhuyenMai khuyenMai) {
+        ModelMapper mapper = new ModelMapper();
+        QlKhuyenMai qlKhuyenMai = mapper.map(khuyenMai, QlKhuyenMai.class);
+        return qlKhuyenMai;
+    }
+    public static KhuyenMai convertKhuyenMaiToQlKhuyenMai(QlKhuyenMai qlKhuyenMai) {
+        ModelMapper mapper = new ModelMapper();
+        KhuyenMai khuyenMai = mapper.map(qlKhuyenMai, KhuyenMai.class);
+        return khuyenMai;
+    }
+    public static QlPhieuBaoHanh convertQlPhieuBaoHanhToBaoHanh(PhieuBaoHanh phieuBaoHanh) {
+        ModelMapper mapper = new ModelMapper();
+        QlPhieuBaoHanh qlPhieuBaoHanh = mapper.map(phieuBaoHanh, QlPhieuBaoHanh.class);
+        return qlPhieuBaoHanh;
+    }
+    public static PhieuBaoHanh convertPhieuBaoHanhToQlPhieuBaoHanh(QlPhieuBaoHanh qlPhieuBaoHanh) {
+        ModelMapper mapper = new ModelMapper();
+        PhieuBaoHanh phieuBaoHanh = mapper.map(qlPhieuBaoHanh, PhieuBaoHanh.class);
+        return phieuBaoHanh;
     }
 
    
