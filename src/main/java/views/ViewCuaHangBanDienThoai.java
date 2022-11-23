@@ -8,6 +8,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import reponces.QlChiTietSanPham;
+import services.impl.ChiTietSanPhamServiceImpl;
 
 /**
  *
@@ -21,7 +23,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     DefaultTableModel tableModelHoaDonSanPham;
     DefaultTableModel tableModelHoaDonDonHang;
     DefaultTableModel tableModelSanPhamSanPham;
-    
+    ChiTietSanPhamServiceImpl chiTietSanPhamServiceImpl;
+
     public ViewCuaHangBanDienThoai() {
         initComponents();
         setColorLabel();
@@ -708,7 +711,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.labelBanHang.setBackground(Color.white);
         this.labelBanHang.setOpaque(true);
         this.pannelbanHang.setVisible(true);
- 
+
     }//GEN-LAST:event_labelBanHangMouseClicked
 
     private void labelHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHoaDonMouseClicked
@@ -733,7 +736,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
     private void labelHoaDonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHoaDonMousePressed
         setColorLabel();
-       
         this.labelHoaDon.setBackground(Color.white);
         this.labelHoaDon.setOpaque(true);
     }//GEN-LAST:event_labelHoaDonMousePressed
@@ -747,9 +749,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     private void labelSanPhamMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSanPhamMousePressed
         setColorLabel();
         resetPannel();
-        this.pannelSanPham.setVisible(true);
-        this.labelSanPham.setBackground(Color.white);
-        this.labelSanPham.setOpaque(true);
+        loadDataOnTableSanPham();
+
     }//GEN-LAST:event_labelSanPhamMousePressed
 
     private void labelNhanvien1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelNhanvien1MouseClicked
@@ -904,24 +905,38 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.labelNhanvien.setBackground(Color.PINK);
         this.labelSanPham.setBackground(Color.PINK);
     }
+
     private void resetPannel() {
-       this.pannelSanPham.setVisible(false);
-       this.pannelbanHang.setVisible(false);
+        this.pannelSanPham.setVisible(false);
+        this.pannelbanHang.setVisible(false);
     }
 
     private void init() {
         this.pannelbanHang.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.tableModelHoaDonSanPham  = (DefaultTableModel) tableHoaDonSanPham.getModel();
+        this.tableModelHoaDonSanPham = (DefaultTableModel) tableHoaDonSanPham.getModel();
         this.tableModelHoaDonDonHang = (DefaultTableModel) tableHoaDonDonHang.getModel();
         this.tableModelSanPhamSanPham = (DefaultTableModel) tableSanPham.getModel();
-        String titleSanPhamHoaDon[] = {"Tên","Hãng Sản xuất","Ram","Rom"};
-        String titleDonHangHoaDon[] = {"Tên","Ngày tạo hóa đơn","Mức giá","Tổng tiền"};
-        String titleSanPhamSanPham[] = {"Imei","Tên","Nhà sản xuất","Dòng sản phẩm","Màu sắc","Độ phân giải","Màn hình","Ram","Rom","Số lượng tồn","Đơn giá"};
+        String titleSanPhamHoaDon[] = {"Tên", "Hãng Sản xuất", "Ram", "Rom"};
+        String titleDonHangHoaDon[] = {"Tên", "Ngày tạo hóa đơn", "Mức giá", "Tổng tiền"};
+        String titleSanPhamSanPham[] = {"Stt", "Imei", "Tên", "Nhà sản xuất", "Dòng sản phẩm", "Màu sắc", "Độ phân giải", "Kích thước màn hình", "Ram", "Rom", "Số lượng tồn", "Đơn giá"};
         tableModelSanPhamSanPham.setColumnIdentifiers(titleSanPhamSanPham);
         tableModelHoaDonDonHang.setColumnIdentifiers(titleDonHangHoaDon);
         tableModelHoaDonSanPham.setColumnIdentifiers(titleSanPhamHoaDon);
         resetPannel();
         this.pannelbanHang.setVisible(true);
+        this.chiTietSanPhamServiceImpl = new ChiTietSanPhamServiceImpl();
+    }
+
+    private void loadDataOnTableSanPham() {
+        this.pannelSanPham.setVisible(true);
+        this.labelSanPham.setBackground(Color.white);
+        this.labelSanPham.setOpaque(true);
+        tableModelSanPhamSanPham.setRowCount(0);
+        int i = 0;
+        for (QlChiTietSanPham qlChiTietSanPham : this.chiTietSanPhamServiceImpl.findAll()) {
+            tableModelSanPhamSanPham.addRow((Object[]) qlChiTietSanPham.getData(i));
+            i++;
+        }
     }
 }

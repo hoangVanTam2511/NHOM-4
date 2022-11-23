@@ -4,6 +4,7 @@
  */
 package reponces;
 
+import domainmodels.Anh;
 import domainmodels.CauHinh;
 import domainmodels.DongSp;
 import domainmodels.MauSac;
@@ -19,9 +20,7 @@ public class QlChiTietSanPham {
 
     private UUID id;
 
-    private double giaBan;
-    
-    private double giaNhap;
+   private double donGia;
 
     private String moTa;
 
@@ -41,15 +40,16 @@ public class QlChiTietSanPham {
     
     private SanPham idSanPham;
 
-    public QlChiTietSanPham(UUID id, double giaBan, double giaNhap, String moTa, int namBh, int soLuongTon, DongSp idDongSp, MauSac idMauSac, NSX idNsx, SanPham idSanPham) {
+    public QlChiTietSanPham(UUID id, double donGia, String moTa, int namBh, int soLuongTon, DongSp idDongSp, MauSac idMauSac, CauHinh idCauHinh, Anh idAnh, NSX idNsx, SanPham idSanPham) {
         this.id = id;
-        this.giaBan = giaBan;
-        this.giaNhap = giaNhap;
+        this.donGia = donGia;
         this.moTa = moTa;
         this.namBh = namBh;
         this.soLuongTon = soLuongTon;
         this.idDongSp = idDongSp;
         this.idMauSac = idMauSac;
+        this.idCauHinh = idCauHinh;
+        this.idAnh = idAnh;
         this.idNsx = idNsx;
         this.idSanPham = idSanPham;
     }
@@ -65,20 +65,12 @@ public class QlChiTietSanPham {
         this.id = id;
     }
 
-    public double getGiaBan() {
-        return giaBan;
+    public double getDonGia() {
+        return donGia;
     }
 
-    public void setGiaBan(double giaBan) {
-        this.giaBan = giaBan;
-    }
-
-    public double getGiaNhap() {
-        return giaNhap;
-    }
-
-    public void setGiaNhap(double giaNhap) {
-        this.giaNhap = giaNhap;
+    public void setDonGia(double donGia) {
+        this.donGia = donGia;
     }
 
     public String getMoTa() {
@@ -121,6 +113,22 @@ public class QlChiTietSanPham {
         this.idMauSac = idMauSac;
     }
 
+    public CauHinh getIdCauHinh() {
+        return idCauHinh;
+    }
+
+    public void setIdCauHinh(CauHinh idCauHinh) {
+        this.idCauHinh = idCauHinh;
+    }
+
+    public Anh getIdAnh() {
+        return idAnh;
+    }
+
+    public void setIdAnh(Anh idAnh) {
+        this.idAnh = idAnh;
+    }
+
     public NSX getIdNsx() {
         return idNsx;
     }
@@ -136,10 +144,11 @@ public class QlChiTietSanPham {
     public void setIdSanPham(SanPham idSanPham) {
         this.idSanPham = idSanPham;
     }
-
+    
     public Object getData(int stt){
+        
         return new Object[]{
-         stt,this.idSanPham.getSoImei(),this.idSanPham.getTen(),this.namBh,this.moTa,this.soLuongTon,this.giaNhap,this.giaBan
+        stt,this.idSanPham.getSoImei(),this.idSanPham.getTen(),this.idNsx.getTen(),this.idDongSp.getTen(),this.idMauSac.getTen(),this.idCauHinh.getIdManHinh().getDoPhanGiai(),this.idCauHinh.getIdManHinh().getKichThuoc(),this.idCauHinh.getIdRam().getKichThuoc(),this.idCauHinh.getIdRom().getKichThuoc(),this.soLuongTon,this.getDonGia()
         };
     }
    
