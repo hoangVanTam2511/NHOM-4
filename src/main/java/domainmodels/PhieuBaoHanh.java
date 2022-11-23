@@ -26,25 +26,25 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "PhieuBaoHanh")
+@Table(name = "phieu_bao_hanh")
 public class PhieuBaoHanh extends PrimaryEntity{
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idHoaDon")
+    @JoinColumn(name = "id_hoa_don")
     private HoaDon idHoaDon;
     
-    @Column(name = "moTa")
+    @Column(name = "mo_ta")
     private String moTa;
     
-    @Column(name = "ngayBatDau")
+    @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
     
-    @Column(name = "ngayKetThuc")
+    @Column(name = "ngay_ket_thuc")
     private Date ngayKetThuc;
     
-    @Column(name = "trangThai")
+    @Column(name = "trang_thai")
     private int trangThai;
     
-    @Column(name = "soImei")
+    @Column(name = "so_imei")
     private int soImei;
 }

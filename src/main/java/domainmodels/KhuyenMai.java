@@ -23,19 +23,19 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "KhuyenMai")
+@Table(name = "khuyen_mai")
 public class KhuyenMai extends PrimaryEntity{
     
     @Column(name = "ten")
     private String ten;
     
-    @Column(name = "mucKhuyenMai")
+    @Column(name = "muc_khuyen_mai")
     private int mucKhuyenMai;
     
-    @Column(name = "ngayBatDau")
+    @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
     
-    @Column(name = "ngayKetThuc")
+    @Column(name = "ngay_ket_thuc")
     private Date ngayKetThuc;
     
 }

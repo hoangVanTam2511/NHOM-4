@@ -21,7 +21,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
 
     private Session sesion = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromtable = "from san_pham";
+    private String fromtable = "from SanPham";
 
     @Override
     public List<SanPham> findAll() {

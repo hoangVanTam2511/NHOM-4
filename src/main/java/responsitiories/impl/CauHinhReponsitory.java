@@ -21,7 +21,7 @@ import ultilities.HibernateUtil;
 public class CauHinhReponsitory implements IReponsitory<CauHinh>{
 
     private Session session = HibernateUtil.getSessionFactory().openSession();
-    private String fromTable = " FROM cau_hinh ";
+    private String fromTable = " FROM CauHinh ";
     
     @Override
     public List<CauHinh> findAll() {
@@ -83,5 +83,7 @@ public class CauHinhReponsitory implements IReponsitory<CauHinh>{
         }
         return false;
     }
-    
+    public static void main(String[] args) {
+        System.out.println(new CauHinhReponsitory().findAll());
+    }
 }

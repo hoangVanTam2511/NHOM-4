@@ -5,7 +5,9 @@
 package reponces;
 
 import java.util.UUID;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -14,21 +16,11 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlRom {
     private UUID id;
     private int kichThuoc;
+    private int delected;
 
-    public QlRom() {
-    }
-
-    public QlRom(UUID id, int kichThuoc) {
-        this.id = id;
-        this.kichThuoc = kichThuoc;
-    }
-    
-    public Object getData(){
-        return new Object[]{
-            this.kichThuoc
-        };
-    }
 }

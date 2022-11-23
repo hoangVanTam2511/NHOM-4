@@ -21,7 +21,7 @@ public class MauSacReponsitoryImpl implements IMauSacReponsitory {
 
     private Session sesion = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromtable = "from mau_sac";
+    private String fromtable = "from MauSac";
 
     @Override
     public List<MauSac> findAll() {

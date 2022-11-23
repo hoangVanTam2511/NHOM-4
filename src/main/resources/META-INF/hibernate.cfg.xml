@@ -16,7 +16,7 @@
 
         <property name="connection.username">sa</property>
 
-        <property name="connection.password">tranhuuthien</property>
+        <property name="connection.password">4444</property>
 
 
         <!-- JDBC connection pool (use the built-in) -->

@@ -4,6 +4,7 @@
  */
 package reponces;
 
+import domainmodels.CauHinh;
 import domainmodels.DongSp;
 import domainmodels.MauSac;
 import domainmodels.NSX;
@@ -31,6 +32,10 @@ public class QlChiTietSanPham {
     private DongSp idDongSp;
     
     private MauSac idMauSac;
+    
+    private CauHinh idCauHinh;
+    
+    private Anh idAnh;
     
     private NSX idNsx;
     

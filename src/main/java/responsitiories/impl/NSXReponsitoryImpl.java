@@ -21,7 +21,7 @@ public class NSXReponsitoryImpl implements INSXReponsitory {
 
     private Session sesion = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromtable = "from nsx";
+    private String fromtable = "from NSX";
 
     @Override
     public List<NSX> findAll() {
