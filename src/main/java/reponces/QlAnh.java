@@ -2,12 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package domainmodels;
+package reponces;
 
-import domainmodels.base.PrimaryEntity;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,28 +15,22 @@ import lombok.ToString;
  *
  * @author Admin
  */
-@Getter 
+
+@Getter
 @Setter
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "anh")
-public class Anh extends PrimaryEntity{
+@ToString
+public class QlAnh {
     
-    @Column(name = "ten")
+    private UUID id;
+    
     private String ten;
     
-    @Column(name = "duong_dan")
     private String duongDan;
     
-    @Column(name = "trang_thai")
     private int trangThai;
-
-    @Override
-    public String toString() {
-        return "Anh{"+"Id = " +getId() + "ten=" + ten + ", duongDan=" + duongDan + ", trangThai=" + trangThai + '}';
-    }
-
     
+    private int delected;
     
 }

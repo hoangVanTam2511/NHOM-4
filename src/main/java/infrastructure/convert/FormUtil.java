@@ -16,6 +16,7 @@ import domainmodels.MauSac;
 import domainmodels.NSX;
 import domainmodels.Ram;
 import domainmodels.Rom;
+import domainmodels.Anh;
 import domainmodels.User;
 import domainmodels.SanPham;
 import reponces.QlChiTietSanPham;
@@ -37,6 +38,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.modelmapper.ModelMapper;
 import reponces.QLRam;
+import reponces.QlAnh;
 import reponces.QlCauHinh;
 import reponces.QlManHinh;
 import reponces.QlRom;
@@ -251,6 +253,19 @@ public class FormUtil {
         ModelMapper mapper = new ModelMapper();
         MauSac mauSac = mapper.map(qlMauSac, MauSac.class);
         return mauSac;
+    }
+    
+    
+    public static QlAnh convertQlAnhToAnh(Anh anh) {
+        ModelMapper mapper = new ModelMapper();
+        QlAnh qlAnh = mapper.map(anh, QlAnh.class);
+        return qlAnh;
+    }
+
+    public static Anh convertAnhToQLAnh(QlAnh qlAnh) {
+        ModelMapper mapper = new ModelMapper();
+        Anh anh = mapper.map(qlAnh, Anh.class);
+        return anh;
     }
 
    
