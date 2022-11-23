@@ -31,7 +31,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "HoaDon")
+@Table(name = "hoa_don")
 public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
     
     @Column(name = "ma",length = EntityProperties.LENGTH_MA)
@@ -40,7 +40,7 @@ public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
     @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
     private String sdt;
     
-    @Column(name = "diaChi",length = EntityProperties.LENGT_ADDRESS)
+    @Column(name = "dia_chi",length = EntityProperties.LENGT_ADDRESS)
     private String diaChi;
     
     @Column(name = "created")
@@ -49,18 +49,18 @@ public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
     @Column(name = "updated")
     private Date updated;
     
-    @Column(name = "ngayThanhToan")
+    @Column(name = "ngay_thanh_toan")
     private Date ngayThanhToan;
     
-    @Column(name = "tinhTrang")
+    @Column(name = "tinh_trang")
     private int tinhTrang;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idUser",nullable = false)
+    @JoinColumn(name = "id_user",nullable = false)
     private User idNhanVien;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdKH",nullable = false)
+    @JoinColumn(name = "Idkh",nullable = false)
     private KhachHang idKhachHang;
 }
 

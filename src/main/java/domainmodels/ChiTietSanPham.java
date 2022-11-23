@@ -32,36 +32,40 @@ import org.hibernate.annotations.Cascade;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "ChiTietSP")
+@Table(name = "chi_tietsp")
 public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serializable{
     
-    @Column(name = "donGia")
+    @Column(name = "don_gia")
     private double donGia;
     
     @Column(name = "mota",length = EntityProperties.LENGT_FULL_NAME)
     private String moTa;
     
-    @Column(name = "soLuongTon")
+    @Column(name = "so_luong_ton")
     private int soLuongTon;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idDongSP",nullable = true)
+    @JoinColumn(name = "id_dongsp",nullable = true)
     private DongSp idDongSp;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idMauSac",nullable = true)
+    @JoinColumn(name = "id_mau_sac",nullable = true)
     private MauSac idMauSac;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idNsx",nullable = true)
+    @JoinColumn(name = "id_cau_hinh",nullable = true)
+    private CauHinh idCauHinh;
+    
+    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_nsx",nullable = true)
     private NSX idNsx;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idSP",nullable = true)
+    @JoinColumn(name = "idsp",nullable = true)
     private SanPham idSanPham;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idAnh",nullable = true)
+    @JoinColumn(name = "id_anh",nullable = true)
     private Anh idAnh;               
     
     }

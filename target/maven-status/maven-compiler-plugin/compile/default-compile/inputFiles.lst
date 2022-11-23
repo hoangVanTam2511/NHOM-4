@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlNhanVien.java
 D:\FPT Poly\DA1\DuAn\src\main\java\services\IHoaDonService.java
 D:\FPT Poly\DA1\DuAn\src\main\java\infrastructure\config\ModelMapperConfig.java
@@ -49,3 +50,110 @@ D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\User.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\ManHinh.java
 D:\FPT Poly\DA1\DuAn\src\main\java\domainmodels\SanPham.java
 D:\FPT Poly\DA1\DuAn\src\main\java\reponces\QlChiTietSanPham.java
+=======
+<<<<<<< HEAD
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\KhachHang.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\KhuyenMai.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\HoaDon.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\HoaDonChiTietId.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\ChucVu.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlHoaDonChiTiet.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlMauSac.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlKhachHang.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\ultilities\JpaUtils.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\ultilities\HibernateUtil.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\responsitiories\IHoaDonReponsitory.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\services\IHoaDonService.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\Ram.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\infrastructure\responce\QlHoaDonChiTietReponce.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlGioHang.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\Rom.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\application\DuAnMauApplication.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlChiTietSanPham.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\PhieuBaoHanh.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\Anh.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\User.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\services\IHoaDonChiTietService.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\ChiTietKhuyenMaiId.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\responsitiories\IKhachHangService.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\HoaDonChiTiet.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\CauHinh.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\base\PrimaryEntity.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\infrastructure\constant\EntityProperties.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\ChiTietKhuyenMai.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlNhanVien.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\MauSac.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlDongSp.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlNhaSanXuat.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\responsitiories\impl\AnhReponsitoryImpl.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\DongSp.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlSanPham.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\ultilities\Migrator.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlHoaDon.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\infrastructure\convert\FormUtil.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\NSX.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\infrastructure\config\ModelMapperConfig.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlCuaHang.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\SanPham.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\reponces\QlChucVu.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\responsitiories\IReponsitory.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\responsitiories\IHoaDonChiTietReponsitory.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\ManHinh.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\services\IService.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\base\IsIdentified.java
+C:\Users\Admin\Desktop\Du An 1\NHOM-4\src\main\java\domainmodels\ChiTietSanPham.java
+=======
+E:\New folder (5)\du_an_1\src\main\java\infrastructure\constant\EntityProperties.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\KhuyenMai.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\Anh.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlDongSp.java
+E:\New folder (5)\du_an_1\src\main\java\responsitiories\IKhachHangService.java
+E:\New folder (5)\du_an_1\src\main\java\ultilities\JpaUtils.java
+E:\New folder (5)\du_an_1\src\main\java\responsitiories\IHoaDonReponsitory.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\ChucVu.java
+E:\New folder (5)\du_an_1\src\main\java\ultilities\HibernateUtil.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlSanPham.java
+E:\New folder (5)\du_an_1\src\main\java\services\IHoaDonService.java
+E:\New folder (5)\du_an_1\src\main\java\views\Login.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\User.java
+E:\New folder (5)\du_an_1\src\main\java\application\DuAnMauApplication.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\PhieuBaoHanh.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\DongSp.java
+E:\New folder (5)\du_an_1\src\main\java\ultilities\Migrator.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\CauHinh.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlChiTietSanPham.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\HoaDon.java
+E:\New folder (5)\du_an_1\src\main\java\services\IHoaDonChiTietService.java
+E:\New folder (5)\du_an_1\src\main\java\infrastructure\convert\FormUtil.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlHoaDonChiTiet.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\KhachHang.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\NSX.java
+E:\New folder (5)\du_an_1\src\main\java\infrastructure\responce\QlHoaDonChiTietReponce.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\MauSac.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlCuaHang.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\Rom.java
+E:\New folder (5)\du_an_1\src\main\java\responsitiories\IHoaDonChiTietReponsitory.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlNhanVien.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\ChiTietKhuyenMaiId.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\ChiTietSanPham.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\HoaDonChiTietId.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\ChiTietKhuyenMai.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\base\PrimaryEntity.java
+E:\New folder (5)\du_an_1\src\main\java\services\IService.java
+E:\New folder (5)\du_an_1\src\main\java\infrastructure\config\ModelMapperConfig.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\HoaDonChiTiet.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlKhachHang.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\Ram.java
+E:\New folder (5)\du_an_1\src\main\java\views\ViewCuaHangBanDienThoai.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlNhaSanXuat.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlChucVu.java
+E:\New folder (5)\du_an_1\src\main\java\responsitiories\impl\AnhReponsitoryImpl.java
+E:\New folder (5)\du_an_1\src\main\java\responsitiories\IReponsitory.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\SanPham.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlGioHang.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlMauSac.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\ManHinh.java
+E:\New folder (5)\du_an_1\src\main\java\domainmodels\base\IsIdentified.java
+E:\New folder (5)\du_an_1\src\main\java\reponces\QlHoaDon.java
+>>>>>>> develop_tamhv
+>>>>>>> develop_tamhv

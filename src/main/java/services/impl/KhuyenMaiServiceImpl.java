@@ -5,6 +5,7 @@
 package services.impl;
 
 import domainmodels.KhuyenMai;
+import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.TypedQuery;
@@ -18,34 +19,48 @@ import ultilities.HibernateUtil;
  *
  * @author FPT Shop
  */
-public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai>{
+public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
 
-    private KhuyenMaiRepositoryImpl khuyenMaiRepositoryImpl = new KhuyenMaiRepositoryImpl();
-    
+    private KhuyenMaiRepositoryImpl khuyenMaiRepositoryImpl;
+    private List<QlKhuyenMai> listKhuyenMai;
+
+    public KhuyenMaiServiceImpl() {
+        this.khuyenMaiRepositoryImpl = new KhuyenMaiRepositoryImpl();
+        this.listKhuyenMai = new ArrayList<QlKhuyenMai>();
+    }
+
     @Override
     public List<QlKhuyenMai> findAll() {
-        
+        listKhuyenMai = new ArrayList<>();
+        this.khuyenMaiRepositoryImpl.findAll().forEach(khuyenMai -> {
+            listKhuyenMai.add(FormUtil.convertQlKhuyenMaiToKhuyenMai(khuyenMai));
+        });
+        return listKhuyenMai;
     }
 
     @Override
     public QlKhuyenMai findOne(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        KhuyenMai khuyenMai = this.khuyenMaiRepositoryImpl.findOneByMa(ma);
+        return FormUtil.convertQlKhuyenMaiToKhuyenMai(khuyenMai);
     }
 
     @Override
     public String save(QlKhuyenMai t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        KhuyenMai khuyenMai = FormUtil.convertKhuyenMaiToQlKhuyenMai(t);
+        return this.khuyenMaiRepositoryImpl.save(khuyenMai) == true ? "Thêm thành công" : "Thêm thất bại";
     }
 
     @Override
     public String delete(QlKhuyenMai t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        KhuyenMai khuyenMai = FormUtil.convertKhuyenMaiToQlKhuyenMai(t);
+        return this.khuyenMaiRepositoryImpl.delete(khuyenMai) == true ? "Xóa thành công" : "Xóa thất bại";
     }
 
     @Override
     public String update(QlKhuyenMai t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        KhuyenMai khuyenMai = FormUtil.convertKhuyenMaiToQlKhuyenMai(t);
+        return this.khuyenMaiRepositoryImpl.update(khuyenMai) == true ? "Sửa thành công" : "Sửa thất bại";
     }
-
     
+
 }

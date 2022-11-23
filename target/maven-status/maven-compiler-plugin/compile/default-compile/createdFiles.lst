@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 reponces\QlMauSac.class
 DomainModels\ManHinh.class
 reponces\QlChucVu.class
@@ -46,3 +47,5 @@ reponces\QlSanPham.class
 reponces\QlDongSp.class
 DomainModels\HoaDonChiTietId.class
 DomainModels\SanPham.class
+=======
+>>>>>>> develop_tamhv

@@ -26,7 +26,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Table(name = "ChucVu")
+@Table(name = "chuc_vu")
 public class ChucVu extends PrimaryEntity implements IsIdentified,Serializable{
     
     @Column(name = "ma",nullable = true)
