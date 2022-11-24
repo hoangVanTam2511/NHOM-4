@@ -1104,7 +1104,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(labelTongTien, "Bạn phải chọn 1 sản phẩm trong bảng");
         }
         QlHoaDonChiTiet qlHoaDonChiTiet = this.hoaDonChiTietServiceImpl.findOne(String.valueOf(tableBanHangGioHang.getValueAt(row, 1)), String.valueOf(tableBanHangGioHang.getValueAt(row, 2)));
-        new ViewBoSanPhamRaKhoiGioHang(this, rootPaneCheckingEnabled, qlHoaDonChiTiet);
+        new ViewBoSanPhamRaKhoiGioHang(this, rootPaneCheckingEnabled, qlHoaDonChiTiet).setVisible(true);
 
     }//GEN-LAST:event_btnBanHangXoaSanPhamActionPerformed
 
