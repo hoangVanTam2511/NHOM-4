@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-@Table(name = "DongSp")
+@Table(name = "dong_sp")
 public class DongSp extends PrimaryEntity implements IsIdentified,Serializable{ 
     
     @Column(name = "ma",length = EntityProperties.LENGTH_MA,nullable = false)

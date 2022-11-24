@@ -21,7 +21,6 @@ import lombok.ToString;
 @Getter 
 @Setter
 @Entity
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "anh")
@@ -35,4 +34,12 @@ public class Anh extends PrimaryEntity{
     
     @Column(name = "trang_thai")
     private int trangThai;
+
+    @Override
+    public String toString() {
+        return "Anh{"+"Id = " +getId() + "ten=" + ten + ", duongDan=" + duongDan + ", trangThai=" + trangThai + '}';
+    }
+
+    
+    
 }

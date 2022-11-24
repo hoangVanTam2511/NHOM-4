@@ -26,7 +26,7 @@ import lombok.Setter;
  */
 @Entity
 @Data
-@Table(name = "HoaDonChiTiet")
+@Table(name = "hoa_don_chi_tiet")
 public class ChiTietKhuyenMai implements Serializable {
 
     @EmbeddedId

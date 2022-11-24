@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -26,7 +27,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "NhanVien")
+@Table(name = "nhan_vien")
 public class User extends PrimaryEntity implements  IsIdentified,Serializable{
     
     @Column(name = "ma",length = EntityProperties.LENGTH_MA)
@@ -35,7 +36,7 @@ public class User extends PrimaryEntity implements  IsIdentified,Serializable{
     @Column(name = "ten",length = EntityProperties.LENGT_FULL_NAME)
     private String ten;
     
-    @Column(name = "diaChi",length = EntityProperties.LENGT_ADDRESS)
+    @Column(name = "dia_chi",length = EntityProperties.LENGT_ADDRESS)
     private String diaChi;
     
     @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
@@ -44,14 +45,14 @@ public class User extends PrimaryEntity implements  IsIdentified,Serializable{
      @Column(name = "cccd",length = EntityProperties.LENGT_PHONE)
     private String cccd;
     
-    @Column(name = "trangThai")
+    @Column(name = "trang_thai")
     private int trangThai;
     
-    @Column(name = "matKhau")
+    @Column(name = "mat_khau")
     private String matKhau;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idChucVu",nullable = false)
+    @JoinColumn(name = "id_chuc_vu",nullable = false)
     private ChucVu idChucVu;
 
     public String getMa() {

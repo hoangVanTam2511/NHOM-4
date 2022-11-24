@@ -6,6 +6,7 @@ package reponces;
 
 import domainmodels.ChiTietSanPham;
 import domainmodels.HoaDon;
+import java.math.BigDecimal;
 
 /**
  *
@@ -59,11 +60,15 @@ public class QlHoaDonChiTiet {
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
     }
+    
+    public BigDecimal getTongTien(){
+        return BigDecimal.valueOf(this.soLuong * donGia);
+    }
 
     public Object getData(int stt) {
         double thanhTien = this.soLuong * this.donGia;
         return new Object[]{
-            stt, this.idChiTietSanPham.getIdSanPham().getSoImei(), this.idChiTietSanPham.getIdSanPham().getTen(), this.soLuong, this.donGia, thanhTien
+            stt,this.idHoaDon.getMa(), this.idChiTietSanPham.getIdSanPham().getSoImei(), this.idChiTietSanPham.getIdSanPham().getTen(), this.soLuong, this.donGia, thanhTien
         };
     }
 

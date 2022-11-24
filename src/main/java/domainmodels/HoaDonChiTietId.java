@@ -26,11 +26,11 @@ import lombok.Setter;
 public class HoaDonChiTietId implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdHoaDon", nullable = false)
+    @JoinColumn(name = "Id_hoa_don", nullable = false)
     private HoaDon idHoaDon;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdChiTietSP", nullable = false)
+    @JoinColumn(name = "Id_chi_tietsp", nullable = false)
     private ChiTietSanPham idChiTietSanPham;
 
     @Override

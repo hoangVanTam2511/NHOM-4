@@ -25,7 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Rom extends PrimaryEntity{
     
-    @Column(name = "kichThuoc")
+    @Column(name = "kich_thuoc")
     private int kichThuoc;
     
 }
