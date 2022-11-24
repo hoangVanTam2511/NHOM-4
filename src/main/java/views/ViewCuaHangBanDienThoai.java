@@ -1436,7 +1436,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 //                return;
 //            } else if (soLuongTon > index) {
 //                int soLuongTonSauKhiTru = soLuongTon - index;
-//                qlChiTietSanPham.setSoLuongTon(soLuongTonSauKhiTru);
+//                qlChiTietSanPham.setSoLuongTon(soLuseongTonSauKhiTru);
 //                qlHoaDonChiTiet = new QlHoaDonChiTiet(hoaDon, chiTietSanPham, chiTietSanPham.getDonGia(), index);
 //                String text = this.hoaDonChiTietServiceImpl.save(qlHoaDonChiTiet);
 //                JOptionPane.showMessageDialog(rootPane, text);
