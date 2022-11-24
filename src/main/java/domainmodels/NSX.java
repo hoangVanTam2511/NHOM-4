@@ -25,13 +25,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "NSX")
+@Table(name = "nsx")
 public class NSX extends PrimaryEntity implements IsIdentified, Serializable {
 
-    @Column(name = "Ma", length = EntityProperties.LENGTH_MA, nullable = true)
+    @Column(name = "ma", length = EntityProperties.LENGTH_MA, nullable = true)
     private String ma;
 
-    @Column(name = "Ten", length = EntityProperties.LENGT_SHORT_NAME, nullable = true)
+    @Column(name = "ten", length = EntityProperties.LENGT_SHORT_NAME, nullable = true)
     private String ten;
 
 }

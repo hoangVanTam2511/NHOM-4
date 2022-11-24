@@ -24,13 +24,13 @@ import org.hibernate.internal.build.AllowSysOut;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ManHinh")
+@Table(name = "man_hinh")
 public class ManHinh extends PrimaryEntity implements Serializable{
   
-    @Column(name = "kichThuoc")
+    @Column(name = "kich_thuoc")
     private int kichThuoc;
     
-    @Column(name = "doPhanGiai")
+    @Column(name = "do_phan_giai")
     private String doPhanGiai;
     
 }
