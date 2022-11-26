@@ -44,7 +44,7 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
 
     @Override
     public QlChiTietSanPham findOne(String ma) {
-        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByMa(ma);
+        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByImei(ma);
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
     
