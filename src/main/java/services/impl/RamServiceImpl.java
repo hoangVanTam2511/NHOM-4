@@ -5,38 +5,68 @@
 package services.impl;
 
 import domainmodels.Ram;
+import infrastructure.convert.FormUtil;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import net.bytebuddy.asm.Advice;
+import reponces.QLRam;
+import responsitiories.impl.RamReponsitory;
 import services.IService;
 
 /**
  *
  * @author Admin
  */
-public class RamServiceImpl implements IService<Ram>{
+public class RamServiceImpl implements IService<QLRam> {
 
-    @Override
-    public List<Ram> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private RamReponsitory ramReponsitory;
+
+    public RamServiceImpl() {
+        this.ramReponsitory = new RamReponsitory();
     }
 
     @Override
-    public Ram findOne(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<QLRam> findAll() {
+        List<QLRam> listQlRam = new ArrayList<>();
+        this.ramReponsitory.findAll().forEach(ram -> {
+            listQlRam.add(FormUtil.convertRamToQLRam(ram));
+        });
+        return listQlRam;
     }
 
     @Override
-    public String save(Ram t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public QLRam findOne(String ma) {
+        Ram ram = this.ramReponsitory.findOneByMa(ma);
+        return FormUtil.convertRamToQLRam(ram);
+    }
+
+    public QLRam findOne(UUID ma) {
+        Ram ram = this.ramReponsitory.findOneByID(ma);
+        return FormUtil.convertRamToQLRam(ram);
+    }
+
+    public QLRam findOneByKichThuoc(int kichThuoc) {
+        Ram ram = this.ramReponsitory.findOneByKichCo(kichThuoc);
+        return FormUtil.convertRamToQLRam(ram);
     }
 
     @Override
-    public String delete(Ram t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String save(QLRam t) {
+        return this.ramReponsitory.save(FormUtil.convertQLRamToRam(t)) == true ? "Thêm thành công" : "Thêm thất bại";
     }
 
     @Override
-    public String update(Ram t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String delete(QLRam t) {
+        Ram ram = FormUtil.convertQLRamToRam(t);
+        boolean result = this.ramReponsitory.delete(ram);
+        return result == true ? "Xóa thành công" : "Xóa thất bại ";
+
     }
-    
+
+    @Override
+    public String update(QLRam t) {
+        Ram ram = FormUtil.convertQLRamToRam(t);
+        return this.ramReponsitory.update(ram) == true ? "update thành công" : "update thất bại ";
+    }
 }

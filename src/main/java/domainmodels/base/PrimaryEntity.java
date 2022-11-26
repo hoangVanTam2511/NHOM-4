@@ -34,5 +34,5 @@ public abstract class PrimaryEntity implements IsIdentified {
     private UUID id;
 
     @Column(name = "delected")
-    private int delected;
+    private int delected ;
 }

@@ -4,6 +4,7 @@
  */
 package views;
 
+import javax.swing.JOptionPane;
 import reponces.QlChiTietSanPham;
 
 /**
@@ -16,12 +17,14 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
      * Creates new form ViewThemVaoGioHang
      */
     private QlChiTietSanPham qlChiTietSanPham = null;
+
     public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal,QlChiTietSanPham qlChiTietSanPham1) {
+
+    public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal, QlChiTietSanPham qlChiTietSanPham1) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -91,9 +94,15 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-      int soLuong = Integer.parseInt(txtSoLuong.getText().trim());
-      this.dispose();
-      new ViewCuaHangBanDienThoai().setSoLuong(soLuong,qlChiTietSanPham);
+        try {
+            int soLuong = Integer.parseInt(txtSoLuong.getText().trim());
+            this.dispose();
+            new ViewCuaHangBanDienThoai().setSoLuong(soLuong, qlChiTietSanPham);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(rootPane, "Bạn phải nhập số");
+        }
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     /**

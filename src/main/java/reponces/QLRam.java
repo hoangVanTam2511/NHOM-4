@@ -5,6 +5,7 @@
 package reponces;
 
 import java.util.UUID;
+import java.util.Vector;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,13 @@ public class QLRam {
     private int kichThuoc;
     private int delected;
 
-    
+    public QLRam(int kichThuoc) {
+        this.kichThuoc = kichThuoc;
+    }
+
+    public Object getData() {
+      return new Object[]{
+        this.id,this.kichThuoc  
+      };
+    }  
 }

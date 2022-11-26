@@ -88,8 +88,20 @@ public class KhachHangRepositoryImpl implements IReponsitory<KhachHang> {
         }
         return false;
     }
+    
+    public List<String> getMa(){
+        List<String> mas = new ArrayList<>();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            String hql = "select ma FROM KhachHang ORDER BY ma";
+            TypedQuery query = session.createQuery(hql);
+            return query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return mas;
+    }
 
     public static void main(String[] args) {
-        System.out.println(new KhachHangRepositoryImpl().findAll());
+        System.out.println(new KhachHangRepositoryImpl().getMa());
     }
 }
