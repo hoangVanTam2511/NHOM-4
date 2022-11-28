@@ -30,9 +30,13 @@ public class HoaDonServiceImpl implements IHoaDonService {
 
     private HoaDonReponsitoryImpl hoaDonReponsitory;
     private List<QlHoaDon> listQlHoaDon;
+    private UserReponsitoryImpl userReponsitoryImpl;
+    private KhachHangRepositoryImpl khachHangRepositoryImpl;
 
     public HoaDonServiceImpl() {
         this.hoaDonReponsitory = new HoaDonReponsitoryImpl();
+        this.userReponsitoryImpl = new UserReponsitoryImpl();
+        this.khachHangRepositoryImpl = new KhachHangRepositoryImpl();
         listQlHoaDon = new ArrayList<>();
     }
 
@@ -106,8 +110,8 @@ public class HoaDonServiceImpl implements IHoaDonService {
     public QlHoaDon createHoaDon(QlUser qlUser, QlKhachHang qlKhachHang) {
         String ma = genMaTuDong();
         Date date = new Date();
-        User user = FormUtil.convertFromQlNhanVienToNhanVien(qlUser);
-        KhachHang khachHang = FormUtil.convertFromQlKhachHangToKhachHang(qlKhachHang);
+        User user = this.userReponsitoryImpl.findOneByMa(qlUser.getMa());
+        KhachHang khachHang = this.khachHangRepositoryImpl.findOneByMa(qlKhachHang.getMa());
         return new QlHoaDon(ma, date, 1, user, khachHang);
     }
 

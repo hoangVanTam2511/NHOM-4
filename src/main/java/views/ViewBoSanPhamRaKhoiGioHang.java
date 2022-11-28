@@ -4,7 +4,7 @@
  */
 package views;
 
-
+import javax.swing.JOptionPane;
 import reponces.QlHoaDonChiTiet;
 
 /**
@@ -16,17 +16,19 @@ public class ViewBoSanPhamRaKhoiGioHang extends javax.swing.JDialog {
     /**
      * Creates new form ViewThemVaoGioHang
      */
-    private QlHoaDonChiTiet qlHoaDonChiTiet = null;
+    private QlHoaDonChiTiet qlHoaDonChiTiet = new QlHoaDonChiTiet();
+
     public ViewBoSanPhamRaKhoiGioHang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public ViewBoSanPhamRaKhoiGioHang(java.awt.Frame parent, boolean modal,QlHoaDonChiTiet qLHoaDonChiTiet) {
+
+    public ViewBoSanPhamRaKhoiGioHang(java.awt.Frame parent, boolean modal, QlHoaDonChiTiet qLHoaDonChiTiet) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.qlHoaDonChiTiet = qlHoaDonChiTiet;
+        this.qlHoaDonChiTiet = qLHoaDonChiTiet;
     }
 
     /**
@@ -47,11 +49,11 @@ public class ViewBoSanPhamRaKhoiGioHang extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Thêm sản phẩm vào giỏ hàng");
+        jLabel1.setText("Thay đổi số lượng sản phẩm");
 
         jLabel2.setText("Nhập số lượng :");
 
-        btnThem.setText("Thêm");
+        btnThem.setText("Thay đổi");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
@@ -92,9 +94,15 @@ public class ViewBoSanPhamRaKhoiGioHang extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-      int soLuong = Integer.parseInt(txtSoLuong.getText().trim());
-      this.dispose();
-      new ViewCuaHangBanDienThoai().setSoLuong(soLuong,qlHoaDonChiTiet);
+        try {
+            int soLuong = Integer.parseInt(txtSoLuong.getText().trim());
+            this.dispose();
+            new ViewCuaHangBanDienThoai().setSoLuong(soLuong, qlHoaDonChiTiet);
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(rootPane, "Bạn phải nhập số... ");
+        }
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     /**
