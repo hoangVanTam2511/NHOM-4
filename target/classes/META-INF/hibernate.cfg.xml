@@ -15,11 +15,9 @@
         </property>
 
         <property name="connection.username">sa</property>
-<<<<<<< HEAD
+
         <property name="connection.password">tranhuuthien</property>
-=======
-        <property name="connection.password">123123</property>
->>>>>>> develop_tamhv
+
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
