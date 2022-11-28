@@ -1,6 +1,5 @@
 reponces\QlMauSac.class
 Services\impl\NhaSanXuatServiceImpl.class
-views\ViewNhanVien$4.class
 views\ViewThemVaoGioHang.class
 views\ViewBoSanPhamRaKhoiGioHang.class
 views\ViewBoSanPhamRaKhoiGioHang$2$1.class
@@ -31,7 +30,6 @@ Application\DuAnMauApplication.class
 Services\impl\RomServiceImpl.class
 responsitiories\INSXReponsitory.class
 domainmodels\HoaDonChiTiet.class
-views\ViewKhachHang$4$1.class
 Services\impl\MauSacServiceImpl.class
 ultilities\Migrator.class
 responsitiories\impl\ChiTietSanPhamReponsitoryImpl.class
@@ -39,7 +37,6 @@ views\ViewThemVaoGioHang$1.class
 reponces\QlAnh.class
 views\ViewCuaHangBanDienThoai$22.class
 domainmodels\ChiTietKhuyenMai.class
-views\ViewNhanVien$2.class
 responsitiories\IHoaDonChiTietReponsitory.class
 responsitiories\impl\RomReponsitory.class
 Services\impl\HoaDonServiceImpl.class
@@ -50,7 +47,6 @@ reponces\QlHoaDonChiTiet.class
 Services\impl\HoaDonChiTietServiceImpl.class
 domainmodels\ChucVu.class
 views\ViewThemVaoGioHang$2.class
-views\ViewNhanVien$3.class
 infrastructure\responce\QlHoaDonChiTietReponce.class
 views\ViewCuaHangBanDienThoai$16.class
 domainmodels\ManHinh.class
@@ -84,7 +80,6 @@ responsitiories\impl\NSXReponsitoryImpl.class
 Services\impl\ChiTietSanPhamServiceImpl.class
 reponces\QlGioHang.class
 views\ViewBoSanPhamRaKhoiGioHang$1.class
-views\ViewNhanVien$4$1.class
 reponces\QlCauHinh.class
 Services\impl\RamServiceImpl.class
 domainmodels\ChiTietSanPham.class
@@ -92,7 +87,6 @@ views\ViewCuaHangBanDienThoai$11.class
 domainmodels\base\PrimaryEntity.class
 domainmodels\DongSp.class
 responsitiories\impl\DongSPReponsitoryImpl.class
-responsitiories\impl\CauHinhReponsitory.class
 domainmodels\Ram.class
 Services\IManHinhService.class
 Services\impl\DongSpServiceImpl.class

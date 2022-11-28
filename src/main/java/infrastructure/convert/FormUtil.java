@@ -240,7 +240,7 @@ public class FormUtil {
         return qlCauHinh;
     }
 
-    public static CauHinh convertCauHinhToQLCauHinh(CauHinh qlCauHinh) {
+    public static CauHinh convertCauHinhToQLCauHinh(QlCauHinh qlCauHinh) {
         ModelMapper mapper = new ModelMapper();
         CauHinh cauHinh = mapper.map(qlCauHinh, CauHinh.class);
         return cauHinh;

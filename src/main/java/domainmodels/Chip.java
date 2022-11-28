@@ -5,18 +5,13 @@
 package domainmodels;
 
 import domainmodels.base.PrimaryEntity;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
  *
@@ -25,20 +20,16 @@ import lombok.ToString;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "phieu_bao_hanh")
-@ToString
-
-public class PhieuBaoHanh extends PrimaryEntity {
-
-    @Column(name = "thoiGianBaoHanh")
-    private int thoiGianBaoHanh;
+@AllArgsConstructor
+@Table(name = "chip")
+public class Chip  extends PrimaryEntity{
     
-    @Column(name = "hinhThucBaoHanh")
-    private String hinhThucBaoHanh;
+    @Column(name = "ma_chip")
+    private String maChip;
     
-    @Column(name = "mo_ta",nullable = true)
-    private String moTa;
+    @Column(name = "ten_chip")
+    private String tenChip;
+    
     
 }

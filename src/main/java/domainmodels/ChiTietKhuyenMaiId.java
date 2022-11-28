@@ -26,8 +26,8 @@ import lombok.Setter;
 public class ChiTietKhuyenMaiId implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_hoa_don", nullable = false)
-    private HoaDon idHoaDon;
+    @JoinColumn(name = "id_chi_tiet_san_pham", nullable = false)
+    private ChiTietSanPham idChiTietSanPham;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_khuyen_mai", nullable = false)
@@ -36,8 +36,8 @@ public class ChiTietKhuyenMaiId implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.idHoaDon);
-        hash = 37 * hash + Objects.hashCode(this.idKhuyenMai);
+        hash = 97 * hash + Objects.hashCode(this.idChiTietSanPham);
+        hash = 97 * hash + Objects.hashCode(this.idKhuyenMai);
         return hash;
     }
 
@@ -53,10 +53,11 @@ public class ChiTietKhuyenMaiId implements Serializable {
             return false;
         }
         final ChiTietKhuyenMaiId other = (ChiTietKhuyenMaiId) obj;
-        if (!Objects.equals(this.idHoaDon, other.idHoaDon)) {
+        if (!Objects.equals(this.idChiTietSanPham, other.idChiTietSanPham)) {
             return false;
         }
         return Objects.equals(this.idKhuyenMai, other.idKhuyenMai);
     }
 
+   
 }
