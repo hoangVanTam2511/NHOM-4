@@ -1577,8 +1577,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.hoaDonServiceImpl = new HoaDonServiceImpl();
         this.chiTietSanPhamServiceImpl = new ChiTietSanPhamServiceImpl();
         // tablemodel
-        this.tableModelHoaDonHoaDon  = (DefaultTableModel) this.tableHoaDonHoaDon.getModel();
-        this.tableModelHoaDonHoaDonChiTiet =  (DefaultTableModel) this.tableHoaDonHoaDonChiTiet.getModel();
+        this.tableModelHoaDonHoaDon = (DefaultTableModel) this.tableHoaDonHoaDon.getModel();
+        this.tableModelHoaDonHoaDonChiTiet = (DefaultTableModel) this.tableHoaDonHoaDonChiTiet.getModel();
         this.tableModelHoaDonSanPham = (DefaultTableModel) tableHoaDonSanPham.getModel();
         this.tableModelBanHangDonHangCho = (DefaultTableModel) tableBanHangDonHangCho.getModel();
         this.tableModelSanPhamSanPham = (DefaultTableModel) tableSanPham.getModel();
@@ -1591,8 +1591,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         String titleDonHangHoaDon[] = {"STT", "Mã hóa đơn", "Ngày tạo hóa đơn", "Nhân viên tạo", "Khách hàng"};
         String titleSanPhamSanPham[] = {"STT", "Imei", "Tên", "Nhà sản xuất", "Dòng sản phẩm", "Màu sắc", "Độ phân giải", "Kích thước màn hình", "Ram", "Rom", "Số lượng tồn", "Đơn giá"};
         String titleHoaDonSanPham[] = {"STT", "Imei", "Tên", "Nhà sản xuất", "Dòng sản phẩm", "Màu sắc", "Số lượng tồn", "Đơn giá"};
-        String titleHoaDonHoaDon[] = {"Mã hóa đơn","Tổng tiền","Thanh toán","Hình thức thanh toán","Ngày lập hóa đơn","Trạng thái","Mã NV","Tên NV","Mã KH","Tên KH"};
-        String titleHoaDonHoaDonChiTiet[] = {"Mã hóa đơn chi tiết","Mã sản phẩm","Tên sản phẩm","Số lượng","Đơn giá","Thành tiền"};
+        String titleHoaDonHoaDon[] = {"Mã hóa đơn", "Tổng tiền", "Thanh toán", "Hình thức thanh toán", "Ngày lập hóa đơn", "Trạng thái", "Mã NV", "Tên NV", "Mã KH", "Tên KH"};
+        String titleHoaDonHoaDonChiTiet[] = {"Mã hóa đơn chi tiết", "Mã sản phẩm", "Tên sản phẩm", "Số lượng", "Đơn giá", "Thành tiền"};
         // default table model
         // set column identifier
         tableModelHoaDonHoaDon.setColumnIdentifiers(titleHoaDonHoaDon);
@@ -1608,8 +1608,10 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         if (this.qlKhachHang != null) {
             String maHoaDon = labelMaHoaDon.getText().trim();
             QlHoaDon qlHoaDon = this.hoaDonServiceImpl.findOne(maHoaDon);
-            qlHoaDon.setIdKhachHang(FormUtil.convertFromQlKhachHangToKhachHang(qlKhachHang));
-            this.hoaDonServiceImpl.update(qlHoaDon);
+            if (qlHoaDon.getId() != null) {
+                qlHoaDon.setIdKhachHang(FormUtil.convertFromQlKhachHangToKhachHang(qlKhachHang));
+                this.hoaDonServiceImpl.update(qlHoaDon);
+            }
         }
         loadDataOnHoaDonSanPham();
         loadDataOnHoaDonDangCho();
@@ -1821,7 +1823,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     }
 
     private void loadHoaDonHoaDon() {
-        for(QlHoaDon qlHoaDon :this.hoaDonServiceImpl.findAll()){
+        for (QlHoaDon qlHoaDon : this.hoaDonServiceImpl.findAll()) {
             tableModelHoaDonHoaDon.addRow((Object[]) qlHoaDon.getData1());
         }
     }
