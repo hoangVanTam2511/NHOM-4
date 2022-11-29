@@ -91,9 +91,6 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\logo.jpg"/>
-            </Property>
             <Property name="alignmentX" type="float" value="0.5"/>
           </Properties>
         </Component>
@@ -106,9 +103,6 @@
               <Font name="DialogInput" size="14" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-user-30.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Ho&#xe0;ng V&#x103;n T&#xe1;m"/>
           </Properties>
         </Component>
@@ -118,9 +112,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-shopping-cart-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="B&#xe1;n h&#xe0;ng"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -135,9 +126,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-smartphone-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ea3;n Ph&#x1ea9;m"/>
           </Properties>
           <Events>
@@ -150,9 +138,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-cheque-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="H&#xf3;a&#x110;&#x1a1;n"/>
           </Properties>
           <Events>
@@ -166,9 +151,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-staff-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
           </Properties>
           <Events>
@@ -182,9 +164,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-staff-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Kh&#xe1;chH&#xe0;ng"/>
           </Properties>
           <Events>
@@ -198,9 +177,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-cheque-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
           </Properties>
           <Events>
@@ -935,7 +911,7 @@
                           <Component id="jScrollPane5" min="-2" pref="315" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jButton7" pref="106" max="32767" attributes="0"/>
+                              <Component id="jButton7" max="32767" attributes="0"/>
                               <Component id="btnBanHangXoaSanPham" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
@@ -1162,12 +1138,12 @@
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel37" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="cbBanHangPhieuBaoHanh" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                                   <Component id="btnPhieuBaoHanh" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jLabel37" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jButton10" min="-2" pref="38" max="-2" attributes="0"/>
