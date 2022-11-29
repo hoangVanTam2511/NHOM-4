@@ -1056,10 +1056,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabel37" max="32767" attributes="0"/>
                                       <Component id="jLabel33" alignment="1" pref="128" max="32767" attributes="0"/>
                                       <Component id="jLabel32" alignment="1" pref="128" max="32767" attributes="0"/>
                                       <Component id="jLabel34" alignment="1" pref="128" max="32767" attributes="0"/>
+                                      <Component id="jLabel37" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
@@ -1412,7 +1412,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n khuy&#x1ebf;n m&#xe3;i:"/>
+                    <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n b&#x1ea3;o h&#xe0;nh:"/>
                   </Properties>
                 </Component>
               </SubComponents>

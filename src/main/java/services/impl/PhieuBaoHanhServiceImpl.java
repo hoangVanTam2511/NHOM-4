@@ -58,5 +58,9 @@ public class PhieuBaoHanhServiceImpl implements IService<QlPhieuBaoHanh> {
         PhieuBaoHanh phieuBaoHanh = FormUtil.convertPhieuBaoHanhToQlPhieuBaoHanh(t);
         return this.phieuBaoHanhRepositoryImpl.update(phieuBaoHanh) == true ? "Sửa thành công" : "Sửa thất bại";
     }
+    
+    public static void main(String[] args) {
+        System.out.println(new PhieuBaoHanhServiceImpl().findAll());
+    }
 
 }
