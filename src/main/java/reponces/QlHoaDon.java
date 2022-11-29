@@ -4,6 +4,7 @@
  */
 package reponces;
 
+import domainmodels.HinhThucThanhToan;
 import domainmodels.KhachHang;
 import domainmodels.User;
 import java.util.Date;
@@ -21,6 +22,8 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlHoaDon {
     
     private UUID id;
@@ -45,21 +48,31 @@ public class QlHoaDon {
     
     private KhachHang idKhachHang;
 
-    public QlHoaDon() {
+    private double tongTien;
+    
+    private double thanhToan;
+    
+    private double tienThua;
+    
+    private HinhThucThanhToan idHinhThucThanhToan;
+
+    public QlHoaDon(String ma, Date date, int i, User user, KhachHang khachHang) {
+     this.ma = ma;
+     this.created = date;
+     this.delected  =i;
+     this.idNhanVien = user;
+     this.idKhachHang = khachHang;
     }
     
-    public QlHoaDon(String ma, Date created, int tinhTrang, User idNhanVien, KhachHang idKhachHang) {
-        this.ma = ma;
-        this.created = created;
-        this.tinhTrang = tinhTrang;
-        this.idNhanVien = idNhanVien;
-        this.idKhachHang = idKhachHang;
+    public Object getData1(){
+        return new Object[]{
+          this.ma,this.tongTien,this.thanhToan,this.tienThua,this.idHinhThucThanhToan,this.created,this.tinhTrang,this.idNhanVien.getMa(),this.idNhanVien.getTen(),this.idKhachHang.getMa(),this.idKhachHang.getTen()
+        };
     }
     
     public Object getData(int stt){
         return new Object[]{
-            stt,this.ma,this.created,this.idNhanVien.getMa(),this.idKhachHang.getMa()
+          stt,this.ma,this.created,this.idNhanVien.getMa(),this.idKhachHang.getMa()
         };
     }
-    
 }

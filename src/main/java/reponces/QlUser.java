@@ -38,6 +38,8 @@ public class QlUser {
     
     private int trangThai;
     
+    private String anh;
+    
     private String matKhau;
     
     private ChucVu idChucVu;

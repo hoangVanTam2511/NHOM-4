@@ -1,6 +1,5 @@
 reponces\QlMauSac.class
 Services\impl\NhaSanXuatServiceImpl.class
-views\ViewNhanVien$4.class
 views\ViewThemVaoGioHang.class
 DomainModels\ManHinh.class
 views\ViewBoSanPhamRaKhoiGioHang.class
@@ -35,9 +34,13 @@ domainmodels\User.class
 Application\DuAnMauApplication.class
 Services\impl\RomServiceImpl.class
 responsitiories\INSXReponsitory.class
+<<<<<<< HEAD
 DomainModels\KhuyenMai.class
 views\ViewKhachHang$4$1.class
 DomainModels\CauHinh.class
+=======
+domainmodels\HoaDonChiTiet.class
+>>>>>>> develop_tamhv
 Services\impl\MauSacServiceImpl.class
 ultilities\Migrator.class
 responsitiories\impl\ChiTietSanPhamReponsitoryImpl.class
@@ -49,8 +52,11 @@ DomainModels\base\IsIdentified.class
 =======
 views\ViewCuaHangBanDienThoai$22.class
 domainmodels\ChiTietKhuyenMai.class
+<<<<<<< HEAD
 >>>>>>> main
 views\ViewNhanVien$2.class
+=======
+>>>>>>> develop_tamhv
 responsitiories\IHoaDonChiTietReponsitory.class
 responsitiories\impl\RomReponsitory.class
 Services\impl\HoaDonServiceImpl.class
@@ -65,7 +71,6 @@ reponces\QlHoaDonChiTiet.class
 Services\impl\HoaDonChiTietServiceImpl.class
 DomainModels\ChiTietKhuyenMaiId.class
 views\ViewThemVaoGioHang$2.class
-views\ViewNhanVien$3.class
 infrastructure\responce\QlHoaDonChiTietReponce.class
 <<<<<<< HEAD
 reponces\QlChiTietSanPham.class
@@ -106,8 +111,11 @@ responsitiories\impl\NSXReponsitoryImpl.class
 Services\impl\ChiTietSanPhamServiceImpl.class
 reponces\QlGioHang.class
 views\ViewBoSanPhamRaKhoiGioHang$1.class
+<<<<<<< HEAD
 DomainModels\PhieuBaoHanh.class
 views\ViewNhanVien$4$1.class
+=======
+>>>>>>> develop_tamhv
 reponces\QlCauHinh.class
 DomainModels\HoaDonChiTiet.class
 Services\impl\RamServiceImpl.class
@@ -119,7 +127,11 @@ domainmodels\base\PrimaryEntity.class
 domainmodels\DongSp.class
 >>>>>>> main
 responsitiories\impl\DongSPReponsitoryImpl.class
+<<<<<<< HEAD
 responsitiories\impl\CauHinhReponsitory.class
+=======
+domainmodels\Ram.class
+>>>>>>> develop_tamhv
 Services\IManHinhService.class
 Services\impl\DongSpServiceImpl.class
 Services\IService.class

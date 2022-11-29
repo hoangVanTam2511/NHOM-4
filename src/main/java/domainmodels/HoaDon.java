@@ -33,35 +33,47 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Table(name = "hoa_don")
-public class HoaDon extends PrimaryEntity implements IsIdentified,Serializable{
-    
-    @Column(name = "ma",length = EntityProperties.LENGTH_MA)
+public class HoaDon extends PrimaryEntity implements IsIdentified, Serializable {
+
+    @Column(name = "ma", length = EntityProperties.LENGTH_MA)
     private String ma;
-    
-    @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
+
+    @Column(name = "sdt", length = EntityProperties.LENGT_PHONE)
     private String sdt;
-    
-    @Column(name = "dia_chi",length = EntityProperties.LENGT_ADDRESS)
+
+    @Column(name = "dia_chi", length = EntityProperties.LENGT_ADDRESS)
     private String diaChi;
-    
+
     @Column(name = "created")
     private Date created;
-    
+
     @Column(name = "updated")
     private Date updated;
-    
+
     @Column(name = "ngay_thanh_toan")
     private Date ngayThanhToan;
-    
+
     @Column(name = "tinh_trang")
     private int tinhTrang;
-    
-    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+
+    @Column(name = "tong_tien")
+    private double tongTien;
+
+    @Column(name = "thanh_toan")
+    private double thanhToan;
+
+    @Column(name = "tien_thua")
+    private double tienThua;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_user")
     private User idNhanVien;
-    
-    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "Idkh")
-    private KhachHang idKhachHang;
-}
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idkh")
+    private KhachHang idKhachHang;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_hinh_thuc_thanh_toan")
+    private HinhThucThanhToan idHinhThucThanhToan;
+}

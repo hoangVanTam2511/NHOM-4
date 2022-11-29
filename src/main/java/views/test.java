@@ -14,10 +14,7 @@ import java.util.Date;
 public class test {
     
     public static void main(String[] args) {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        String ngay = simpleDateFormat.format(date).toString();
-        System.out.println(simpleDateFormat.format(date).toString());
+        int i = 0, j = 33;
     }
     
 }
