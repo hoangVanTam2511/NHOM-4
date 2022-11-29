@@ -83,8 +83,12 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
 
     public String genMaTuDong() {
         List<String> mas = khachHangReponsitoryImpl.getMa();
+        if(mas.size() != 0){
         String maCuoiCung = mas.get(mas.size() - 1);
         Integer soMa = Integer.parseInt(maCuoiCung.substring(2));
         return "KH" + (soMa + 1);
+        }else{
+            return "KH1";
+        }
     }
 }

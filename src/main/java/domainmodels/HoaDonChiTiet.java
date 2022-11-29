@@ -5,6 +5,7 @@
 package domainmodels;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -37,5 +38,8 @@ public class HoaDonChiTiet implements Serializable {
 
     @Column(name = "so_luong")
     private int soLuong;
+    
+    @Column(name = "tong_tien")
+    private double tongTien;
 
 }

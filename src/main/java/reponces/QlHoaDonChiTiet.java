@@ -7,68 +7,44 @@ package reponces;
 import domainmodels.ChiTietSanPham;
 import domainmodels.HoaDon;
 import java.math.BigDecimal;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author Admin
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlHoaDonChiTiet {
 
     private HoaDon idHoaDon;
     private ChiTietSanPham idChiTietSanPham;
     private double donGia;
     private int soLuong;
+    private double tongTien;
 
-    public QlHoaDonChiTiet() {
-    }
-
-    public QlHoaDonChiTiet(HoaDon idHoaDon, ChiTietSanPham idChiTietSanPham, double donGia, int soLuong) {
+    public QlHoaDonChiTiet(HoaDon idHoaDon, ChiTietSanPham idChiTietSanPham,double donGia,int soLuong) {
         this.idHoaDon = idHoaDon;
         this.idChiTietSanPham = idChiTietSanPham;
-        this.donGia = donGia;
         this.soLuong = soLuong;
-    }
-
-    public HoaDon getIdHoaDon() {
-        return idHoaDon;
-    }
-
-    public void setIdHoaDon(HoaDon idHoaDon) {
-        this.idHoaDon = idHoaDon;
-    }
-
-    public ChiTietSanPham getIdChiTietSanPham() {
-        return idChiTietSanPham;
-    }
-
-    public void setIdChiTietSanPham(ChiTietSanPham idChiTietSanPham) {
-        this.idChiTietSanPham = idChiTietSanPham;
-    }
-
-    public double getDonGia() {
-        return donGia;
-    }
-
-    public void setDonGia(double donGia) {
         this.donGia = donGia;
-    }
-
-    public int getSoLuong() {
-        return soLuong;
-    }
-
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        this.tongTien = this.soLuong * this.donGia;
     }
     
-    public BigDecimal getTongTien(){
-        return BigDecimal.valueOf(this.soLuong * donGia);
-    }
 
-    public Object getData(int stt) {
-        double thanhTien = this.soLuong * this.donGia;
+    public Object getData1() {
         return new Object[]{
-            stt,this.idHoaDon.getMa(), this.idChiTietSanPham.getIdSanPham().getSoImei(), this.idChiTietSanPham.getIdSanPham().getTen(), this.soLuong, this.donGia, thanhTien
+          this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,this.donGia,this.tongTien
+        };
+    }
+     public Object getData(int stt) {
+        return new Object[]{
+          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,this.donGia,this.tongTien
         };
     }
 
