@@ -32,6 +32,9 @@ import lombok.ToString;
 @ToString
 public class KhuyenMai extends PrimaryEntity {
 
+    @Column(name = "ma_khuyen_mai")
+    private String maKhuyenMai;
+    
     @Column(name = "ten")
     private String ten;
 
@@ -47,8 +50,8 @@ public class KhuyenMai extends PrimaryEntity {
     @Column(name = "muc_giam_gia_tien_mat")
     private Double mucGiamGiaTienMat;
     
-    @Column(name = "dieu_kien_giam_gia")
-    private Double dieuKienGiamGia;
+    @Column(name = "mo_ta")
+    private String moTa;
     
     @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_phieu_bao_hanh",referencedColumnName = "id")

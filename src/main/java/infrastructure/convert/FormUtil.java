@@ -21,6 +21,7 @@ import domainmodels.KhuyenMai;
 import domainmodels.PhieuBaoHanh;
 import domainmodels.User;
 import domainmodels.SanPham;
+import java.text.NumberFormat;
 import reponces.QlChiTietSanPham;
 import reponces.QlChucVu;
 import reponces.QlCuaHang;
@@ -291,5 +292,10 @@ public class FormUtil {
         return phieuBaoHanh;
     }
 
+    public static String convertNumber(double i){
+        NumberFormat currentLocale = NumberFormat.getInstance();
+        String str = currentLocale.format(i);
+        return str;
+    }
    
 }

@@ -32,11 +32,14 @@ import lombok.ToString;
 
 public class PhieuBaoHanh extends PrimaryEntity {
 
+    @Column(name = "ma")
+    private String maPhieuBaoHanh;
+    
+    @Column(name = "ten")
+    private String tenPhieuBaoHanh;
+    
     @Column(name = "thoiGianBaoHanh")
     private int thoiGianBaoHanh;
-    
-    @Column(name = "hinhThucBaoHanh")
-    private String hinhThucBaoHanh;
     
     @Column(name = "mo_ta",nullable = true)
     private String moTa;

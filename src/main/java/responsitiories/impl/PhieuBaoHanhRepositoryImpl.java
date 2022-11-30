@@ -7,6 +7,7 @@ package responsitiories.impl;
 import domainmodels.KhachHang;
 import domainmodels.KhuyenMai;
 import domainmodels.PhieuBaoHanh;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.Query;
@@ -88,8 +89,33 @@ public class PhieuBaoHanhRepositoryImpl implements IReponsitory<PhieuBaoHanh> {
         }
         return false;
     }
+    public ArrayList<String> getListTenAnh(){
+        ArrayList<String> listTen = new ArrayList<>();// Lấy tên của tất cả các gói bảo hành có sẵen cho từng nhóm 
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Transaction trans = session.getTransaction();
+            String hql = "SELECT c.tenPhieuBaoHanh  FROM PhieuBaoHanh c ";
+            Query query = session.createQuery(hql);
+            listTen  = (ArrayList<String>) query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return listTen;
+    }
+    
+    public String getMaPhieuBaoHanh(String txt){
+        String maPhieuBaoHanh  = "";
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            String hql = "SELECT  c.maPhieuBaoHanh FROM PhieuBaoHanh c.maPhieuBaoHanh = :maPhieuBaoHanh";
+            Query query = session.createQuery(hql);
+            query.setParameter("maPhieuBaoHanh", txt);
+            maPhieuBaoHanh = (String) query.getSingleResult();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return maPhieuBaoHanh;
+    }
 
     public static void main(String[] args) {
-        System.out.println(new PhieuBaoHanhRepositoryImpl().findAll());
+        System.out.println(new PhieuBaoHanhRepositoryImpl().getListTenAnh());
     }
 }

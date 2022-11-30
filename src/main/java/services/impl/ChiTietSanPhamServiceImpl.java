@@ -89,8 +89,13 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
             return false;
         }
     }
+    
+    
+    public boolean setDelected(){
+        return this.chiTietSanPhamReponsitoryImpl.setDeleted();
+    }
 
     public static void main(String[] args) {
-        System.out.println(new ChiTietSanPhamServiceImpl().findAll());
+        System.out.println(new ChiTietSanPhamServiceImpl().setDelected());
     }
 }

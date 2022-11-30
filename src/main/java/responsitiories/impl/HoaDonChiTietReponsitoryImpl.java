@@ -6,11 +6,15 @@ package responsitiories.impl;
 
 import responsitiories.IReponsitory;
 import domainmodels.HoaDonChiTiet;
+import infrastructure.convert.FormUtil;
 import responsitiories.IHoaDonChiTietReponsitory;
 import ultilities.HibernateUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import javax.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -151,10 +155,10 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlHoaDonChiTietReponce> listQlHoaDonChiTiets = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new "
-                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ma,"
+                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,"
                     + "p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
                     + "WHERE  p.HoaDonChiTietId.idHoaDon.ma = :ma "
-                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ma,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
+                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
             Query query = session.createQuery(hql, QlHoaDonChiTietReponce.class);
             query.setParameter("ma", ma);
             listQlHoaDonChiTiets = query.getResultList();
@@ -163,7 +167,9 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     }
 
     public static void main(String[] args) {
-        System.out.println(new HoaDonChiTietReponsitoryImpl().findOneByMaSanPhamAndMaHoaDon("HD01", "SP01"));
+        double vnd = new HoaDonChiTietReponsitoryImpl().getAllByMaHoaDon("HD00").get(0).getTongTien();
+        System.out.println(FormUtil.convertNumber(vnd));
+	
       
     }
 }

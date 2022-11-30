@@ -26,10 +26,10 @@ import lombok.Setter;
 public class HinhThucThanhToan extends PrimaryEntity{
     
     @Column(name  = "ma_hinh_thuc")
-    private String ma_hinh_thuc;
+    private String maHinhThuc;
     
-    @Column(name = "loai_hinh_thanh_toan")
-    private String loai_hinh_thanh_toan; 
+    @Column(name = "loai_hinh_thuc_thanh_toan")
+    private String loaiHinhThanhToan; 
     
     
 }

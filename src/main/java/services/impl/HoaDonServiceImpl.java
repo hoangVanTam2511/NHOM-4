@@ -57,6 +57,14 @@ public class HoaDonServiceImpl implements IHoaDonService {
         });
         return listQlHoaDon;
     }
+    
+     public List<QlHoaDon> findAllByNameOrMa(String text) {
+        listQlHoaDon.clear();
+        this.hoaDonReponsitory.findAllByName(text).forEach(hoaDon -> {
+            listQlHoaDon.add(FormUtil.convertFromHoaDonToQlHoaDon(hoaDon));
+        });
+        return listQlHoaDon;
+    }
 
     @Override
     public QlHoaDon findOne(String ma) {
@@ -92,7 +100,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
 //    
     public String genMaTuDong() {
         listQlHoaDon = findAll();
-        if (listQlHoaDon == null) {
+        if (listQlHoaDon.size() == 0) {
             return "HD00";
         }
         String maHoaDonHienTai = listQlHoaDon.get(listQlHoaDon.size() - 1).getMa();

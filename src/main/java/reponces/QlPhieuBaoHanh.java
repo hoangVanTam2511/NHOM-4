@@ -23,12 +23,30 @@ import lombok.Setter;
 public class QlPhieuBaoHanh {
 
     private UUID id;
+    
     private int delected;
-    private HoaDon idHoaDon;
+    
+    private int thoiGianBaoHanh;
+    
+    private String maPhieuBaoHanh;
+    
+    private String tenPhieuBaoHanh;
+    
     private String moTa;
-    private Date ngayBatDau;
-    private Date ngayKetThuc;
-    private int trangThai;
-    private int soImei;
+
+    public QlPhieuBaoHanh(int delected, int thoiGianBaoHanh, String maPhieuBaoHanh, String tenPhieuBaoHanh, String moTa) {
+        this.delected = delected;
+        this.thoiGianBaoHanh = thoiGianBaoHanh;
+        this.maPhieuBaoHanh = maPhieuBaoHanh;
+        this.tenPhieuBaoHanh = tenPhieuBaoHanh;
+        this.moTa = moTa;
+        // tạo phiếu bảo hành tương ứng 
+    }
+    
+    public Object getData(){
+        return new Object[]{
+          this.maPhieuBaoHanh,this.tenPhieuBaoHanh,this.thoiGianBaoHanh,this.moTa  
+        };
+    }
 
 }

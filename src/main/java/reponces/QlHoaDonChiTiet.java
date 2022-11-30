@@ -6,6 +6,7 @@ package reponces;
 
 import domainmodels.ChiTietSanPham;
 import domainmodels.HoaDon;
+import infrastructure.convert.FormUtil;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,7 +45,7 @@ public class QlHoaDonChiTiet {
     }
      public Object getData(int stt) {
         return new Object[]{
-          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,this.donGia,this.tongTien
+          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,FormUtil.convertNumber(donGia),FormUtil.convertNumber(tongTien)
         };
     }
 

@@ -60,13 +60,24 @@ public class QlHoaDon {
      this.ma = ma;
      this.created = date;
      this.delected  =i;
+     this.tinhTrang = i;
      this.idNhanVien = user;
      this.idKhachHang = khachHang;
+    }
+    public String getTrangThai(){
+        if(this.tinhTrang == 1){
+            return "Đang chờ";
+        } else if(this.tinhTrang == 2){
+            return "Đã thanh toán";
+        } else if(this.tinhTrang == 3){
+            return "Đã hủy";
+        }
+        return "Không xác định";
     }
     
     public Object getData1(){
         return new Object[]{
-          this.ma,this.tongTien,this.thanhToan,this.tienThua,this.idHinhThucThanhToan,this.created,this.tinhTrang,this.idNhanVien.getMa(),this.idNhanVien.getTen(),this.idKhachHang.getMa(),this.idKhachHang.getTen()
+          this.ma,this.tongTien,this.thanhToan,this.tienThua,this.idHinhThucThanhToan == null?"Chưa chọn":this.idHinhThucThanhToan.getLoaiHinhThanhToan(),this.created,getTrangThai(),this.idNhanVien.getMa(),this.idNhanVien.getTen(),this.idKhachHang.getMa(),this.idKhachHang.getTen()
         };
     }
     

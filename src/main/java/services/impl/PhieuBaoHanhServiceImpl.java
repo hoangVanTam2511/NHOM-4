@@ -8,6 +8,7 @@ import domainmodels.PhieuBaoHanh;
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import reponces.QlPhieuBaoHanh;
 import responsitiories.impl.PhieuBaoHanhRepositoryImpl;
 import services.IService;
@@ -58,9 +59,23 @@ public class PhieuBaoHanhServiceImpl implements IService<QlPhieuBaoHanh> {
         PhieuBaoHanh phieuBaoHanh = FormUtil.convertPhieuBaoHanhToQlPhieuBaoHanh(t);
         return this.phieuBaoHanhRepositoryImpl.update(phieuBaoHanh) == true ? "Sửa thành công" : "Sửa thất bại";
     }
-    
+
+    public ArrayList<String> getListTenGoiBaoHanh() {
+        return this.phieuBaoHanhRepositoryImpl.getListTenAnh();
+    }
+
     public static void main(String[] args) {
         System.out.println(new PhieuBaoHanhServiceImpl().findAll());
     }
 
+    public String validate(QlPhieuBaoHanh qlPhieuBaoHanh) {
+        if (qlPhieuBaoHanh.getTenPhieuBaoHanh().isBlank() || qlPhieuBaoHanh.getMaPhieuBaoHanh().isBlank() || qlPhieuBaoHanh.getMoTa().isBlank()) {
+            return "Bạn phải nhâp đủ tất cả các ô trên bảng";
+        } else if (!qlPhieuBaoHanh.getMaPhieuBaoHanh().matches("PBH + \\d")) {
+            return "Mã phiếu bảo hành phải đúng định dạng : PBH + số ";
+        } else if (!this.phieuBaoHanhRepositoryImpl.getMaPhieuBaoHanh(qlPhieuBaoHanh.getMaPhieuBaoHanh()).equalsIgnoreCase("")) {
+            return "Mã gói bảo hành đã tồn tại";
+        }
+        return "";
+    }
 }
