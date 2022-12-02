@@ -6,36 +6,52 @@ package domainmodels;
 
 import domainmodels.base.PrimaryEntity;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  *
  * @author Admin
  */
 @Entity
-@Getter 
+@Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "KhuyenMai")
-public class KhuyenMai extends PrimaryEntity{
-    
+@Table(name = "khuyen_mai")
+@ToString
+public class KhuyenMai extends PrimaryEntity {
+
     @Column(name = "ten")
     private String ten;
-    
-    @Column(name = "mucKhuyenMai")
-    private int mucKhuyenMai;
-    
-    @Column(name = "ngayBatDau")
+
+    @Column(name = "ngay_bat_dau")
     private Date ngayBatDau;
-    
-    @Column(name = "ngayKetThuc")
+
+    @Column(name = "ngay_ket_thuc")
     private Date ngayKetThuc;
     
+    @Column(name = "muc_giam_gia_phan_tram")
+    private Double mucGiamGiaPhanTram;
+    
+    @Column(name = "muc_giam_gia_tien_mat")
+    private Double mucGiamGiaTienMat;
+    
+    @Column(name = "dieu_kien_giam_gia")
+    private Double dieuKienGiamGia;
+    
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_phieu_bao_hanh",referencedColumnName = "id")
+    private PhieuBaoHanh idPhieuBaoHanh;    
+
 }

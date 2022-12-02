@@ -21,7 +21,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
 
     private Session sesion = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromtable = "from san_pham";
+    private String fromtable = "from SanPham";
 
     @Override
     public List<SanPham> findAll() {
@@ -31,7 +31,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
 
     @Override
     public SanPham findOneByLmei(String Lmei) {
-        String sql = fromtable + "where soImei =: so_imei";
+        String sql = fromtable + " where soImei =: so_imei";
         Query query = sesion.createQuery(sql, SanPham.class);
         query.setParameter("so_imei", Lmei);
         return (SanPham) query.getSingleResult();
@@ -39,7 +39,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
 
     @Override
     public SanPham findOneByID(UUID id) {
-        String sql = fromtable + "where id =: id";//cái 1 lấy từ model, cái 2 từ sql
+        String sql = fromtable + " where id =: id";//cái 1 lấy từ model, cái 2 từ sql
         Query query = sesion.createQuery(sql, SanPham.class);
         query.setParameter("id", id);//lấy từ sql
         return (SanPham) query.getSingleResult();
@@ -84,6 +84,14 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public SanPham findOneByTen(String ten) {
+        String sql = fromtable + " where ten =: ten";
+        Query query = sesion.createQuery(sql, SanPham.class);
+        query.setParameter("ten", ten);
+        return (SanPham) query.getSingleResult();
     }
 
 }

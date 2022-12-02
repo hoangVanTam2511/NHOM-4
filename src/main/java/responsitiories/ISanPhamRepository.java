@@ -13,15 +13,18 @@ import java.util.UUID;
  * @author Admin
  */
 public interface ISanPhamRepository {
-      List<SanPham> findAll();
-    
+
+    List<SanPham> findAll();
+
     SanPham findOneByLmei(String Lmei);
-    
+
+    SanPham findOneByTen(String ten);
+
     SanPham findOneByID(UUID id);
-    
+
     boolean save(SanPham t);
-    
+
     boolean delete(SanPham t);
-    
+
     boolean update(SanPham t);
 }

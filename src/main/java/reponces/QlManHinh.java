@@ -5,7 +5,9 @@
 package reponces;
 
 import java.util.UUID;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -14,20 +16,16 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlManHinh {
     private UUID id;
+    
     private String doPhanGiai;
+    
     private int kichThuoc;
-
-    public QlManHinh() {
-    }
-
-    public QlManHinh(UUID id, String doPhanGiai, int kichThuoc) {
-        this.id = id;
-        this.doPhanGiai = doPhanGiai;
-        this.kichThuoc = kichThuoc;
-    }
+    
+    private int delected;
     
     public Object getData(){
         return new Object[]{

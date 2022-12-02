@@ -24,7 +24,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Getter
 @Setter
-@Table(name = "MauSac")
+@Table(name = "mau_sac")
 public class MauSac extends PrimaryEntity implements  Serializable,IsIdentified{
     
     @Column(length = EntityProperties.LENGTH_MA,name ="ma",nullable = false)

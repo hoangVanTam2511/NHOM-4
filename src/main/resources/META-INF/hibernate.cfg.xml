@@ -11,13 +11,11 @@
         </property>
 
         <property name="connection.url">
-            jdbc:sqlserver://localhost:1433;databaseName=du-an-1;encrypt=true;trustServerCertificate=true;
+            jdbc:sqlserver://localhost:1433;databaseName=du_an_1;encrypt=true;trustServerCertificate=true;
         </property>
 
         <property name="connection.username">sa</property>
-
-        <property name="connection.password">tranhuuthien</property>
-
+         <property name="connection.password">tranhuuthien</property>
 
         <!-- JDBC connection pool (use the built-in) -->
         <property name="connection.pool_size">1</property>
@@ -56,5 +54,7 @@
         <mapping class="domainmodels.HoaDon" />
         <mapping class="domainmodels.KhachHang" />
         <mapping class="domainmodels.HoaDonChiTiet" />
+        <mapping class="domainmodels.Chip" />
+        <mapping class="domainmodels.ChiTietBaoHanh" />
     </session-factory>
 </hibernate-configuration>

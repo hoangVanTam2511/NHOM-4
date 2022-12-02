@@ -30,15 +30,22 @@ public class RamReponsitory implements IReponsitory<Ram>{
 
     @Override
     public Ram findOneByMa(String ma) {
-        String sql = fromTable + "where ma =: id";
+        String sql = fromTable + " where id =: id";
         Query query = session.createQuery(sql, Ram.class);
         query.setParameter("id", ma);
         return (Ram) query.getSingleResult();
     }
-
+    
+    public Ram findOneByKichCo(int kichCo) {
+        String sql = fromTable + " where kichThuoc =: id";
+        Query query = session.createQuery(sql, Ram.class);
+        query.setParameter("id", kichCo);
+        return (Ram) query.getSingleResult();
+    }
+  
     @Override
     public Ram findOneByID(UUID id) {
-        String sql = fromTable + "where id =: id";
+        String sql = fromTable + " where id = :id";
         Query query = session.createQuery(sql, Ram.class);
         query.setParameter("id", id);
         return (Ram) query.getSingleResult();
@@ -62,7 +69,7 @@ public class RamReponsitory implements IReponsitory<Ram>{
        Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()){
             transaction = session.beginTransaction();
-            session.saveOrUpdate(t);
+            session.update(t);
             transaction.commit();
             return true;
         } catch (Exception e) {
@@ -83,4 +90,7 @@ public class RamReponsitory implements IReponsitory<Ram>{
         return false;
     }
 
+    public static void main(String[] args) {
+        System.out.println(new RamReponsitory().findOneByKichCo(12));
+    }
 }

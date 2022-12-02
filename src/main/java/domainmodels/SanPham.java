@@ -27,10 +27,10 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name ="SanPham")
+@Table(name ="san_pham")
 public class SanPham extends PrimaryEntity implements IsIdentified,Serializable{
     
-    @Column(name = "soImei",length = EntityProperties.LENGTH_MA)
+    @Column(name = "so_imei",length = EntityProperties.LENGTH_MA)
     private String soImei;
     
     @Column(name = "ten",length = EntityProperties.LENGT_SHORT_NAME)

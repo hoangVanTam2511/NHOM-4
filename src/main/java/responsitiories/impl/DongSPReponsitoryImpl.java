@@ -21,7 +21,7 @@ public class DongSPReponsitoryImpl implements IDongSPReponsitory {
 
     private Session sesion = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromtable = "from dong_sp";
+    private String fromtable = "from DongSP";
 
     @Override
     public List<DongSp> findAll() {

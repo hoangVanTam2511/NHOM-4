@@ -5,59 +5,37 @@
 package reponces;
 
 import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author Admin
  */
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlSanPham {
 
-    private UUID id;
-    private String ma;
-    private String ten;
+   private UUID id;
+   
+   private int delected;
+   
+   private String soImei;
+   
+   private String ten;
 
-    public QlSanPham(UUID id, String ma, String ten) {
-        this.id = id;
-        this.ma = ma;
+    public QlSanPham(String soImei, String ten) {
+        this.soImei = soImei;
         this.ten = ten;
     }
-
-    public QlSanPham() {
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getMa() {
-        return ma;
-    }
-
-    public void setMa(String ma) {
-        this.ma = ma;
-    }
-
-    public String getTen() {
-        return ten;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    public Object getData(){
-        return new Object[]{
-            this.ma,this.ten
-        };
-    }
-
-    @Override
-    public String toString() {
-        return "QlSanPham{" + "id=" + id + ", ma=" + ma + ", ten=" + ten + '}';
-    }
-    
+   
+    public Object getData() {
+      return new Object[]{
+        this.id,this.soImei,this.ten  
+      };
+    } 
 }

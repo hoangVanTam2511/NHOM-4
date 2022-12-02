@@ -26,19 +26,23 @@ import lombok.Setter;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CauHinh")
+@Table(name = "cau_hinh")
 public class CauHinh extends PrimaryEntity {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRam")
+    @JoinColumn(name = "id_ram")
     private Ram idRam;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRom")
+    @JoinColumn(name = "id_rom")
     private Rom idRom;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "idManHinh",referencedColumnName = "id")
+    @JoinColumn(name = "id_man_hinh", referencedColumnName = "id")
     private ManHinh idManHinh;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_chip", referencedColumnName = "id")
+    private Chip idChip;
 
 }
