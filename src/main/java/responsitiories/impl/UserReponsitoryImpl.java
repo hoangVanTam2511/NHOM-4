@@ -149,4 +149,24 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         }
        return null;
     }
+    
+     public String checkSoDienthoaiAnhMaNhanVien(String sdt, String cccd) {
+        String pass = "";
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "SELECT a.matKhau FROM User a WHERE a.sdt =  :sdt AND a.cccd = :cccd ";
+            Query query = session.createQuery(hql);
+            query.setParameter("sdt", sdt);
+            query.setParameter("cccd", cccd);
+            pass = (String) query.getSingleResult();
+            return pass;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+       return null;
+    }
+     
+     public static void main(String[] args) {
+         System.out.println(new UserReponsitoryImpl().checkSoDienthoaiAnhMaNhanVien("032623507", "345678923"));
+    }
 }

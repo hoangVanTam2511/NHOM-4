@@ -36,8 +36,8 @@ public class ChiTietKhuyenMaiId implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.idChiTietSanPham);
-        hash = 97 * hash + Objects.hashCode(this.idKhuyenMai);
+        hash = 71 * hash + Objects.hashCode(this.idChiTietSanPham);
+        hash = 71 * hash + Objects.hashCode(this.idKhuyenMai);
         return hash;
     }
 
@@ -59,5 +59,6 @@ public class ChiTietKhuyenMaiId implements Serializable {
         return Objects.equals(this.idKhuyenMai, other.idKhuyenMai);
     }
 
+   
    
 }

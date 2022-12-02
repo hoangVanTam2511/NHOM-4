@@ -57,8 +57,8 @@ public class HoaDonServiceImpl implements IHoaDonService {
         });
         return listQlHoaDon;
     }
-    
-     public List<QlHoaDon> findAllByNameOrMa(String text) {
+
+    public List<QlHoaDon> findAllByNameOrMa(String text) {
         listQlHoaDon.clear();
         this.hoaDonReponsitory.findAllByName(text).forEach(hoaDon -> {
             listQlHoaDon.add(FormUtil.convertFromHoaDonToQlHoaDon(hoaDon));
@@ -123,7 +123,24 @@ public class HoaDonServiceImpl implements IHoaDonService {
         return new QlHoaDon(ma, date, 1, user, khachHang);
     }
 
+    public Double getTongDoanhThu(int month, int year) {
+        return this.hoaDonReponsitory.getDoanhThu(month,year);
+    }
+
+    public Long getSoHoaDonDaTao(int month, int year) {
+        return this.hoaDonReponsitory.getSoHoaDonDaTao(month,year);
+    }
+
+    public Long getSoHoaDonDaHuy(int month, int year) {
+        return this.hoaDonReponsitory.getSoHoaDonDaHuy(month,year);
+    }
+    
+    public Long getSoKhachHang(){
+        return this.hoaDonReponsitory.getSoKhachHang();
+    }
+
     public static void main(String[] args) {
+        System.out.println("Toorng doanh thu la :" + new HoaDonServiceImpl().genMaTuDong());
     }
 
 }

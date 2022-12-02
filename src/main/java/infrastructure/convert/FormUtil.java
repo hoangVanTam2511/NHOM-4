@@ -17,6 +17,8 @@ import domainmodels.NSX;
 import domainmodels.Ram;
 import domainmodels.Rom;
 import domainmodels.Anh;
+import domainmodels.ChiTietKhuyenMai;
+import domainmodels.HinhThucThanhToan;
 import domainmodels.KhuyenMai;
 import domainmodels.PhieuBaoHanh;
 import domainmodels.User;
@@ -43,6 +45,8 @@ import org.modelmapper.ModelMapper;
 import reponces.QLRam;
 import reponces.QlAnh;
 import reponces.QlCauHinh;
+import reponces.QlChiTietKhuyenMai;
+import reponces.QlHinhThucThanhToan;
 import reponces.QlKhuyenMai;
 import reponces.QlManHinh;
 import reponces.QlPhieuBaoHanh;
@@ -258,8 +262,7 @@ public class FormUtil {
         MauSac mauSac = mapper.map(qlMauSac, MauSac.class);
         return mauSac;
     }
-    
-    
+
     public static QlAnh convertQlAnhToAnh(Anh anh) {
         ModelMapper mapper = new ModelMapper();
         QlAnh qlAnh = mapper.map(anh, QlAnh.class);
@@ -271,31 +274,59 @@ public class FormUtil {
         Anh anh = mapper.map(qlAnh, Anh.class);
         return anh;
     }
+
     public static QlKhuyenMai convertQlKhuyenMaiToKhuyenMai(KhuyenMai khuyenMai) {
         ModelMapper mapper = new ModelMapper();
         QlKhuyenMai qlKhuyenMai = mapper.map(khuyenMai, QlKhuyenMai.class);
         return qlKhuyenMai;
     }
+
     public static KhuyenMai convertKhuyenMaiToQlKhuyenMai(QlKhuyenMai qlKhuyenMai) {
         ModelMapper mapper = new ModelMapper();
         KhuyenMai khuyenMai = mapper.map(qlKhuyenMai, KhuyenMai.class);
         return khuyenMai;
     }
+
     public static QlPhieuBaoHanh convertQlPhieuBaoHanhToBaoHanh(PhieuBaoHanh phieuBaoHanh) {
         ModelMapper mapper = new ModelMapper();
         QlPhieuBaoHanh qlPhieuBaoHanh = mapper.map(phieuBaoHanh, QlPhieuBaoHanh.class);
         return qlPhieuBaoHanh;
     }
+
     public static PhieuBaoHanh convertPhieuBaoHanhToQlPhieuBaoHanh(QlPhieuBaoHanh qlPhieuBaoHanh) {
         ModelMapper mapper = new ModelMapper();
         PhieuBaoHanh phieuBaoHanh = mapper.map(qlPhieuBaoHanh, PhieuBaoHanh.class);
         return phieuBaoHanh;
     }
 
-    public static String convertNumber(double i){
+    public static String convertNumber(double i) {
         NumberFormat currentLocale = NumberFormat.getInstance();
         String str = currentLocale.format(i);
         return str;
     }
-   
+
+    public static QlChiTietKhuyenMai convertChiTietKhuyenMaiToQlChiTietKhuyenMai(ChiTietKhuyenMai ctkm) {
+        ModelMapper mapper = new ModelMapper();
+        QlChiTietKhuyenMai qlChiTietKhuyenMai = mapper.map(ctkm, QlChiTietKhuyenMai.class);
+        return qlChiTietKhuyenMai;
+    }
+
+    public static ChiTietKhuyenMai convertQlChiTietKhuyenMaiToChiTietKhuyenMai(QlChiTietKhuyenMai ctkm) {
+        ModelMapper mapper = new ModelMapper();
+        ChiTietKhuyenMai qlChiTietKhuyenMai = mapper.map(ctkm, ChiTietKhuyenMai.class);
+        return qlChiTietKhuyenMai;
+    }
+
+    public static HinhThucThanhToan covertHinhThucThanhToanToQlHinhThucThanhToan(QlHinhThucThanhToan hinhThucThanhToan) {
+        ModelMapper mapper = new ModelMapper();
+        HinhThucThanhToan hinhThucThanhToan1 = mapper.map(hinhThucThanhToan, HinhThucThanhToan.class);
+        return hinhThucThanhToan1;
+    }
+
+    public static QlHinhThucThanhToan covertQlHinhThucThanhToanToHinhThucThanhToan(HinhThucThanhToan hinhThucThanhToan) {
+        ModelMapper mapper = new ModelMapper();
+        QlHinhThucThanhToan hinhThucThanhToan1 = mapper.map(hinhThucThanhToan, QlHinhThucThanhToan.class);
+        return hinhThucThanhToan1;
+    }
+
 }

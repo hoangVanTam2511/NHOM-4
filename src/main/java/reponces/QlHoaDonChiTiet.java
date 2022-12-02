@@ -49,6 +49,7 @@ public class QlHoaDonChiTiet {
         };
     }
 
+     
     @Override
     public String toString() {
         return "QlHoaDonChiTiet{" + "idHoaDon=" + idHoaDon + ", idChiTietSanPham=" + idChiTietSanPham + ", donGia=" + donGia + ", soLuong=" + soLuong + '}';

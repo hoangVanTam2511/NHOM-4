@@ -102,6 +102,19 @@ public class PhieuBaoHanhRepositoryImpl implements IReponsitory<PhieuBaoHanh> {
         return listTen;
     }
     
+     public ArrayList<String> getListmaPBH(){
+        ArrayList<String> listTen = new ArrayList<>();// Lấy tên của tất cả các gói bảo hành có sẵen cho từng nhóm 
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            Transaction trans = session.getTransaction();
+            String hql = "SELECT c.maPhieuBaoHanh  FROM PhieuBaoHanh c ORDER BY  c.maPhieuBaoHanh  ASC";
+            Query query = session.createQuery(hql);
+            listTen  = (ArrayList<String>) query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return listTen;
+    }
+    
     public String getMaPhieuBaoHanh(String txt){
         String maPhieuBaoHanh  = "";
         try(Session session = HibernateUtil.getSessionFactory().openSession()){

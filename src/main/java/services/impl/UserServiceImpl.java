@@ -100,5 +100,9 @@ public class UserServiceImpl {
             return qlUser;
         }
     }
+    
+    public String getPass(String sdt,String cccd){
+        return this.userReponsitoryImpl.checkSoDienthoaiAnhMaNhanVien(sdt, cccd);
+    }
 
 }
