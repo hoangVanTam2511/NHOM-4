@@ -182,6 +182,11 @@ public class ViewNhanVien extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableNhanVienMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableNhanVien);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -357,6 +362,24 @@ public class ViewNhanVien extends javax.swing.JFrame {
             return;
         }
     }//GEN-LAST:event_btnthemActionPerformed
+
+    private void tableNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableNhanVienMouseClicked
+        // TODO add your handling code here:
+        int row = tableNhanVien.getSelectedRow();
+        txthoten.setText(tableNhanVien.getValueAt(row,2).toString());
+        txtmanv.setText(tableNhanVien.getValueAt(row,1).toString());
+        txtdiachi.setText(tableNhanVien.getValueAt(row,3).toString());
+        txtsdt.setText(tableNhanVien.getValueAt(row,4).toString());
+        txtcccd.setText(tableNhanVien.getValueAt(row,6).toString());
+        txtmatkhau.setText(tableNhanVien.getValueAt(row,8).toString());
+        int gioitinh = 0;
+        if(gioitinh==1){
+            rdnu.isSelected();
+        }else{
+            rdnam.isSelected();
+        }
+        
+    }//GEN-LAST:event_tableNhanVienMouseClicked
 
     /**
      * @param args the command line arguments
