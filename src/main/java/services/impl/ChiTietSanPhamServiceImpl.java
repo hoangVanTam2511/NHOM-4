@@ -31,7 +31,7 @@ public class ChiTietSanPhamServiceImpl implements IChiTietSPService {
     @Override
     public List<ChiTietSanPham> getAllData() {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String queryCheck = "From ChiTietSP";
+            String queryCheck = "From ChiTietSanPham";
             Query<ChiTietSanPham> query = session.createQuery(queryCheck);
             return query.getResultList();
         }
@@ -117,7 +117,7 @@ public class ChiTietSanPhamServiceImpl implements IChiTietSPService {
     @Override
     public SubMessTypeOpt.TypeStatus deleteChiTietSP(String code) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String queryStr = "From ChiTietSP item where item.ma = :opt";
+            String queryStr = "From ChiTietSanPham item where item.ma = :opt";
             Query<ChiTietSanPham> query = session.createQuery(queryStr);
             query.setParameter("opt", code);
             if (query.getResultList().size() == 0) {

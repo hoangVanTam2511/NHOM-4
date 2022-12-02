@@ -62,8 +62,8 @@ public class ViewSanPham extends javax.swing.JFrame {
         maume3.setBackground(Color.PINK);
         service = new DongSpServiceImpl();
         dcbm = new DefaultComboBoxModel();
-        fillCbb();
-        fillAllData();
+//        fillCbb();
+//        fillAllData();
     }
 
     private void fillCbb() {
