@@ -36,19 +36,23 @@ public class QlUser {
     
     private String cccd;
     
+    private int gioiTinh;
+    
     private int trangThai;
     
     private String anh;
     
     private String matKhau;
     
-    private ChucVu idChucVu;
+//    private ChucVu idChucVu;
 
     public Object getData(int stt) {
         return new Object[]{
-           stt,this.ma,this.ten ,this.diaChi
+           stt,this.ma,this.ten ,this.diaChi,this.sdt,this.gioiTinh,this.cccd,this.trangThai,this.matKhau
         };
     }
 //    
+
+   
    
 }

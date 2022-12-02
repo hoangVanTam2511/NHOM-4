@@ -4,17 +4,43 @@
  */
 package views;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import reponces.QLRam;
+import reponces.QlKhachHang;
+import reponces.QlUser;
+import services.impl.RamServiceImpl;
+import services.impl.UserServiceImpl;
+
 /**
  *
  * @author TranCongHieu
  */
 public class ViewNhanVien extends javax.swing.JFrame {
 
+    DefaultTableModel tableModel;
+    UserServiceImpl userServiceImpl;
+
     /**
      * Creates new form ViewNhanVien
      */
     public ViewNhanVien() {
         initComponents();
+
+        this.setLocationRelativeTo(null);
+        this.tableModel = (DefaultTableModel) tableNhanVien.getModel();
+        this.userServiceImpl = new UserServiceImpl();
+        String title[] = {"STT", "Mã NV","Họ Tên","Địa chỉ","SDT","Giới tính","CCCD","Trạng thái","Mật khẩu","Chức vụ"};
+        this.tableModel.setColumnIdentifiers(title);
+        loadDataOnTable();
+    }
+    private void loadDataOnTable() {
+        this.tableModel.setRowCount(0);
+//        for (QLRam qlRam : this.ramServiceImpl.findAll()) {
+//            tableModel.addRow((Object[]) qlRam.getData());
+          for (QlUser qluser : this.userServiceImpl.findAll()) {
+            tableModel.addRow((Object[]) qluser.getData(WIDTH));
+        }
     }
 
     /**
@@ -60,13 +86,18 @@ public class ViewNhanVien extends javax.swing.JFrame {
         btnxoa = new javax.swing.JButton();
         btnthoat = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableNhanVien = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnthem.setIcon(new javax.swing.ImageIcon("C:\\Users\\TranCongHieu\\Documents\\DUAN1\\src\\main\\java\\images\\Save.png")); // NOI18N
         btnthem.setText("Thêm");
         btnthem.setToolTipText("");
+        btnthem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthemActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -123,6 +154,11 @@ public class ViewNhanVien extends javax.swing.JFrame {
 
         btnmoi.setIcon(new javax.swing.ImageIcon("C:\\Users\\TranCongHieu\\Documents\\DUAN1\\src\\main\\java\\images\\Add.png")); // NOI18N
         btnmoi.setText("Mới");
+        btnmoi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmoiActionPerformed(evt);
+            }
+        });
 
         btnxoa.setIcon(new javax.swing.ImageIcon("C:\\Users\\TranCongHieu\\Documents\\DUAN1\\src\\main\\java\\images\\Delete.png")); // NOI18N
         btnxoa.setText("Xóa");
@@ -135,7 +171,7 @@ public class ViewNhanVien extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -146,7 +182,7 @@ public class ViewNhanVien extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableNhanVien);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -285,6 +321,43 @@ public class ViewNhanVien extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnthoatActionPerformed
 
+    private void btnmoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmoiActionPerformed
+        // TODO add your handling code here:
+        txttimkiemten.setText(null);
+        txthoten.setText(null);
+        txtsdt.setText(null);
+        txtdiachi.setText(null);
+        txtmatkhau.setText(null);
+        txtmanv.setText(null);
+        txtcccd.setText(null);
+        buttonGroup1.clearSelection();
+        buttonGroup2.clearSelection();
+        buttonGroup3.clearSelection();
+    }//GEN-LAST:event_btnmoiActionPerformed
+
+    private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
+        // TODO add your handling code here:
+        String ten = txthoten.getText().trim();
+        String manv=txtmanv.getText().trim();
+        String diaChi = txtdiachi.getText().trim();
+        String sdt = txtsdt.getText().trim();
+        String matkhau = txtmatkhau.getText().trim();
+        String cccd = txtcccd.getText().trim();
+        
+        
+        //validate
+        String check = this.userServiceImpl.validate(manv, ten, diaChi, diaChi, sdt, matkhau);
+        if (check == "") {
+            QlUser qluser = new QlUser(manv, ten, diaChi, sdt, cccd, WIDTH, WIDTH, manv, matkhau);
+            String text = this.userServiceImpl.save(qluser);
+            JOptionPane.showMessageDialog(rootPane, text);
+            
+        } else {
+            JOptionPane.showMessageDialog(rootPane, check);
+            return;
+        }
+    }//GEN-LAST:event_btnthemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,13 +415,13 @@ public class ViewNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JRadioButton rdchucuahang;
     private javax.swing.JRadioButton rdhoatdong;
     private javax.swing.JRadioButton rdkhonghoatdong;
     private javax.swing.JRadioButton rdnam;
     private javax.swing.JRadioButton rdnhanvien;
     private javax.swing.JRadioButton rdnu;
+    private javax.swing.JTable tableNhanVien;
     private javax.swing.JTextField txtcccd;
     private javax.swing.JTextField txtdiachi;
     private javax.swing.JTextField txthoten;
