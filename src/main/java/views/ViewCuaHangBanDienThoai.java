@@ -2814,11 +2814,11 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     private void btnKhachHangThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKhachHangThemActionPerformed
         String tenKhachHang = this.txtKhachHangTenKhachHang.getText();
         String diaChi = this.txtKhachHangDiaChi.getText();
-        String sdt = this.txtKhachHangDiaChi.getText();
+        String sdt = this.txtKhachHangSoDienThoai.getText();
         String maKhachHang = this.txtKhachHangMaKhachHang.getText();
         QlKhachHang qlKhachHang = new QlKhachHang(1, maKhachHang, tenKhachHang, diaChi, sdt, sdt);
         String validate = this.khachHangServiceImpl.validate(tenKhachHang, diaChi, sdt);
-        if (validate == "") {
+        if (validate == null) {
             JOptionPane.showMessageDialog(this, validate);
         } else {
             String text = this.khachHangServiceImpl.save(qlKhachHang);

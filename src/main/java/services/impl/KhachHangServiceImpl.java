@@ -77,7 +77,7 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
         } else if (diaChi.matches("\\d+")) {
             return "Bạn phải nhập địa chỉ là chữ ";
         } else {
-            return "";
+            return null;
         }
     }
 
