@@ -36,16 +36,20 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         return listNhanVien;
     }
 
-     public List<User> findAllByNV() {
-        List<User> listNhanVien = new ArrayList<>();
+     public List<User> findAllByNV(String name) {
+        List<User> users = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            Query query = session.createQuery("SELECT n FROM User n WHERE  n.idChucVu.ma = 'NV'");
-            listNhanVien = query.getResultList();
+            String hql = "SELECT n FROM User n  "
+                    
+                    + "WHERE n.ten like CONCAT('%',:ten,'%') ";
+            TypedQuery query = session.createQuery(hql, User.class);
+            query.setParameter("ten", name);
+            users = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return listNhanVien;
+        return users;
     }
     
     @Override
@@ -149,4 +153,16 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         }
        return null;
     }
+    public List<String> getMa(){
+        List<String> mas = new ArrayList<>();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            String hql = "select ma FROM User ORDER BY ma";
+            TypedQuery query = session.createQuery(hql);
+            return query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return mas;
+    }
+    
 }

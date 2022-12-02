@@ -39,9 +39,9 @@ public class UserServiceImpl {
         return qlNhanViens;
     }
     
-     public List<QlUser> findAllByMaNv() {
+     public List<QlUser> findAllByNv(String name) {
         List<QlUser> qlNhanViens = new ArrayList<>();
-        this.userReponsitoryImpl.findAllByNV().forEach(nv -> {
+        this.userReponsitoryImpl.findAllByNV(name).forEach(nv -> {
             qlNhanViens.add(FormUtil.convertFromNhanVienToQlNhanVien(nv));
         });
         return qlNhanViens;
@@ -69,27 +69,21 @@ public class UserServiceImpl {
 
     }
 
-    public String validate(String ma, String hoVaTen, String ngaySinh, String diaChi, String sdt, String matKhau) {
-        if (ma.isBlank() || hoVaTen.isBlank() || ngaySinh.isBlank() || diaChi.isBlank()) {
-            return "Bạn phải nhập đủ các trường dữ liệu";
-        }
-        if (!matKhau.matches("\\w{8}")) {
-            return "mật khẩu phải đủ 8 ký tự";
-        }
-        if (!sdt.matches("0+\\d{9}")) {
-            return " Số điện thoại phải đủ 10 số và số 0 phải ở đầu";
-        }
-
-        String ngaySinhs[] = ngaySinh.split("-");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("/");
-        Date date = new Date();
-        String day = simpleDateFormat.format(date);
-        String days[] = ngaySinh.split("/");
-        if ((Integer.parseInt(days[2]) - Integer.parseInt(ngaySinhs[2])) < 18) {
-            return "Tuổi phải lớn hơn 18";
-        }
-        return "";
-    }
+//    public String validate(String ma, String hoVaTen, String diaChi, String sdt, String matKhau) {
+//        if (ma.isBlank() || hoVaTen.isBlank() || diaChi.isBlank()) {
+//            return "Bạn phải nhập đủ các trường dữ liệu";
+//        }
+////        if (!matKhau.matches("\\w{8}")) {
+////            return "mật khẩu phải đủ 8 ký tự";
+////        }
+////        if (!sdt.matches("0+\\d{9}")) {
+////            return " Số điện thoại phải đủ 10 số và số 0 phải ở đầu";
+////        }
+//
+//        
+//        return null;
+//    }
+    
 
     public QlUser checkSdtAndPass(String sdt, String pass) {
         User user = this.userReponsitoryImpl.checkSoDienthoaiAnhPass(sdt, pass);
@@ -98,6 +92,16 @@ public class UserServiceImpl {
         } else {
             QlUser qlUser = FormUtil.convertFromNhanVienToQlNhanVien(user);
             return qlUser;
+        }
+    }
+    public String genMaTuDong() {
+        List<String> mas = userReponsitoryImpl.getMa();
+        if(mas.size() != 0){
+        String maCuoiCung = mas.get(mas.size() - 1);
+        Integer soMa = Integer.parseInt(maCuoiCung.substring(2));
+        return "NV" + (soMa + 1);
+        }else{
+            return "NV1";
         }
     }
 
