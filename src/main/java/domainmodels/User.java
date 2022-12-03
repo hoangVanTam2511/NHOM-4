@@ -50,7 +50,7 @@ public class User extends PrimaryEntity implements IsIdentified, Serializable {
     private String cccd;
     
     @Column(name = "gioi_tinh")
-    private boolean gioi_tinh;
+    private boolean gioiTinh;
 
     @Column(name = "trang_thai")
     private int trangThai;

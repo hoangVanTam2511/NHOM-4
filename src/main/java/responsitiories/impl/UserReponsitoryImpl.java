@@ -36,7 +36,7 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         return listNhanVien;
     }
 
-     public List<User> findAllByNV() {
+    public List<User> findAllByNV() {
         List<User> listNhanVien = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
@@ -47,7 +47,7 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         }
         return listNhanVien;
     }
-    
+
     @Override
     public User findOneByMa(String ma) {
         List<User> nhanViens = new ArrayList<>();
@@ -147,10 +147,10 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       return null;
+        return null;
     }
-    
-     public String checkSoDienthoaiAnhMaNhanVien(String sdt, String cccd) {
+
+    public String checkSoDienthoaiAnhMaNhanVien(String sdt, String cccd) {
         String pass = "";
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
@@ -163,10 +163,27 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       return null;
+        return null;
     }
-     
-     public static void main(String[] args) {
-         System.out.println(new UserReponsitoryImpl().checkSoDienthoaiAnhMaNhanVien("032623507", "345678923"));
+
+    public static void main(String[] args) {
+        System.out.println(new UserReponsitoryImpl().findAll());
+    }
+
+    public List<User> findAllByName(String name) {
+        List<User> nhanViens = new ArrayList<>();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "FROM User b where  b.ten like CONCAT('%',:ten,'%')";
+            Query query = session.createQuery(hql);
+            query.setParameter("ten", name);
+            nhanViens = query.getResultList();
+            if (nhanViens.size() == 0) {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nhanViens;
     }
 }
