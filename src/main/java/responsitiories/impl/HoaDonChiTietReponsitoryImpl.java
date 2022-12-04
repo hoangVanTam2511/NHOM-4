@@ -6,11 +6,16 @@ package responsitiories.impl;
 
 import responsitiories.IReponsitory;
 import domainmodels.HoaDonChiTiet;
+import infrastructure.convert.FormUtil;
 import responsitiories.IHoaDonChiTietReponsitory;
 import ultilities.HibernateUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
+import infrastructure.responce.QlThongKeResponce;
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import javax.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -151,10 +156,10 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlHoaDonChiTietReponce> listQlHoaDonChiTiets = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new "
-                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ma,"
+                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,"
                     + "p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
                     + "WHERE  p.HoaDonChiTietId.idHoaDon.ma = :ma "
-                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ma,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
+                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
             Query query = session.createQuery(hql, QlHoaDonChiTietReponce.class);
             query.setParameter("ma", ma);
             listQlHoaDonChiTiets = query.getResultList();
@@ -162,8 +167,42 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         return listQlHoaDonChiTiets;
     }
 
-    public static void main(String[] args) {
-        System.out.println(new HoaDonChiTietReponsitoryImpl().findOneByMaSanPhamAndMaHoaDon("HD01", "SP01"));
-      
+    public double tinhTongTienBanDau(String maHoaDon) {
+        double tongTien = 0;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT SUM(p.HoaDonChiTietId.idChiTietSanPham.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", maHoaDon);
+            if (query.getSingleResult() == null) {
+                tongTien = 0;
+            } else {
+                tongTien = (double) query.getSingleResult();
+            }
+
+        }
+        return tongTien;
     }
+    
+    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(int month,int year){
+        List<QlThongKeResponce> qlThongKeResponces = new ArrayList<>();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT new infrastructure.responce.QlThongKeResponce( "
+                    + " p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,"
+                    + "SUM(p.soLuong) as so_luong_theo_thang,p.donGia,"
+                    + "SUM(p.tongTien) as tong_tien_theo_thang ) "
+                    + "FROM HoaDonChiTiet p "
+                    + "WHERE MONTH(p.HoaDonChiTietId.idHoaDon.created) = :month AND  YEAR(p.HoaDonChiTietId.idHoaDon.created) = :year "
+                    + " GROUP BY p.donGia,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten";
+            Query query = session.createQuery(hql);
+            query.setParameter("month", month);
+            query.setParameter("year", year);
+            qlThongKeResponces  = query.getResultList();
+        }
+        return qlThongKeResponces;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new HoaDonChiTietReponsitoryImpl().getSanPhamThongKeTheoThang(11, 2022));       
+    }
+
 }

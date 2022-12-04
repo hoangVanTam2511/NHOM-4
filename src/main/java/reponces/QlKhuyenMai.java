@@ -5,7 +5,10 @@
 package reponces;
 
 import java.util.Date;
+import java.util.UUID;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -16,51 +19,27 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlKhuyenMai {
+    private UUID id;
+    private int delected;
+    private double mucGiamGiaPhanTram;
+    private double mucGiamGiaTienMat;
+    private String maKhuyenMai;
     private String ten;
-    private int mucKhuyenMai;
+    private String moTa;
     private Date ngayBatDau;
     private Date ngayKetThuc;
 
-    public QlKhuyenMai() {
-    }
-
-    public QlKhuyenMai(String ten, int mucKhuyenMai, Date ngayBatDau, Date ngayKetThuc) {
+    public QlKhuyenMai(int delected, double mucGiamGiaPhanTram, double mucGiamGiaTienMat,String maKhuyenMai, String ten, String moTa, Date ngayBatDau, Date ngayKetThuc) {
+        this.delected = delected;
+        this.mucGiamGiaPhanTram = mucGiamGiaPhanTram;
+        this.mucGiamGiaTienMat = mucGiamGiaTienMat;
+        this.maKhuyenMai = maKhuyenMai;
         this.ten = ten;
-        this.mucKhuyenMai = mucKhuyenMai;
+        this.moTa = moTa;
         this.ngayBatDau = ngayBatDau;
-        this.ngayKetThuc = ngayKetThuc;
-    }
-
-    public String getTen() {
-        return ten;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    public int getMucKhuyenMai() {
-        return mucKhuyenMai;
-    }
-
-    public void setMucKhuyenMai(int mucKhuyenMai) {
-        this.mucKhuyenMai = mucKhuyenMai;
-    }
-
-    public Date getNgayBatDau() {
-        return ngayBatDau;
-    }
-
-    public void setNgayBatDau(Date ngayBatDau) {
-        this.ngayBatDau = ngayBatDau;
-    }
-
-    public Date getNgayKetThuc() {
-        return ngayKetThuc;
-    }
-
-    public void setNgayKetThuc(Date ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
     }
     

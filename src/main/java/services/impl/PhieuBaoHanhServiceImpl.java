@@ -8,6 +8,7 @@ import domainmodels.PhieuBaoHanh;
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import reponces.QlPhieuBaoHanh;
 import responsitiories.impl.PhieuBaoHanhRepositoryImpl;
 import services.IService;
@@ -59,4 +60,37 @@ public class PhieuBaoHanhServiceImpl implements IService<QlPhieuBaoHanh> {
         return this.phieuBaoHanhRepositoryImpl.update(phieuBaoHanh) == true ? "Sửa thành công" : "Sửa thất bại";
     }
 
+    public ArrayList<String> getListTenGoiBaoHanh() {
+        return this.phieuBaoHanhRepositoryImpl.getListTenAnh();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new PhieuBaoHanhServiceImpl().findAll());
+    }
+
+     public String genMaTuDong() {
+        List<String> listMa  = this.phieuBaoHanhRepositoryImpl.getListmaPBH();
+        if (listMa.size() == 0) {
+            return "BH00";
+        }
+        String maHoaDonHienTai = listMa.get(listMa.size() - 1);
+        int index = Integer.parseInt(maHoaDonHienTai.substring(3));
+        index++;
+        String ma = "BH";
+        if (index > 1 && index < 10) {
+            ma += "0" + index;
+        } else {
+            ma += index;
+        }
+        return ma;
+    }
+     
+    public String validate(QlPhieuBaoHanh qlPhieuBaoHanh) {
+        if (qlPhieuBaoHanh.getTenPhieuBaoHanh().isBlank() || qlPhieuBaoHanh.getMaPhieuBaoHanh().isBlank() || qlPhieuBaoHanh.getMoTa().isBlank()) {
+            return "Bạn phải nhâp đủ tất cả các ô trên bảng";
+        }  else if (!this.phieuBaoHanhRepositoryImpl.getMaPhieuBaoHanh(qlPhieuBaoHanh.getMaPhieuBaoHanh()).equalsIgnoreCase("")) {
+            return "Mã gói bảo hành đã tồn tại";
+        }
+        return "";
+    }
 }

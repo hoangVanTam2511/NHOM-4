@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.TypedQuery;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 /**
@@ -34,8 +36,8 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         }
         return chiTietSanPhams;
     }
-    
-     public ChiTietSanPham findOneByImei(String imei) {
+
+    public ChiTietSanPham findOneByImei(String imei) {
         ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
@@ -106,7 +108,7 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
 
     @Override
     public boolean delete(ChiTietSanPham t) {
-           try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
             Transaction trans = session.getTransaction();
             trans.begin();
@@ -122,7 +124,29 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         }
     }
 
+    public boolean setDeleted() {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction trans = session.getTransaction();
+            trans.begin();
+            try {
+                String hql = "UPDATE chi_tietsp SET delected = 1 ";
+                NativeQuery query = session.createNativeQuery(hql);
+                System.out.println(hql);
+                trans.commit();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                trans.rollback();
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
-        System.out.println(new ChiTietSanPhamReponsitoryImpl().findAll());
+       boolean check =  new ChiTietSanPhamReponsitoryImpl().setDeleted();
+        System.out.println(check);
     }
 }

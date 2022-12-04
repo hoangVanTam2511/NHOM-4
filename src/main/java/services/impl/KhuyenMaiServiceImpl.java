@@ -61,6 +61,37 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
         KhuyenMai khuyenMai = FormUtil.convertKhuyenMaiToQlKhuyenMai(t);
         return this.khuyenMaiRepositoryImpl.update(khuyenMai) == true ? "Sửa thành công" : "Sửa thất bại";
     }
+
+    public String genMaTuDong() {
+        List<String> listMa = this.khuyenMaiRepositoryImpl.getMaKhuyenMai();
+        if (listMa.size() == 0) {
+            return "KM00";
+        }
+        String maHoaDonHienTai = listMa.get(listMa.size() - 1);
+        int index = Integer.parseInt(maHoaDonHienTai.substring(2));
+        index++;
+        String ma = "KM";
+        if (index > 1 && index < 10) {
+            ma += "0" + index;
+        } else {
+            ma += index;
+        }
+        return ma;
+    }
+
+    public String validate(QlKhuyenMai qlKhuyenMai) {
+        if (qlKhuyenMai.getMaKhuyenMai().isBlank() || qlKhuyenMai.getTen().isBlank()) {
+            return "Bạn phải nhập đủ số trường dữ liệu ";
+        } else if (qlKhuyenMai.getMucGiamGiaPhanTram() > 100 || qlKhuyenMai.getMucGiamGiaPhanTram() < 0) {
+            return "Mức giảm giá phải từ 0 -> 100";
+        } else if (qlKhuyenMai.getMucGiamGiaTienMat() < 0) {
+            return "Mức giá phải là số dương";
+        } else if (qlKhuyenMai.getNgayBatDau().after(qlKhuyenMai.getNgayKetThuc()) == true) {
+            return "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
+        }
+        return "";
+    }
+    
     
 
 }

@@ -58,6 +58,6 @@ public class ChucVuServiceImpl implements IService<QlChucVu>{
     }
     
     public static void main(String[] args) {
-        System.out.println(new ChucVuServiceImpl().findAll());
+        System.out.println(new ChucVuServiceImpl().findOne("TP"));
     }
 }

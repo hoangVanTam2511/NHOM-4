@@ -21,9 +21,8 @@ import org.hibernate.query.Query;
  *
  * @author Admin
  */
-public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
+public class HoaDonReponsitoryImpl implements IHoaDonReponsitory {
 
-   
     @Override
     public List<HoaDon> findAll(int status) {
         List<HoaDon> listHoaDons = new ArrayList<>();
@@ -37,8 +36,8 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
         }
         return listHoaDons;
     }
-    
-     @Override
+
+    @Override
     public List<HoaDon> findAll() {
         List<HoaDon> listHoaDons = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -51,6 +50,20 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
         return listHoaDons;
     }
 
+    public List<HoaDon> findAllByName(String text) {
+        List<HoaDon> listHoaDons = new ArrayList<>();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT c FROM HoaDon c WHERE c.idKhachHang.ten LIKE CONCAT('%',:ten,'%') OR c.idKhachHang.ma LIKE CONCAT('%',:ten,'%') ORDER BY c.ma ASC";
+            TypedQuery typedQuery = session.createQuery(hql, HoaDon.class);
+            typedQuery.setParameter("ten", text);
+            listHoaDons = typedQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listHoaDons;
+    }
+    
+
     @Override
     public HoaDon findOneByMa(String ma) {
         HoaDon hoaDon = new HoaDon();
@@ -58,14 +71,19 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
             String hql = "SELECT c FROM HoaDon c WHERE c.ma = :id";
             Query query = session.createQuery(hql, HoaDon.class);
             query.setParameter("id", ma);
-            hoaDon = (HoaDon) query.getSingleResult();
+            try {
+                hoaDon = (HoaDon) query.getSingleResult();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return hoaDon;
     }
 
-     @Override
+    @Override
     public HoaDon findOneByID(UUID id) {
         HoaDon hoaDon = new HoaDon();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -78,7 +96,7 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
         }
         return hoaDon;
     }
-    
+
     @Override
     public boolean save(HoaDon t) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -119,8 +137,61 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
         }
         return true;
     }
-    
-    
+
+    public Double getDoanhThu(int month, int year) {
+        Double doanhThu = 0.0;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT SUM(c.thanhToan) FROM HoaDon c WHERE MONTH(c.created) = :month AND YEAR(c.created) = :year GROUP BY MONTH(c.created),YEAR(c.created) ";
+            Query query = session.createQuery(hql);
+            query.setParameter("month", month);
+            query.setParameter("year", year);
+            doanhThu = (Double) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return doanhThu;
+    }
+
+    public Long getSoHoaDonDaTao(int month, int year) {
+        Long soHoaDon = 0L;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT COUNT(c.id) FROM HoaDon c  WHERE MONTH(c.created) = :month AND YEAR(c.created) = :year GROUP BY MONTH(c.created),YEAR(c.created) ";
+            Query query = session.createQuery(hql);
+            query.setParameter("month", month);
+            query.setParameter("year", year);
+            soHoaDon = (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return soHoaDon;
+    }
+
+    public Long getSoHoaDonDaHuy(int month, int year) {
+        Long soHoaDon = 0L;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT COUNT(c.id) FROM HoaDon c WHERE c.tinhTrang = 3  AND MONTH(c.created) = :month AND YEAR(c.created) = :year GROUP BY MONTH(c.created),YEAR(c.created) ";
+            Query query = session.createQuery(hql);
+            query.setParameter("month", month);
+            query.setParameter("year", year);
+            soHoaDon = (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return soHoaDon;
+    }
+
+    public Long getSoKhachHang() {
+        Long soHoaDon = 0L;
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT COUNT(c.id) FROM KhachHang c ";
+            Query query = session.createQuery(hql);
+            soHoaDon = (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return soHoaDon;
+    }
+
 //    public int getTuoiHienTai(Date date){
 //        int tuoi = 0;
 //        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -130,4 +201,7 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory{
 //        }
 //        return true;
 //    }
+    public static void main(String[] args) {
+        System.out.println("Doanh thu của quán là : " + new HoaDonReponsitoryImpl().findOneByMa("HD00"));
+    }
 }

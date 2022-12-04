@@ -32,22 +32,16 @@ import lombok.ToString;
 
 public class PhieuBaoHanh extends PrimaryEntity {
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_hoa_don")
-    private HoaDon idHoaDon;
-
+    @Column(name = "ma")
+    private String maPhieuBaoHanh;
+    
+    @Column(name = "ten")
+    private String tenPhieuBaoHanh;
+    
+    @Column(name = "thoiGianBaoHanh")
+    private int thoiGianBaoHanh;
+    
     @Column(name = "mo_ta",nullable = true)
     private String moTa;
-
-    @Column(name = "ngay_bat_dau",nullable = true)
-    private Date ngayBatDau;
-
-    @Column(name = "ngay_ket_thuc",nullable = true)
-    private Date ngayKetThuc;
-
-    @Column(name = "trang_thai",nullable = true)
-    private int trangThai;
-
-    @Column(name = "so_imei",nullable = true)
-    private int soImei;
+    
 }

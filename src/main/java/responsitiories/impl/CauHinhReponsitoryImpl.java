@@ -18,7 +18,7 @@ import ultilities.HibernateUtil;
  *
  * @author Home
  */
-public class CauHinhReponsitory implements IReponsitory<CauHinh>{
+public class CauHinhReponsitoryImpl implements IReponsitory<CauHinh>{
 
     private Session session = HibernateUtil.getSessionFactory().openSession();
     private String fromTable = " FROM CauHinh ";
@@ -84,6 +84,6 @@ public class CauHinhReponsitory implements IReponsitory<CauHinh>{
         return false;
     }
     public static void main(String[] args) {
-        System.out.println(new CauHinhReponsitory().findAll());
+        System.out.println(new CauHinhReponsitoryImpl().findAll());
     }
 }

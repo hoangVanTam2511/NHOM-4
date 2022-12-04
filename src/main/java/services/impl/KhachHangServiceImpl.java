@@ -77,14 +77,18 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
         } else if (diaChi.matches("\\d+")) {
             return "Bạn phải nhập địa chỉ là chữ ";
         } else {
-            return "";
+            return null;
         }
     }
 
     public String genMaTuDong() {
         List<String> mas = khachHangReponsitoryImpl.getMa();
+        if(mas.size() != 0){
         String maCuoiCung = mas.get(mas.size() - 1);
         Integer soMa = Integer.parseInt(maCuoiCung.substring(2));
         return "KH" + (soMa + 1);
+        }else{
+            return "KH1";
+        }
     }
 }

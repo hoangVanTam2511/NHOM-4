@@ -26,10 +26,16 @@ import lombok.Setter;
  */
 @Entity
 @Data
-@Table(name = "hoa_don_chi_tiet")
+@Table(name = "chi_tiet_khuyen_mai")
 public class ChiTietKhuyenMai implements Serializable {
 
     @EmbeddedId
     private ChiTietKhuyenMaiId chiTietKhuyenMaiId;
+    
+    @Column(name  = "don_gia")
+    private Double donGia;
+    
+    @Column(name = "so_tien_con_lai")
+    private Double soTienConLai;
 
 }
