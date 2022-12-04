@@ -202,6 +202,6 @@ public class HoaDonReponsitoryImpl implements IHoaDonReponsitory {
 //        return true;
 //    }
     public static void main(String[] args) {
-        System.out.println("Doanh thu của quán là : " + new HoaDonReponsitoryImpl().getDoanhThu(11, 2022));
+        System.out.println("Doanh thu của quán là : " + new HoaDonReponsitoryImpl().findOneByMa("HD00"));
     }
 }
