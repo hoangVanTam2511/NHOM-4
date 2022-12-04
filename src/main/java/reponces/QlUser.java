@@ -34,19 +34,29 @@ public class QlUser {
     
     private String sdt;
     
+    private boolean gioiTinh;
+    
     private String cccd;
     
     private int trangThai;
     
+    private String anh;
+    
     private String matKhau;
     
     private ChucVu idChucVu;
+    
+    public String getStringGioiTinh(){
+        return this.gioiTinh == true ?"Nam" :"Nữ";
+    }
+    
+    public String getStringTrangThai(){
+        return this.trangThai== 1?"Hoạt động" :"Không hoạt động";
+    }
 
     public Object getData(int stt) {
         return new Object[]{
-           stt,this.ma,this.ten ,this.diaChi
+           stt,this.ma,this.ten ,this.diaChi,this.sdt,getStringGioiTinh(),this.cccd,getStringTrangThai(),this.matKhau,this.idChucVu.getTen()
         };
     }
-//    
-   
 }

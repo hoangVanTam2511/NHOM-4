@@ -4,6 +4,7 @@
  */
 package infrastructure.responce;
 
+import infrastructure.convert.FormUtil;
 import lombok.ToString;
 
 /**
@@ -72,7 +73,7 @@ public class QlHoaDonChiTietReponce {
     }
     public Object getData(int stt){
         return new Object[]{
-          stt,this.maSanPham,this.tenSanPham,this.soLuong,this.donGia,this.thanhTien
+          stt,this.maSanPham,this.tenSanPham,this.soLuong,FormUtil.convertNumber(donGia),FormUtil.convertNumber(thanhTien)
         };
     }
     

@@ -38,7 +38,11 @@ public class CauHinh extends PrimaryEntity {
     private Rom idRom;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_man_hinh",referencedColumnName = "id")
+    @JoinColumn(name = "id_man_hinh", referencedColumnName = "id")
     private ManHinh idManHinh;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_chip", referencedColumnName = "id")
+    private Chip idChip;
 
 }

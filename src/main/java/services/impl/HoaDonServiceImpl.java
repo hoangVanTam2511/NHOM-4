@@ -30,9 +30,13 @@ public class HoaDonServiceImpl implements IHoaDonService {
 
     private HoaDonReponsitoryImpl hoaDonReponsitory;
     private List<QlHoaDon> listQlHoaDon;
+    private UserReponsitoryImpl userReponsitoryImpl;
+    private KhachHangRepositoryImpl khachHangRepositoryImpl;
 
     public HoaDonServiceImpl() {
         this.hoaDonReponsitory = new HoaDonReponsitoryImpl();
+        this.userReponsitoryImpl = new UserReponsitoryImpl();
+        this.khachHangRepositoryImpl = new KhachHangRepositoryImpl();
         listQlHoaDon = new ArrayList<>();
     }
 
@@ -49,6 +53,14 @@ public class HoaDonServiceImpl implements IHoaDonService {
     public List<QlHoaDon> findAll(int status) {
         listQlHoaDon.clear();
         this.hoaDonReponsitory.findAll(status).forEach(hoaDon -> {
+            listQlHoaDon.add(FormUtil.convertFromHoaDonToQlHoaDon(hoaDon));
+        });
+        return listQlHoaDon;
+    }
+
+    public List<QlHoaDon> findAllByNameOrMa(String text) {
+        listQlHoaDon.clear();
+        this.hoaDonReponsitory.findAllByName(text).forEach(hoaDon -> {
             listQlHoaDon.add(FormUtil.convertFromHoaDonToQlHoaDon(hoaDon));
         });
         return listQlHoaDon;
@@ -88,7 +100,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
 //    
     public String genMaTuDong() {
         listQlHoaDon = findAll();
-        if (listQlHoaDon == null) {
+        if (listQlHoaDon.size() == 0) {
             return "HD00";
         }
         String maHoaDonHienTai = listQlHoaDon.get(listQlHoaDon.size() - 1).getMa();
@@ -106,12 +118,29 @@ public class HoaDonServiceImpl implements IHoaDonService {
     public QlHoaDon createHoaDon(QlUser qlUser, QlKhachHang qlKhachHang) {
         String ma = genMaTuDong();
         Date date = new Date();
-        User user = FormUtil.convertFromQlNhanVienToNhanVien(qlUser);
-        KhachHang khachHang = FormUtil.convertFromQlKhachHangToKhachHang(qlKhachHang);
+        User user = this.userReponsitoryImpl.findOneByMa(qlUser.getMa());
+        KhachHang khachHang = this.khachHangRepositoryImpl.findOneByMa(qlKhachHang.getMa());
         return new QlHoaDon(ma, date, 1, user, khachHang);
     }
 
+    public Double getTongDoanhThu(int month, int year) {
+        return this.hoaDonReponsitory.getDoanhThu(month,year);
+    }
+
+    public Long getSoHoaDonDaTao(int month, int year) {
+        return this.hoaDonReponsitory.getSoHoaDonDaTao(month,year);
+    }
+
+    public Long getSoHoaDonDaHuy(int month, int year) {
+        return this.hoaDonReponsitory.getSoHoaDonDaHuy(month,year);
+    }
+    
+    public Long getSoKhachHang(){
+        return this.hoaDonReponsitory.getSoKhachHang();
+    }
+
     public static void main(String[] args) {
+        System.out.println("Toorng doanh thu la :" + new HoaDonServiceImpl().genMaTuDong());
     }
 
 }

@@ -6,6 +6,7 @@ package responsitiories.impl;
 
 import domainmodels.KhachHang;
 import domainmodels.KhuyenMai;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.persistence.Query;
@@ -86,6 +87,18 @@ public class KhuyenMaiRepositoryImpl implements IReponsitory<KhuyenMai> {
             e.printStackTrace(System.out);
         }
         return false;
+    }
+    
+     public List<String> getMaKhuyenMai(){
+        List<String> listTen  = new ArrayList<>();
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            String hql = "SELECT  c.maKhuyenMai FROM KhuyenMai c ORDER BY c.maKhuyenMai ";
+            Query query = session.createQuery(hql);
+            listTen = query.getResultList();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return listTen;
     }
 
     public static void main(String[] args) {

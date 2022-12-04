@@ -37,6 +37,16 @@ public class QlKhachHang {
 
     private String matKhau;
 
+    public QlKhachHang(int delected, String ma, String ten, String diaChi, String sdt, String matKhau) {
+        this.delected = delected;
+        this.ma = ma;
+        this.ten = ten;
+        this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.matKhau = matKhau;
+    }
+    
+
      public Object getData(int stt) {
         return new Object[]{
            stt,this.ma,this.ten ,this.diaChi

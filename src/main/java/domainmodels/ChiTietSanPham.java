@@ -35,6 +35,9 @@ import org.hibernate.annotations.Cascade;
 @Table(name = "chi_tietsp")
 public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serializable{
     
+    @Column(name = "ma")
+    private String ma;
+    
     @Column(name = "don_gia")
     private double donGia;
     

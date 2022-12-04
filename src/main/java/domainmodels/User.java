@@ -18,7 +18,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
@@ -27,86 +29,45 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "nhan_vien")
-public class User extends PrimaryEntity implements  IsIdentified,Serializable{
-    
-    @Column(name = "ma",length = EntityProperties.LENGTH_MA)
+public class User extends PrimaryEntity implements IsIdentified, Serializable {
+
+    @Column(name = "ma", length = EntityProperties.LENGTH_MA)
     private String ma;
-    
-    @Column(name = "ten",length = EntityProperties.LENGT_FULL_NAME)
+
+    @Column(name = "ten", length = EntityProperties.LENGT_FULL_NAME)
     private String ten;
-    
-    @Column(name = "dia_chi",length = EntityProperties.LENGT_ADDRESS)
+
+    @Column(name = "dia_chi", length = EntityProperties.LENGT_ADDRESS)
     private String diaChi;
-    
-    @Column(name = "sdt",length = EntityProperties.LENGT_PHONE)
+
+    @Column(name = "sdt", length = EntityProperties.LENGT_PHONE)
     private String sdt;
-    
-     @Column(name = "cccd",length = EntityProperties.LENGT_PHONE)
+
+    @Column(name = "cccd", length = EntityProperties.LENGT_PHONE)
     private String cccd;
     
+    @Column(name = "gioi_tinh")
+    private boolean gioiTinh;
+
     @Column(name = "trang_thai")
     private int trangThai;
-    
+
     @Column(name = "mat_khau")
     private String matKhau;
-    
-    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "id_chuc_vu",nullable = false)
+
+    @Column(name = "img")
+    private String anh;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "id_chuc_vu", nullable = false)
     private ChucVu idChucVu;
 
-    public String getMa() {
-        return ma;
-    }
-
-    public void setMa(String ma) {
-        this.ma = ma;
-    }
-
-    public String getTen() {
-        return ten;
-    }
-
-    public void setTen(String ten) {
-        this.ten = ten;
-    }
-
-    public String getDiaChi() {
-        return diaChi;
-    }
-
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
-    }
-
-    public String getSdt() {
-        return sdt;
-    }
-
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
-    }
-
-    public int getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(int trangThai) {
-        this.trangThai = trangThai;
-    }
-
-    public String getMatKhau() {
-        return matKhau;
-    }
-
-    public void setMatKhau(String matKhau) {
-        this.matKhau = matKhau;
-    }
-    
     @Override
     public String toString() {
-        return "NhanVien{" + "ma=" + ma + ", ten=" + ten +"id gui bc"+'}';
+        return "NhanVien{" + "ma=" + ma + ", ten=" + ten + "id gui bc" + '}';
     }
-    
-    
+
 }

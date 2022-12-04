@@ -13,6 +13,7 @@ import reponces.QlHoaDonChiTiet;
 import reponces.QlNhaSanXuat;
 import infrastructure.convert.FormUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
+import infrastructure.responce.QlThongKeResponce;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,11 +84,20 @@ public class HoaDonChiTietServiceImpl implements IHoaDonChiTietService {
         return this.hoaDonChiTietReponsitory.findGioHang(ma);
     }
 
-    public double tinhTienThua(double tongTien,double tienKhachDua){
+    public double tinhTienThua(double tongTien, double tienKhachDua) {
         return tongTien - tienKhachDua;
     }
+
+    public double tinhTongTienBanDau(String maHoaDon) {
+        return this.hoaDonChiTietReponsitory.tinhTongTienBanDau(maHoaDon);
+    }
     
+    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(int month,int year){
+       return this.hoaDonChiTietReponsitory.getSanPhamThongKeTheoThang(month, year);
+    }
+
     public static void main(String[] args) {
         System.out.println(new HoaDonChiTietServiceImpl().findOne("HD00", "SP01"));
     }
+
 }

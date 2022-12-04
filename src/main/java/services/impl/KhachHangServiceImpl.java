@@ -33,7 +33,7 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
 
     @Override
     public List<QlKhachHang> findAll() {
-       listKhachHang = new ArrayList<>();
+        listKhachHang = new ArrayList<>();
         this.khachHangReponsitoryImpl.findAll().forEach(khachHang -> {
             listKhachHang.add(FormUtil.convertFromKhachHangToQlKhachHang(khachHang));
         });
@@ -67,4 +67,28 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
 
     }
 
+    public String validate(String ten, String diaChi, String soDienThoai) {
+        if (ten.isBlank() || diaChi.isBlank() || soDienThoai.isBlank()) {
+            return "Bạn phải nhập đủ các ô có trên bảng";
+        } else if (ten.matches("\\d+")) {
+            return "Bạn phải nhập tên là chữ ";
+        } else if (!soDienThoai.matches("0+\\d{9}")) {
+            return "Bạn phải nhập đúng định dạng số điện thoại 10 số";
+        } else if (diaChi.matches("\\d+")) {
+            return "Bạn phải nhập địa chỉ là chữ ";
+        } else {
+            return null;
+        }
+    }
+
+    public String genMaTuDong() {
+        List<String> mas = khachHangReponsitoryImpl.getMa();
+        if(mas.size() != 0){
+        String maCuoiCung = mas.get(mas.size() - 1);
+        Integer soMa = Integer.parseInt(maCuoiCung.substring(2));
+        return "KH" + (soMa + 1);
+        }else{
+            return "KH1";
+        }
+    }
 }

@@ -124,8 +124,8 @@ public class ChucVuReponsitoryImpl implements IReponsitory<ChucVu> {
 
     public static void main(String[] args) {
         ChucVu chucVu = new ChucVu();
-        chucVu = new ChucVuReponsitoryImpl().findOneByMa("CV04");
-        chucVu.setTen("MINH THICH CAU RAT NHIEU");
+        chucVu = new ChucVuReponsitoryImpl().findOneByMa("NV");
+        
         System.out.println(chucVu);
     }
 }

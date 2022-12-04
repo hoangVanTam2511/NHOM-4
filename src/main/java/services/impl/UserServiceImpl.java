@@ -38,8 +38,8 @@ public class UserServiceImpl {
         });
         return qlNhanViens;
     }
-    
-     public List<QlUser> findAllByMaNv() {
+
+    public List<QlUser> findAllByMaNv() {
         List<QlUser> qlNhanViens = new ArrayList<>();
         this.userReponsitoryImpl.findAllByNV().forEach(nv -> {
             qlNhanViens.add(FormUtil.convertFromNhanVienToQlNhanVien(nv));
@@ -101,4 +101,36 @@ public class UserServiceImpl {
         }
     }
 
+    public String getPass(String sdt, String cccd) {
+        return this.userReponsitoryImpl.checkSoDienthoaiAnhMaNhanVien(sdt, cccd);
+    }
+
+    public String genMaTuDong() {
+        List<User> listUsers = this.userReponsitoryImpl.findAll();
+        if (listUsers.size() == 0) {
+            return "NV00";
+        }
+        String maHoaDonHienTai = listUsers.get(listUsers.size() - 1).getMa();
+        int index = Integer.parseInt(maHoaDonHienTai.substring(2));
+        index++;
+        String ma = "NV";
+        if (index > 1 && index < 10) {
+            ma += "0" + index;
+        } else {
+            ma += index;
+        }
+        return ma;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new UserServiceImpl().genMaTuDong());
+    }
+
+    public List<QlUser> findAllByName(String name) {
+        List<QlUser> qlNhanViens = new ArrayList<>();
+        this.userReponsitoryImpl.findAllByName(name).forEach(nv -> {
+            qlNhanViens.add(FormUtil.convertFromNhanVienToQlNhanVien(nv));
+        });
+        return qlNhanViens;
+    }
 }
