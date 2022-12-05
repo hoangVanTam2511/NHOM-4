@@ -45,9 +45,6 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\anh-gif-anime-dep_054957453.gif"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
@@ -147,9 +144,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\logo.jpg"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jLabel5"/>
           </Properties>
         </Component>

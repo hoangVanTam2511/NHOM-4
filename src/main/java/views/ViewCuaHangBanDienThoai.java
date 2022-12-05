@@ -411,17 +411,15 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         jPanel1.setBackground(Color.PINK);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\logo.jpg")); // NOI18N
         jLabel1.setAlignmentX(0.5F);
 
         labelTenDangNhap.setBackground(new java.awt.Color(255, 255, 255));
         labelTenDangNhap.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
         labelTenDangNhap.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelTenDangNhap.setText("Hoàng Văn Tám");
+        labelTenDangNhap.setText("Trần Hữu Thiện");
 
         labelBanHang.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelBanHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBanHang.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-shopping-cart-24.png")); // NOI18N
         labelBanHang.setText("Bán hàng");
         labelBanHang.setOpaque(true);
         labelBanHang.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -432,7 +430,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelSanPham.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelSanPham.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelSanPham.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-smartphone-24.png")); // NOI18N
         labelSanPham.setText("Sản Phẩm");
         labelSanPham.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -442,7 +439,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelHoaDon.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelHoaDon.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-cheque-24.png")); // NOI18N
         labelHoaDon.setText("HóaĐơn");
         labelHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -452,7 +448,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelKhuyenMai.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelKhuyenMai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelKhuyenMai.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-staff-24.png")); // NOI18N
         labelKhuyenMai.setText("Khuyến mại");
         labelKhuyenMai.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -462,7 +457,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelNhanvien2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelNhanvien2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNhanvien2.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-cheque-24.png")); // NOI18N
         labelNhanvien2.setText("Thống kê");
         labelNhanvien2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -472,7 +466,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelKhachHang.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelKhachHang.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelKhachHang.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-staff-24.png")); // NOI18N
         labelKhachHang.setText("Khách Hàng");
         labelKhachHang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -482,7 +475,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelNhanVien.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelNhanVien.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-staff-24.png")); // NOI18N
         labelNhanVien.setText("Nhân viên");
         labelNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -492,7 +484,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         labelDangXuat.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         labelDangXuat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelDangXuat.setIcon(new javax.swing.ImageIcon("E:\\New folder (5)\\du_an_1\\src\\main\\java\\images\\icons8-cheque-24.png")); // NOI18N
         labelDangXuat.setText("Đăng xuất");
         labelDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -663,7 +654,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         jLabel48.setText("0");
 
         jLabel49.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jLabel49.setForeground(new java.awt.Color(0, 0, 0));
         jLabel49.setText("MÔ TẢ:");
 
         jTextArea1.setColumns(20);

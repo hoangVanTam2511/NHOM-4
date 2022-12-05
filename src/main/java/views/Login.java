@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.userServiceImpl = new UserServiceImpl();
+        
     }
 
     /**
