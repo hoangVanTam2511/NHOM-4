@@ -4,7 +4,7 @@
  */
 package responsitiories;
 
-import domainmodels.SanPham;
+import domainmodels.Imei;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,15 +13,15 @@ import java.util.UUID;
  * @author Admin
  */
 public interface ISanPhamRepository {
-      List<SanPham> findAll();
+      List<Imei> findAll();
     
-    SanPham findOneByLmei(String Lmei);
+    Imei findOneByLmei(String Lmei);
     
-    SanPham findOneByID(UUID id);
+    Imei findOneByID(UUID id);
     
-    boolean save(SanPham t);
+    boolean save(Imei t);
     
-    boolean delete(SanPham t);
+    boolean delete(Imei t);
     
-    boolean update(SanPham t);
+    boolean update(Imei t);
 }

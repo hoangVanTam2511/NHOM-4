@@ -4,7 +4,7 @@
  */
 package services;
 
-import domainmodels.SanPham;
+import domainmodels.Imei;
 import java.util.List;
 
 /**
@@ -13,15 +13,15 @@ import java.util.List;
  */
 public interface ISanPhamService {
 
-    List<SanPham> findAll();
+    List<Imei> findAll();
 
-    List<SanPham> findAll(int status);
+    List<Imei> findAll(int status);
 
-    SanPham findOne(String ma);
+    Imei findOne(String ma);
 
-    String save(SanPham t);
+    String save(Imei t);
 
-    String update(SanPham t);
+    String update(Imei t);
 
-    String delete(SanPham t);
+    String delete(Imei t);
 }

@@ -4,7 +4,7 @@
  */
 package responsitiories.impl;
 
-import domainmodels.SanPham;
+import domainmodels.Imei;
 import java.util.List;
 import java.util.UUID;
 import org.hibernate.Session;
@@ -24,29 +24,29 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
     private String fromtable = "from SanPham";
 
     @Override
-    public List<SanPham> findAll() {
+    public List<Imei> findAll() {
         Query query = sesion.createQuery(fromtable);
         return query.getResultList();
     }
 
     @Override
-    public SanPham findOneByLmei(String Lmei) {
+    public Imei findOneByLmei(String Lmei) {
         String sql = fromtable + "where soImei =: so_imei";
-        Query query = sesion.createQuery(sql, SanPham.class);
+        Query query = sesion.createQuery(sql, Imei.class);
         query.setParameter("so_imei", Lmei);
-        return (SanPham) query.getSingleResult();
+        return (Imei) query.getSingleResult();
     }
 
     @Override
-    public SanPham findOneByID(UUID id) {
+    public Imei findOneByID(UUID id) {
         String sql = fromtable + "where id =: id";//cái 1 lấy từ model, cái 2 từ sql
-        Query query = sesion.createQuery(sql, SanPham.class);
+        Query query = sesion.createQuery(sql, Imei.class);
         query.setParameter("id", id);//lấy từ sql
-        return (SanPham) query.getSingleResult();
+        return (Imei) query.getSingleResult();
     }
 
     @Override
-    public boolean save(SanPham t) {
+    public boolean save(Imei t) {
         Transaction transaction = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
@@ -60,7 +60,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
     }
 
     @Override
-    public boolean delete(SanPham t) {
+    public boolean delete(Imei t) {
         Transaction transaction = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
@@ -74,7 +74,7 @@ public class SanPhamReponsitoryImpl implements ISanPhamRepository {
     }
 
     @Override
-    public boolean update(SanPham t) {
+    public boolean update(Imei t) {
         Transaction transaction = null;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();

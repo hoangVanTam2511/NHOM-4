@@ -7,6 +7,7 @@ package services.impl;
 import domainmodels.KhuyenMai;
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.TypedQuery;
 import org.hibernate.Session;
@@ -80,6 +81,7 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
     }
 
     public String validate(QlKhuyenMai qlKhuyenMai) {
+        Date date = new Date();
         if (qlKhuyenMai.getMaKhuyenMai().isBlank() || qlKhuyenMai.getTen().isBlank()) {
             return "Bạn phải nhập đủ số trường dữ liệu ";
         } else if (qlKhuyenMai.getMucGiamGiaPhanTram() > 100 || qlKhuyenMai.getMucGiamGiaPhanTram() < 0) {
@@ -88,10 +90,15 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
             return "Mức giá phải là số dương";
         } else if (qlKhuyenMai.getNgayBatDau().after(qlKhuyenMai.getNgayKetThuc()) == true) {
             return "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
+        }if(!qlKhuyenMai.getNgayKetThuc().after(date)){
+            return "Chương trình chưa chạy đã kết thúc.Vui lòng tạo lại";
         }
+        
         return "";
     }
-    
+    public static void main(String[] args) {
+        System.out.println(new KhuyenMaiServiceImpl().genMaTuDong());
+    }
     
 
 }

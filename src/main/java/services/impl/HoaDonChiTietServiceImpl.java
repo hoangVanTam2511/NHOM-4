@@ -15,6 +15,7 @@ import infrastructure.convert.FormUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
 import infrastructure.responce.QlThongKeResponce;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -92,8 +93,8 @@ public class HoaDonChiTietServiceImpl implements IHoaDonChiTietService {
         return this.hoaDonChiTietReponsitory.tinhTongTienBanDau(maHoaDon);
     }
     
-    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(int month,int year){
-       return this.hoaDonChiTietReponsitory.getSanPhamThongKeTheoThang(month, year);
+    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(Date ngayBatDau, Date ngayKetThuc){
+       return this.hoaDonChiTietReponsitory.getSanPhamThongKeTheoThang(ngayBatDau, ngayKetThuc);
     }
 
     public static void main(String[] args) {
