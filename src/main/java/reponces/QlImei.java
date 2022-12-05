@@ -4,6 +4,7 @@
  */
 package reponces;
 
+import domainmodels.ChiTietSanPham;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class QlSanPham {
+public class QlImei {
 
    private UUID id;
    
@@ -26,5 +27,7 @@ public class QlSanPham {
    
    private int soImei;
    
-   private String ten;
+   private boolean trangThai;
+   
+   private ChiTietSanPham idChiTietSanPham;
 }

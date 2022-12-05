@@ -4,14 +4,11 @@
  */
 package domainmodels;
 
-import java.io.Serializable;
-import java.util.Date;
+import domainmodels.base.PrimaryEntity;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,19 +17,19 @@ import lombok.Setter;
  *
  * @author Admin
  */
-
 @Entity
-@Data
-@Table(name = "chi_tiet_phieu_bao_hanh")
-public class ChiTietBaoHanh implements Serializable{
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "chip")
+public class HeDieuHanh  extends PrimaryEntity{
     
-    @EmbeddedId
-    private ChiTietPhieuBaoHanhId chiTietPhieuBaoHanhId;
+    @Column(name = "ma_chip")
+    private String maChip;
     
-    @Column(name = "ngay_bat_dau")
-    private Date ngayBatDau;
+    @Column(name = "ten_chip")
+    private String tenChip;
     
-    @Column(name = "ngay_ket_thuc")
-    private Date ngayKetThuc;
     
 }

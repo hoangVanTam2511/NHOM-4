@@ -54,6 +54,7 @@ responsitiories\impl\MauSacReponsitoryImpl.class
 reponces\QlUser.class
 Services\IHoaDonChiTietService.class
 Services\impl\ManHinhServiceImpl.class
+application\DuAnMauApplication.class
 reponces\QlDongSp.class
 reponces\QlMauSac.class
 views\ViewThemVaoGioHang.class
@@ -68,7 +69,6 @@ views\ViewCuaHangBanDienThoai$23.class
 responsitiories\impl\HoaDonReponsitoryImpl.class
 DomainModels\KhachHang.class
 Services\impl\KhachHangServiceImpl.class
-Application\DuAnMauApplication.class
 Services\impl\RomServiceImpl.class
 DomainModels\KhuyenMai.class
 ultilities\Migrator.class

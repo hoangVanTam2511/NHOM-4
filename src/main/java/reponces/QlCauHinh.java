@@ -4,7 +4,7 @@
  */
 package reponces;
 
-import domainmodels.Chip;
+import domainmodels.Pin;
 import domainmodels.ManHinh;
 import domainmodels.Ram;
 import domainmodels.Rom;
@@ -25,9 +25,9 @@ public class QlCauHinh {
     private ManHinh id_man_hinh;
     private Ram id_ram;
     private Rom id_rom;
-    private Chip id_chip;
+    private Pin id_chip;
 
-    public QlCauHinh(UUID id, ManHinh id_man_hinh, Ram id_ram, Rom id_rom, Chip id_chip) {
+    public QlCauHinh(UUID id, ManHinh id_man_hinh, Ram id_ram, Rom id_rom, Pin id_chip) {
         this.id = id;
         this.id_man_hinh = id_man_hinh;
         this.id_ram = id_ram;
