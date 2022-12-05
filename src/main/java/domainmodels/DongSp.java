@@ -11,8 +11,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -22,7 +24,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "dong_sp")
 public class DongSp extends PrimaryEntity implements IsIdentified,Serializable{ 
     
@@ -32,12 +35,6 @@ public class DongSp extends PrimaryEntity implements IsIdentified,Serializable{
     @Column(name = "ten",length = EntityProperties.LENGT_SHORT_NAME,nullable = false)
     private String ten;
 
-    public DongSp(String ma, String ten) {
-        this.ma = ma;
-        this.ten = ten;
-    }
-
-    public DongSp() {
-    }
+   
     
 }

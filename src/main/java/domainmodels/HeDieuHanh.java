@@ -4,7 +4,9 @@
  */
 package domainmodels;
 
+import domainmodels.base.IsIdentified;
 import domainmodels.base.PrimaryEntity;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -22,14 +24,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "chip")
-public class HeDieuHanh  extends PrimaryEntity{
+@Table(name = "he_dieu_hanh")
+public class HeDieuHanh  extends PrimaryEntity implements  Serializable,IsIdentified{
     
-    @Column(name = "ma_chip")
-    private String maChip;
+    @Column(name = "ten_he_dieu_hanh")
+    private String ten;
     
-    @Column(name = "ten_chip")
-    private String tenChip;
+    @Column(name = "ma")
+    private String ma;
     
     
 }
