@@ -110,6 +110,5 @@ public class ChiTietKhuyenMaiReponsitoryImpl implements IReponsitory<ChiTietKhuy
     }
     
     public static void main(String[] args) {
-        System.out.println(new ChiTietKhuyenMaiReponsitoryImpl().findAll());
     }
 }

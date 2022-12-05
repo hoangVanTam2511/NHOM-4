@@ -123,16 +123,16 @@ public class HoaDonServiceImpl implements IHoaDonService {
         return new QlHoaDon(ma, date, 1, user, khachHang);
     }
 
-    public Double getTongDoanhThu(int month, int year) {
-        return this.hoaDonReponsitory.getDoanhThu(month,year);
+    public Double getTongDoanhThu(Date ngayBatDau, Date ngayKetThuc) {
+        return this.hoaDonReponsitory.getDoanhThu(ngayBatDau,ngayKetThuc);
     }
 
-    public Long getSoHoaDonDaTao(int month, int year) {
-        return this.hoaDonReponsitory.getSoHoaDonDaTao(month,year);
+    public Long getSoHoaDonDaTao(Date ngayBatDau, Date ngayKetThuc) {
+        return this.hoaDonReponsitory.getSoHoaDonDaTao(ngayBatDau,ngayKetThuc);
     }
 
-    public Long getSoHoaDonDaHuy(int month, int year) {
-        return this.hoaDonReponsitory.getSoHoaDonDaHuy(month,year);
+    public Long getSoHoaDonDaHuy(Date ngayBatDau, Date ngayKetThuc) {
+        return this.hoaDonReponsitory.getSoHoaDonDaHuy(ngayBatDau,ngayKetThuc);
     }
     
     public Long getSoKhachHang(){

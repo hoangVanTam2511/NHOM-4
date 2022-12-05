@@ -51,10 +51,6 @@ public class KhuyenMai extends PrimaryEntity {
     private Double mucGiamGiaTienMat;
     
     @Column(name = "mo_ta")
-    private String moTa;
-    
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_phieu_bao_hanh",referencedColumnName = "id")
-    private PhieuBaoHanh idPhieuBaoHanh;    
+    private String moTa; 
 
 }

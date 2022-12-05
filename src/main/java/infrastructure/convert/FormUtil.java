@@ -22,7 +22,7 @@ import domainmodels.HinhThucThanhToan;
 import domainmodels.KhuyenMai;
 import domainmodels.PhieuBaoHanh;
 import domainmodels.User;
-import domainmodels.SanPham;
+import domainmodels.Imei;
 import java.text.NumberFormat;
 import reponces.QlChiTietSanPham;
 import reponces.QlChucVu;
@@ -35,7 +35,7 @@ import reponces.QlKhachHang;
 import reponces.QlMauSac;
 import reponces.QlNhaSanXuat;
 import reponces.QlUser;
-import reponces.QlSanPham;
+import reponces.QlImei;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -137,15 +137,15 @@ public class FormUtil {
         return khachHang;
     }
 
-    public static QlSanPham convertFromSanPhamToQlSanPham(SanPham sanPham) {
+    public static QlImei convertFromSanPhamToQlSanPham(Imei sanPham) {
         ModelMapper mapper = new ModelMapper();
-        QlSanPham qlSanPham = mapper.map(sanPham, QlSanPham.class);
+        QlImei qlSanPham = mapper.map(sanPham, QlImei.class);
         return qlSanPham;
     }
 
-    public static SanPham convertFromQlSanPhamToSanPham(QlSanPham qlSanPham) {
+    public static Imei convertFromQlSanPhamToSanPham(QlImei qlSanPham) {
         ModelMapper mapper = new ModelMapper();
-        SanPham sanPham = mapper.map(qlSanPham, SanPham.class);
+        Imei sanPham = mapper.map(qlSanPham, Imei.class);
         sanPham.setId(qlSanPham.getId());
         return sanPham;
     }

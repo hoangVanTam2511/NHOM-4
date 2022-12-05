@@ -64,7 +64,7 @@ public class QlChiTietKhuyenMai {
 
     public Object getData() {
         return new Object[]{
-            this.idKhuyenMai.getMaKhuyenMai(), this.idKhuyenMai.getTen(), hinhThucKhuyenMai(), giamGia(), this.idChiTietSanPham.getIdSanPham().getTen(), this.idKhuyenMai.getNgayBatDau(), this.idKhuyenMai.getNgayKetThuc(), getTrangThai(), this.idKhuyenMai.getMoTa()
+            this.idKhuyenMai.getMaKhuyenMai(), this.idKhuyenMai.getTen(), hinhThucKhuyenMai(), giamGia(), this.idChiTietSanPham.getTen(), this.idKhuyenMai.getNgayBatDau(), this.idKhuyenMai.getNgayKetThuc(), getTrangThai(), this.idKhuyenMai.getMoTa()
         };
     }
 }

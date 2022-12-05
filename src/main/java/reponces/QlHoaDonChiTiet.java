@@ -40,12 +40,12 @@ public class QlHoaDonChiTiet {
 
     public Object getData1() {
         return new Object[]{
-          this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,this.donGia,this.tongTien
+          this.idHoaDon.getMa(),this.idChiTietSanPham.getMa(),this.idChiTietSanPham.getTen(),this.soLuong,this.donGia,this.tongTien
         };
     }
      public Object getData(int stt) {
         return new Object[]{
-          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,FormUtil.convertNumber(donGia),FormUtil.convertNumber(tongTien)
+          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getMa(),this.idChiTietSanPham.getTen(),this.soLuong,FormUtil.convertNumber(donGia),FormUtil.convertNumber(tongTien)
         };
     }
 
