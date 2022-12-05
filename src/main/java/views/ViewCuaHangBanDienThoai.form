@@ -637,7 +637,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuabonhotrong">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox8">
@@ -657,7 +657,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuamanhinh">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel17">
@@ -685,7 +685,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuaram">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel20">
@@ -713,7 +713,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuamausac">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsanphamsuamausacActionPerformed"/>
@@ -744,7 +744,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuahedieuhanh">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsanphamsuahedieuhanhActionPerformed"/>
@@ -775,7 +775,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuacpu">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel23">
@@ -803,7 +803,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuacamera">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel24">
@@ -831,7 +831,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuansx">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsanphamsuansxActionPerformed"/>
@@ -847,7 +847,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuapin">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox15">
@@ -875,7 +875,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuadongsp">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsanphamsuadongspActionPerformed"/>
@@ -1058,7 +1058,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnsanphamsuachip">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jButton2"/>
+                    <Property name="text" type="java.lang.String" value="update"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsanphamsuachipActionPerformed"/>

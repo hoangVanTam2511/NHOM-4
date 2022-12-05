@@ -4,7 +4,7 @@
  */
 package views;
 
-import java.awt.Color;
+
 import javax.swing.JOptionPane;
 import services.impl.UserServiceImpl;
 import reponces.QlUser;
@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame {
         setExtendedState(1);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/anh-gif-anime-dep_054957453.gif"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("11");
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -68,7 +68,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setText("Số điện thoại");
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("11");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));

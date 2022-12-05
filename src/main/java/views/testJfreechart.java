@@ -27,9 +27,9 @@ public class testJfreechart extends javax.swing.JFrame {
         ChartPanel chartPanel = new ChartPanel(barras);
         chartPanel.setPreferredSize(new Dimension(560, 367));
         setContentPane(chartPanel);
+       
         
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +49,7 @@ public class testJfreechart extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 371, Short.MAX_VALUE)
         );
 
         pack();

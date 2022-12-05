@@ -17,9 +17,14 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.TextAlignment;
 import domainmodels.ChiTietKhuyenMai;
 import domainmodels.ChiTietSanPham;
+import domainmodels.Chip;
+import domainmodels.DongSp;
+import domainmodels.HeDieuHanh;
 import domainmodels.HoaDon;
 import domainmodels.HoaDonChiTiet;
 import domainmodels.Imei;
+import domainmodels.MauSac;
+import domainmodels.NSX;
 import infrastructure.convert.FormUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
 import infrastructure.responce.QlThongKeResponce;
@@ -64,6 +69,7 @@ import services.impl.HoaDonServiceImpl;
 import services.impl.KhachHangServiceImpl;
 import services.impl.KhuyenMaiServiceImpl;
 import services.impl.UserServiceImpl;
+import subRepository.Impl.SubReposHdhChipMsDspTypeOptImpl;
 import support.SubUIHdhChipMsDspTypeOpt;
 import views.subView.SubUIHdhChipMsDsp;
 import static views.test.getBillingandShippingCell;
@@ -111,6 +117,8 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     private int viTriSanPhamHienTai = 0;
 
     private List<QlChiTietSanPham> listChiTietSanPhams = new ArrayList<>();
+    //sub
+    private SubReposHdhChipMsDspTypeOptImpl SubController = new SubReposHdhChipMsDspTypeOptImpl();
 
     public ViewCuaHangBanDienThoai() {
         initComponents();
@@ -118,6 +126,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.labelBanHang.setBackground(Color.white);
         this.labelBanHang.setOpaque(true);
         init();
+        fillCbbsanpham();
     }
 
     public ViewCuaHangBanDienThoai(QlUser qlUser, QlKhachHang qlKhachHang) {
@@ -561,25 +570,25 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuabonhotrong.setText("jButton2");
+        btnsanphamsuabonhotrong.setText("update");
 
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuamanhinh.setText("jButton2");
+        btnsanphamsuamanhinh.setText("update");
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel17.setText("Màn hình");
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuaram.setText("jButton2");
+        btnsanphamsuaram.setText("update");
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel20.setText("Ram");
 
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuamausac.setText("jButton2");
+        btnsanphamsuamausac.setText("update");
         btnsanphamsuamausac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsanphamsuamausacActionPerformed(evt);
@@ -591,7 +600,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuahedieuhanh.setText("jButton2");
+        btnsanphamsuahedieuhanh.setText("update");
         btnsanphamsuahedieuhanh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsanphamsuahedieuhanhActionPerformed(evt);
@@ -603,21 +612,21 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 
         jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuacpu.setText("jButton2");
+        btnsanphamsuacpu.setText("update");
 
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel23.setText("CPU");
 
         jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuacamera.setText("jButton2");
+        btnsanphamsuacamera.setText("update");
 
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel24.setText("Camera");
 
         jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnsanphamsuansx.setText("jButton2");
+        btnsanphamsuansx.setText("update");
         btnsanphamsuansx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsanphamsuansxActionPerformed(evt);
@@ -627,14 +636,14 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel25.setText("Nhà sản xuất");
 
-        btnsanphamsuapin.setText("jButton2");
+        btnsanphamsuapin.setText("update");
 
         jComboBox15.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel26.setText("Pin");
 
-        btnsanphamsuadongsp.setText("jButton2");
+        btnsanphamsuadongsp.setText("update");
         btnsanphamsuadongsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsanphamsuadongspActionPerformed(evt);
@@ -696,7 +705,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         jLabel73.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel73.setText("chip");
 
-        btnsanphamsuachip.setText("jButton2");
+        btnsanphamsuachip.setText("update");
         btnsanphamsuachip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsanphamsuachipActionPerformed(evt);
@@ -3254,7 +3263,47 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "Xóa thành công");
         loadDataOnNhanVienNhanVien();
     }//GEN-LAST:event_btnxoaActionPerformed
-
+    private void fillCbbsanpham() {
+        DefaultComboBoxModel dcm = (DefaultComboBoxModel) jComboBox16.getModel();
+        dcm.removeAllElements();
+        List<DongSp> dongSPData = SubController.getAllDataDongSP();
+        for (DongSp item : dongSPData) {
+            dcm.addElement(item.getMa() + "-" + item.getTen());
+        }
+        jComboBox16.setModel(dcm);
+        //
+        dcm = (DefaultComboBoxModel) jComboBox10.getModel();
+        dcm.removeAllElements();
+        List<MauSac> mauSacData = SubController.getAllDataMauSac();
+        for (MauSac item : mauSacData) {
+            dcm.addElement(item.getMa() + "-" + item.getTen());
+        }
+        jComboBox10.setModel(dcm);
+        //
+        dcm = (DefaultComboBoxModel) jComboBox14.getModel();
+        dcm.removeAllElements();
+        List<NSX> nsxData = SubController.getAllDataNSX();
+        for (NSX item : nsxData) {
+            dcm.addElement(item.getMa() + "-" + item.getTen());
+        }
+        jComboBox14.setModel(dcm);
+        //
+        dcm = (DefaultComboBoxModel) jComboBox11.getModel();
+        dcm.removeAllElements();
+        List<HeDieuHanh> heDieuHanhData = SubController.getAllDataHDH();
+        for (HeDieuHanh item : heDieuHanhData) {
+            dcm.addElement(item.getMa() + "-" + item.getTen());
+        }
+        jComboBox11.setModel(dcm);
+        //
+        dcm = (DefaultComboBoxModel) jComboBox19.getModel();
+        dcm.removeAllElements();
+        List<Chip> chipData = SubController.getAllDataChip();
+        for (Chip item : chipData) {
+            dcm.addElement(item.getMaChip() + "-" + item.getTenChip());
+        }
+        jComboBox11.setModel(dcm);
+    }
     private void txtsanphamgiabanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsanphamgiabanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsanphamgiabanActionPerformed
@@ -3265,7 +3314,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsanphamsuahedieuhanhActionPerformed
 
     private void btnsanphamsuamausacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsanphamsuamausacActionPerformed
-     new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.MAUSAC).setVisible(true);
+        new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.MAUSAC).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnsanphamsuamausacActionPerformed
 
@@ -3275,12 +3324,12 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     }//GEN-LAST:event_btnsanphamsuansxActionPerformed
 
     private void btnsanphamsuadongspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsanphamsuadongspActionPerformed
-         new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.DONGSP).setVisible(true);
+        new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.DONGSP).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnsanphamsuadongspActionPerformed
 
     private void btnsanphamsuachipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsanphamsuachipActionPerformed
-       new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.CHIP).setVisible(true);
+        new SubUIHdhChipMsDsp(SubUIHdhChipMsDspTypeOpt.TypeSub.CHIP).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnsanphamsuachipActionPerformed
 
