@@ -4,12 +4,17 @@
  */
 package reponces;
 
+import domainmodels.Camera;
+import domainmodels.Chip;
+import domainmodels.HeDieuHanh;
 import domainmodels.Pin;
 import domainmodels.ManHinh;
 import domainmodels.Ram;
 import domainmodels.Rom;
 import java.util.UUID;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -18,6 +23,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class QlCauHinh {
 
     private UUID id;
@@ -25,17 +32,9 @@ public class QlCauHinh {
     private ManHinh id_man_hinh;
     private Ram id_ram;
     private Rom id_rom;
-    private Pin id_chip;
-
-    public QlCauHinh(UUID id, ManHinh id_man_hinh, Ram id_ram, Rom id_rom, Pin id_chip) {
-        this.id = id;
-        this.id_man_hinh = id_man_hinh;
-        this.id_ram = id_ram;
-        this.id_rom = id_rom;
-        this.id_chip = id_chip;
-    }
-
-    public QlCauHinh() {
-    }
-
+    private Chip id_chip;
+    private HeDieuHanh idHeDieuHanh;
+    private Pin idPin;
+    private Camera idCamera;
+   
 }

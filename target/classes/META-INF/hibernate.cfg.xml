@@ -59,5 +59,6 @@
         <mapping class="domainmodels.HoaDonChiTiet" />
         <mapping class="domainmodels.Chip" />
         <mapping class="domainmodels.HinhThucThanhToan" />
+        <mapping class="domainmodels.ImeiDaBan" />
     </session-factory>
 </hibernate-configuration>

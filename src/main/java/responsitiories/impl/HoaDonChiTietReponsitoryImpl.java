@@ -47,7 +47,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public HoaDonChiTiet findOneByMaSanPhamAndMaHoaDon(String ma, String maSanPham) {
         HoaDonChiTiet dongSp = new HoaDonChiTiet();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id and p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei = :maSanPham";
+            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id and p.idChiTietSanPham.idSanPham.soImei = :maSanPham";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             query.setParameter("maSanPham", maSanPham);
@@ -68,7 +68,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public List<HoaDonChiTiet> getAllByMaHoaDon(String ma) {
         List<HoaDonChiTiet> listDongSp = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p  WHERE p.HoaDonChiTietId.idHoaDon.ma = :id ";
+            String hql = "SELECT p FROM HoaDonChiTiet p  WHERE p.idHoaDon.ma = :id ";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             listDongSp = query.getResultList();
@@ -82,7 +82,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public double tinhTongTien(String ma) {
         double tongTien = 0;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT SUM(p.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id";
+            String hql = "SELECT SUM(p.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             if (query.getSingleResult() == null) {
@@ -159,9 +159,9 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new "
                     + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,"
-                    + "p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
-                    + "WHERE  p.HoaDonChiTietId.idHoaDon.ma = :ma "
-                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
+                    + "p.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
+                    + "WHERE  p.idHoaDon.ma = :ma "
+                    + "GROUP BY p.idChiTietSanPham.idSanPham.soImei,p.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
             Query query = session.createQuery(hql, QlHoaDonChiTietReponce.class);
             query.setParameter("ma", ma);
             listQlHoaDonChiTiets = query.getResultList();
@@ -172,7 +172,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public double tinhTongTienBanDau(String maHoaDon) {
         double tongTien = 0;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT SUM(p.HoaDonChiTietId.idChiTietSanPham.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id";
+            String hql = "SELECT SUM(p.idChiTietSanPham.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id";
             Query query = session.createQuery(hql);
             query.setParameter("id", maHoaDon);
             if (query.getSingleResult() == null) {
@@ -189,12 +189,12 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlThongKeResponce> qlThongKeResponces = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new infrastructure.responce.QlThongKeResponce( "
-                    + " p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,"
+                    + " p.idChiTietSanPham.idSanPham.ten,"
                     + "SUM(p.soLuong) as so_luong_theo_thang,p.donGia,"
                     + "SUM(p.tongTien) as tong_tien_theo_thang ) "
                     + "FROM HoaDonChiTiet p "
-                    + "WHERE p.HoaDonChiTietId.idHoaDon.created > :ngayBatDau AND  p.HoaDonChiTietId.idHoaDon.created < :ngayKetThuc "
-                    + " GROUP BY p.donGia,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten";
+                    + "WHERE p.idHoaDon.created > :ngayBatDau AND  p.idHoaDon.created < :ngayKetThuc "
+                    + " GROUP BY p.donGia,p.idChiTietSanPham.idSanPham.ten";
             Query query = session.createQuery(hql);
             query.setParameter("ngayBatDau", ngayBatDau);
             query.setParameter("ngayKetThuc", ngayKetThuc);

@@ -4,6 +4,7 @@
  */
 package domainmodels;
 
+import domainmodels.base.PrimaryEntity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Column;
@@ -27,18 +28,27 @@ import lombok.Setter;
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "hoa_don_chi_tiet")
-public class HoaDonChiTiet implements Serializable {
+public class HoaDonChiTiet extends PrimaryEntity  implements Serializable  {
 
-    @EmbeddedId
-    private HoaDonChiTietId HoaDonChiTietId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_hoa_don", nullable = false)
+    private HoaDon idHoaDon;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_chi_tietsp", nullable = false)
+    private ChiTietSanPham idChiTietSanPham;
 
     @Column(name = "don_gia")
     private double donGia;
 
     @Column(name = "so_luong")
     private int soLuong;
-    
+
     @Column(name = "tong_tien")
     private double tongTien;
 

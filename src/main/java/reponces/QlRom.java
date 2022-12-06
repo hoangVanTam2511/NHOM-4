@@ -22,5 +22,6 @@ public class QlRom {
     private UUID id;
     private int kichThuoc;
     private int delected;
+    private String tenRom;
 
 }

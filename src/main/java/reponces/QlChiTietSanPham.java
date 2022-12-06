@@ -11,12 +11,17 @@ import domainmodels.MauSac;
 import domainmodels.NSX;
 import domainmodels.Imei;
 import infrastructure.convert.FormUtil;
+import java.awt.Button;
+import java.awt.image.ImageProducer;
 import java.util.UUID;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import services.impl.ChiTietSanPhamServiceImpl;
 
 /**
  *
@@ -61,7 +66,7 @@ public class QlChiTietSanPham {
 
     public Object getData1(int stt) {
         return new Object[]{
-            stt,this.getMa(), this.getTen(), this.idNsx.getTen(), this.idDongSp.getTen(), this.idMauSac.getTen(), this.soLuongTon, FormUtil.convertNumber(donGia)
+            stt,this.getMa(), this.getTen(), this.idNsx.getTen(), this.idDongSp.getTen(), this.idMauSac.getTen(), new ChiTietSanPhamServiceImpl().getSoLuongTonTheoTungMaSanPham(ma), FormUtil.convertNumber(donGia)
         };
     }
 

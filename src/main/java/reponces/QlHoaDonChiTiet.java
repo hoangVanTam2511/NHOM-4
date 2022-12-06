@@ -8,6 +8,7 @@ import domainmodels.ChiTietSanPham;
 import domainmodels.HoaDon;
 import infrastructure.convert.FormUtil;
 import java.math.BigDecimal;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class QlHoaDonChiTiet {
 
+    private UUID id;
+    private int delected;
     private HoaDon idHoaDon;
     private ChiTietSanPham idChiTietSanPham;
     private double donGia;
@@ -30,6 +33,7 @@ public class QlHoaDonChiTiet {
     private double tongTien;
 
     public QlHoaDonChiTiet(HoaDon idHoaDon, ChiTietSanPham idChiTietSanPham,double donGia,int soLuong) {
+        this.delected =1;
         this.idHoaDon = idHoaDon;
         this.idChiTietSanPham = idChiTietSanPham;
         this.soLuong = soLuong;

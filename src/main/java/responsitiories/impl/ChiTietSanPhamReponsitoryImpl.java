@@ -5,6 +5,7 @@
 package responsitiories.impl;
 
 import domainmodels.ChiTietSanPham;
+import domainmodels.Imei;
 import responsitiories.IReponsitory;
 import ultilities.HibernateUtil;
 import java.util.ArrayList;
@@ -145,8 +146,50 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         return false;
     }
 
+    public Long getSoLuongTonTheoTungMaSanPham(String maSP) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  count(a.id) FROM Imei a "
+                    + " WHERE a.idChiTietSanPham.ma = :ma AND a.trangThai = 0 "
+                    + " GROUP BY a.idChiTietSanPham.ma";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", maSP);
+            if(query.getSingleResult() == null){
+                return 0l;
+            }
+            return (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+    
+    public List<Imei> getDanhSachImeiTheoTungMaSanPham(String maSP) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  a FROM Imei a "
+                    + " WHERE a.idChiTietSanPham.ma = :ma AND a.trangThai = 0 ";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", maSP);
+            if(query.getResultList()== null){
+                return null;
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    
+     public void setTinhTrangImeiKhiMuaHang(String imei) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "UPDATE Imei a SET a.tinhTrang = 1 WHERE a.soImei = :ma ";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", imei);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
-       boolean check =  new ChiTietSanPhamReponsitoryImpl().setDeleted();
-        System.out.println(check);
+        System.out.println(new ChiTietSanPhamReponsitoryImpl().getDanhSachImeiTheoTungMaSanPham("SP2"));
     }
 }

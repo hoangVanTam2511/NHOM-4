@@ -24,6 +24,7 @@ public class QLRam {
     private UUID id;
     private int kichThuoc;
     private int delected;
+    private String tenRam;
 
     public QLRam(int kichThuoc) {
         this.kichThuoc = kichThuoc;

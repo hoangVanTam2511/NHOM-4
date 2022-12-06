@@ -22,14 +22,11 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "chip")
+@Table(name = "he_dieu_hanh")
 public class HeDieuHanh  extends PrimaryEntity{
-    
-    @Column(name = "ma_chip")
-    private String maChip;
-    
-    @Column(name = "ten_chip")
-    private String tenChip;
+ 
+    @Column(name = "ten_he_dieu_hanh")
+    private String tenHeDieuHanh;
     
     
 }

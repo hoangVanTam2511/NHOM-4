@@ -6,9 +6,11 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IHoaDonChiTietServ
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ChiTietSanPham.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlManHinh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\NSX.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\testJfreechart.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\ultilities\HibernateUtil.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlCauHinh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\test.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\infrastructure\responce\QlThongKeChartReponce.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\IHoaDonChiTietReponsitory.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\ChiTietSanPhamServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\INSXReponsitory.java
@@ -23,14 +25,13 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ChucVu.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\ISanPhamRepository.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\NhaSanXuatServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\MauSac.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlSanPham.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\application\DuAnMauApplication.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\CauHinhServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\ViewKhachHang.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\HoaDonReponsitoryImpl.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\PhieuBaoHanhRepositoryImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\IMauSacReponsitory.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\ManHinhRepository.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\testChart.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\AnhReponsitoryImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\IDongSPReponsitory.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\ISanPhamService.java
@@ -38,8 +39,6 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlNhaSanXuat.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\DongSpServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\Login.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\SanPhamReponsitoryImpl.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\SanPham.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\PhieuBaoHanhServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\User.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\ChucVuReponsitoryImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\HinhThucThanhToanReponsitoryImpl.java
@@ -61,7 +60,6 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlPhieuBaoHanh.jav
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IMauSacService.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\HinhThucThanhToanServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ChiTietKhuyenMai.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\PhieuBaoHanh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\MauSacServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\Ram.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\infrastructure\constant\EntityProperties.java
@@ -71,7 +69,6 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\ultilities\Migrator.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IManHinhService.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\KhuyenMaiServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\NSXReponsitoryImpl.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ChiTietBaoHanh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\ultilities\JpaUtils.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\base\PrimaryEntity.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\infrastructure\config\ModelMapperConfig.java
@@ -82,7 +79,6 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlHoaDonChiTiet.ja
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IRomService.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\KhachHang.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\ChiTietSanPhamReponsitoryImpl.java
-E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ChiTietPhieuBaoHanhId.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\ViewRam.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\ViewQuenMatKhau.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlUser.java
@@ -91,12 +87,15 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlChiTietKhuyenMai
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IDongSPService.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\base\IsIdentified.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\views\ViewBoSanPhamRaKhoiGioHang.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\Pin.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlImei.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QLRam.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlGioHang.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlChucVu.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\RamReponsitory.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\HoaDonServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\KhuyenMaiRepositoryImpl.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\Imei.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\HoaDonChiTietReponsitoryImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlHinhThucThanhToan.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\ManHinh.java
@@ -104,6 +103,7 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\CauHinh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\HoaDonChiTietServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\RomServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\IService.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\HeDieuHanh.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\ManHinhServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\KhachHangServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\MauSacReponsitoryImpl.java
@@ -113,6 +113,7 @@ E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\ultilities\DBGenerator.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlRom.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\AnhServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\impl\KhachHangRepositoryImpl.java
+E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\domainmodels\Camera.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\responsitiories\IKhachHangReponsitory.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\services\impl\ChiTietKhuyenMaiServiceImpl.java
 E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\reponces\QlHoaDon.java

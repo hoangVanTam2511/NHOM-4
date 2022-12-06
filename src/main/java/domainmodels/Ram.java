@@ -23,5 +23,7 @@ import org.hibernate.mapping.PrimaryKey;
 public class Ram  extends PrimaryEntity{   
     @Column(name = "kich_thuoc")
     private int kichThuoc;
- 
+    
+    @Column(name = "ma_ram")
+    private String maRam; 
 }

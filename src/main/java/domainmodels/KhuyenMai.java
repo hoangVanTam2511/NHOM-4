@@ -52,5 +52,8 @@ public class KhuyenMai extends PrimaryEntity {
     
     @Column(name = "mo_ta")
     private String moTa; 
+    
+    @Column(name = "tinh_trang")
+    private boolean tinhTrang;
 
 }

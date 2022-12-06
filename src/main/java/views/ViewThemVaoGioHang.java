@@ -4,8 +4,12 @@
  */
 package views;
 
+import domainmodels.Imei;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import reponces.QlChiTietSanPham;
+import services.impl.ChiTietSanPhamServiceImpl;
 
 /**
  *
@@ -16,19 +20,22 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
     /**
      * Creates new form ViewThemVaoGioHang
      */
-    private QlChiTietSanPham qlChiTietSanPham = null;
+    private ChiTietSanPhamServiceImpl chiTietSanPhamServiceImpl;
 
     public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        loadComboBox("SP1");
+        this.chiTietSanPhamServiceImpl = new ChiTietSanPhamServiceImpl();
     }
 
-    public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal, QlChiTietSanPham qlChiTietSanPham1) {
+    public ViewThemVaoGioHang(java.awt.Frame parent, boolean modal, String maSp) {
         super(parent, modal);
+        this.chiTietSanPhamServiceImpl = new ChiTietSanPhamServiceImpl();
         initComponents();
         this.setLocationRelativeTo(null);
-        this.qlChiTietSanPham = qlChiTietSanPham1;
+        loadComboBox(maSp);
     }
 
     /**
@@ -42,8 +49,8 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtSoLuong = new javax.swing.JTextField();
         btnThem = new javax.swing.JButton();
+        cbImei = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,7 +58,8 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Thêm sản phẩm vào giỏ hàng");
 
-        jLabel2.setText("Nhập số lượng :");
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel2.setText("Imei:");
 
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -60,22 +68,21 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
             }
         });
 
+        cbImei.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbImei, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,25 +91,21 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSoLuong))
-                .addGap(18, 18, 18)
-                .addComponent(btnThem)
-                .addGap(0, 30, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(btnThem))
+                    .addComponent(cbImei, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        try {
-            int soLuong = Integer.parseInt(txtSoLuong.getText().trim());
-            this.dispose();
-            new ViewCuaHangBanDienThoai().setSoLuong(soLuong, qlChiTietSanPham);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(rootPane, "Bạn phải nhập số");
-        }
 
+        String soImei = cbImei.getSelectedItem().toString();// lấy imei chọn từ cbb
+        chiTietSanPhamServiceImpl.setTinhTrangImeiKhiMuaHang(soImei);
+        new ViewCuaHangBanDienThoai();
     }//GEN-LAST:event_btnThemActionPerformed
 
     /**
@@ -149,8 +152,16 @@ public class ViewThemVaoGioHang extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThem;
+    private javax.swing.JComboBox<String> cbImei;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtSoLuong;
     // End of variables declaration//GEN-END:variables
+
+    private void loadComboBox(String maSp) {
+        DefaultComboBoxModel comBoImei = new DefaultComboBoxModel();
+        for (Imei imei : new ChiTietSanPhamServiceImpl().getDanhSachImeiTheoTungMaSanPham(maSp)) {
+            comBoImei.addElement(imei.getSoImei());
+        }
+        cbImei.setModel(comBoImei);
+    }
 }

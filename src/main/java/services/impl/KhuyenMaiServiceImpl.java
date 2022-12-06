@@ -29,7 +29,8 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
         this.khuyenMaiRepositoryImpl = new KhuyenMaiRepositoryImpl();
         this.listKhuyenMai = new ArrayList<QlKhuyenMai>();
     }
-
+    
+    
     @Override
     public List<QlKhuyenMai> findAll() {
         listKhuyenMai = new ArrayList<>();
