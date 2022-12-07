@@ -2720,29 +2720,28 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                           <Component id="labelKhuyenMaiLamMoi" min="-2" pref="78" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="294" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnKhuyenMaiLuu" min="-2" pref="148" max="-2" attributes="0"/>
-                                  <EmptySpace pref="188" max="32767" attributes="0"/>
-                                  <Component id="btnKhuyenmaiSua" min="-2" pref="148" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="btnKhuyenMaiLuu" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnKhuyenmaiSua" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnKhuyenmaiDungChuongTrinh" min="-2" pref="148" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel36" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
-                                      <Component id="jLabel35" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                      <Component id="txtKhuyenMaiThoiGianBatDau" alignment="0" pref="380" max="32767" attributes="0"/>
-                                      <Component id="txtKhuyenMaiThoiGianKetThuc" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabel39" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jScrollPane9" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel36" alignment="0" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="jLabel35" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="txtKhuyenMaiThoiGianBatDau" alignment="0" pref="380" max="32767" attributes="0"/>
+                                  <Component id="txtKhuyenMaiThoiGianKetThuc" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel39" alignment="0" min="-2" pref="193" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2767,6 +2766,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnKhuyenMaiLuu" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="btnKhuyenmaiSua" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="btnKhuyenmaiDungChuongTrinh" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -2856,6 +2856,17 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="btnKhuyenmaiDungChuongTrinh">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="12" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="D&#x1eeb;ng ch&#x1b0;&#x1a1;ng tr&#xec;nh"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKhuyenmaiDungChuongTrinhActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel15">
@@ -2872,18 +2883,18 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane8" pref="997" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" min="-2" pref="854" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jScrollPane8" pref="637" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jScrollPane8" min="-2" pref="341" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2934,6 +2945,9 @@
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableKhuyenMaiKhuyenMaiMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

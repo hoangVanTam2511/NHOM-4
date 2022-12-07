@@ -70,28 +70,5 @@ public class ChiTietKhuyenMaiServiceImpl implements IService<QlChiTietKhuyenMai>
         return qlChiTietKhuyenMai;
     }
     
-    public void checkKhuyenMai(){
-       Date date  = new Date();
-       Thread thread = new Thread(){
-           @Override
-           public void run() {
-                while(true){
-                    List<QlKhuyenMai> qlKhuyenMais = new KhuyenMaiServiceImpl().findAll();
-                    for(QlKhuyenMai qlKhuyenMai : qlKhuyenMais){
-                        if(qlKhuyenMai.getNgayKetThuc().after(date)){
-                            qlKhuyenMai.setTinhTrang(false);
-                        }
-                    }
-                    try {
-                        Thread.sleep(1000000000);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-           }
-           
-       };
-       thread.start();
-    }
 
 }

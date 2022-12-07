@@ -4,6 +4,7 @@
  */
 package services.impl;
 
+import domainmodels.ChiTietKhuyenMai;
 import domainmodels.KhuyenMai;
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
@@ -29,8 +30,7 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
         this.khuyenMaiRepositoryImpl = new KhuyenMaiRepositoryImpl();
         this.listKhuyenMai = new ArrayList<QlKhuyenMai>();
     }
-    
-    
+
     @Override
     public List<QlKhuyenMai> findAll() {
         listKhuyenMai = new ArrayList<>();
@@ -91,15 +91,41 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
             return "Mức giá phải là số dương";
         } else if (qlKhuyenMai.getNgayBatDau().after(qlKhuyenMai.getNgayKetThuc()) == true) {
             return "Ngày bắt đầu phải nhỏ hơn ngày kết thúc";
-        }if(!qlKhuyenMai.getNgayKetThuc().after(date)){
+        }
+        if (!qlKhuyenMai.getNgayKetThuc().after(date)) {
             return "Chương trình chưa chạy đã kết thúc.Vui lòng tạo lại";
         }
-        
+
         return "";
     }
+
+    public void checkKhuyenMai() {
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    Date date = new Date();
+                    List<KhuyenMai> listChiTietKhuyenMai = khuyenMaiRepositoryImpl.findAll();
+                    for (KhuyenMai khuyenMai : listChiTietKhuyenMai) {
+                        if (!khuyenMai.getNgayKetThuc().after(date)) {
+                            khuyenMai.setTinhTrang(true);
+                            new KhuyenMaiRepositoryImpl().update(khuyenMai);
+                        }
+                    }
+                    try {
+                        Thread.sleep(100);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        };
+        thread.start();
+    }
+
     public static void main(String[] args) {
         System.out.println(new KhuyenMaiServiceImpl().genMaTuDong());
     }
-    
 
 }

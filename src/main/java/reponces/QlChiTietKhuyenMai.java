@@ -34,7 +34,7 @@ public class QlChiTietKhuyenMai {
         this.donGia = donGia;
         this.soTienConLai = soTienConLai;
     }
-    
+
     private ChiTietSanPham idChiTietSanPham;
 
     private KhuyenMai idKhuyenMai;
@@ -60,8 +60,7 @@ public class QlChiTietKhuyenMai {
     }
 
     public String getTrangThai() {
-        Date date = new Date();
-        if (this.idKhuyenMai.getNgayKetThuc().after(date) == false) {
+        if (this.idKhuyenMai.isTinhTrang()) {
             return "Hết hạn";
         } else {
             return "Đang áp dụng";

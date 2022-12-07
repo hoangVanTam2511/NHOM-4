@@ -33,7 +33,7 @@ public class KhuyenMaiRepositoryImpl implements IReponsitory<KhuyenMai> {
 
     @Override
     public KhuyenMai findOneByMa(String ma) {
-        String sql = "From KhuyenMai WHERE ma_khuyen_mai =: ma";
+        String sql = "From KhuyenMai WHERE maKhuyenMai =: ma";
         Query query = session.createQuery(sql, KhuyenMai.class);
         query.setParameter("ma", ma);
         return (KhuyenMai) query.getResultList().get(0);
