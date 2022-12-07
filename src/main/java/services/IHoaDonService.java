@@ -16,7 +16,7 @@ public interface IHoaDonService {
     
     List<QlHoaDon> findAll();
 
-    List<QlHoaDon> findAll(int status);
+    List<QlHoaDon> findAll(int status,String maNhanVien);
 
     QlHoaDon findOne(String ma);
 

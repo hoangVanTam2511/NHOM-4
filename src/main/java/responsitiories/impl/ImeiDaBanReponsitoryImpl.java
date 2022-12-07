@@ -4,6 +4,7 @@
  */
 package responsitiories.impl;
 
+import domainmodels.Imei;
 import domainmodels.ImeiDaBan;
 import domainmodels.KhachHang;
 import java.util.ArrayList;
@@ -36,8 +37,18 @@ public class ImeiDaBanReponsitoryImpl implements IReponsitory<ImeiDaBan> {
     }
 
     @Override
-    public ImeiDaBan findOneByMa(String ma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public ImeiDaBan findOneByMa(String soImei) {
+        ImeiDaBan imeiDaBan = new ImeiDaBan();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "SELECT ct FROM ImeiDaBan ct where ct.soImei = :imei";
+            TypedQuery query = session.createQuery(hql, ImeiDaBan.class);
+            query.setParameter("imei", soImei);
+            return (ImeiDaBan) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return imeiDaBan;
     }
 
     @Override
@@ -107,9 +118,55 @@ public class ImeiDaBanReponsitoryImpl implements IReponsitory<ImeiDaBan> {
         }
         return null;
     }
+
+    public Long getSoLuongDaBan(UUID ma) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  count(a.id) FROM ImeiDaBan a "
+                    + " WHERE a.idHoaDonChiTiet.id = :ma AND a.trangThai = 0 "
+                    + " GROUP BY a.idHoaDonChiTiet.id";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", ma);
+            if (query.getSingleResult() == null) {
+                return 0l;
+            }
+            return (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public List<ImeiDaBan> getDanhSachImeiTheoTungMaSanPham(UUID idHoaDon) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  a FROM ImeiDaBan a "
+                    + " WHERE a.idHoaDonChiTiet.id = :ma AND a.trangThai = 0 ";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", idHoaDon);
+            if (query.getResultList() == null) {
+                return null;
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void setTinhTrangImeiDaBanKhiTraLai(String soImei) {
+        ImeiDaBan imeiDaBan = new ImeiDaBanReponsitoryImpl().findOneByMa(soImei);
+        imeiDaBan.setTrangThai(true);
+        new ImeiDaBanReponsitoryImpl().update(imeiDaBan);
+    }
+
     
+    public void setTinhTrangImeiDaBanKhiTraLaiHetHang(String soImei) {
+        ImeiDaBan imeiDaBan = new ImeiDaBanReponsitoryImpl().findOneByMa(soImei);
+        imeiDaBan.setTrangThai(true);
+        imeiDaBan.setIdHoaDonChiTiet(null);
+        new ImeiDaBanReponsitoryImpl().update(imeiDaBan);
+    }
     public static void main(String[] args) {
-        System.out.println(new ImeiDaBanReponsitoryImpl().findOneByImei("926593465555"));
+       new ImeiDaBanReponsitoryImpl().setTinhTrangImeiDaBanKhiTraLaiHetHang("926593426593");
     }
 
 }

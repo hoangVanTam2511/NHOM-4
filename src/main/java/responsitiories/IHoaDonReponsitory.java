@@ -16,7 +16,7 @@ public interface IHoaDonReponsitory {
 
     List<HoaDon> findAll();
 
-    List<HoaDon> findAll(int status);
+    List<HoaDon> findAll(int status,String maNhanVien);
 
     HoaDon findOneByMa(String ma);
 

@@ -36,8 +36,8 @@ public class ImeiDaBan extends PrimaryEntity implements IsIdentified, Serializab
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_hoa_don_chi_tiet", nullable = false)
-    private ChiTietSanPham idChiTietSanPham;
+    @JoinColumn(name = "id_hoa_don_chi_tiet", nullable = true)
+    private HoaDonChiTiet idHoaDonChiTiet;
 
     @Column(name = "so_imei", length = EntityProperties.LENGTH_MA)
     private String soImei;

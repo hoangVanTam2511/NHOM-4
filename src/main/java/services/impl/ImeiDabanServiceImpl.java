@@ -8,6 +8,7 @@ import domainmodels.ImeiDaBan;
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import reponces.QlImeiDaBan;
 import responsitiories.impl.ImeiDaBanReponsitoryImpl;
 import services.IService;
@@ -35,8 +36,8 @@ public class ImeiDabanServiceImpl implements IService<QlImeiDaBan> {
 
     @Override
     public QlImeiDaBan findOne(String ma) {
-       ImeiDaBan imeiDaBan = this.imeiDaBanReponsitoryImpl.findOneByImei(ma);
-       return ;
+        ImeiDaBan imeiDaBan = this.imeiDaBanReponsitoryImpl.findOneByImei(ma);
+        return FormUtil.covertQlImeiDaBanToImeiDaBan(imeiDaBan);
     }
 
     @Override
@@ -53,8 +54,23 @@ public class ImeiDabanServiceImpl implements IService<QlImeiDaBan> {
 
     @Override
     public String update(QlImeiDaBan t) {
-         ImeiDaBan khuyenMai = FormUtil.covertImeiDabanToQlImeiDaBan(t);
+        ImeiDaBan khuyenMai = FormUtil.covertImeiDabanToQlImeiDaBan(t);
         return this.imeiDaBanReponsitoryImpl.update(khuyenMai) == true ? "Thêm thành công" : "Thêm thất bại";
     }
 
+    public Long getSoLuongDaBan(UUID ma) {
+        return this.imeiDaBanReponsitoryImpl.getSoLuongDaBan(ma);
+    }
+
+    public void setTinhTrangImeiDaBanKhiTraLai(String soImei) {
+        imeiDaBanReponsitoryImpl.setTinhTrangImeiDaBanKhiTraLai(soImei);
+    }
+
+    public void setTinhTrangImeiDaBanKhiTraLaiHetHang(String soImei) {
+      imeiDaBanReponsitoryImpl.setTinhTrangImeiDaBanKhiTraLaiHetHang(soImei);
+    }
+
+    public List<ImeiDaBan> getDanhSachImeiTheoTungMaSanPham(UUID idHoaDon) {
+        return this.imeiDaBanReponsitoryImpl.getDanhSachImeiTheoTungMaSanPham(idHoaDon);
+    }
 }

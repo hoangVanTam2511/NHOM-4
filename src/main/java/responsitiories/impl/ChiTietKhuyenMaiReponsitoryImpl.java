@@ -97,11 +97,11 @@ public class ChiTietKhuyenMaiReponsitoryImpl implements IReponsitory<ChiTietKhuy
         return false;
     }
 
-    public double getSoTienSauKhiTruKhuyenMai(String imei) {
+    public double getSoTienSauKhiTruKhuyenMai(String ma) {
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-             String hql = "SELECT SUM((c.chiTietKhuyenMaiId.idKhuyenMai.mucGiamGiaPhanTram)*c.chiTietKhuyenMaiId.idChiTietSanPham.donGia/100 + c.chiTietKhuyenMaiId.idKhuyenMai.mucGiamGiaTienMat) FROM ChiTietKhuyenMai c  WHERE c.chiTietKhuyenMaiId.idChiTietSanPham.idSanPham.soImei = :imei GROUP BY c.chiTietKhuyenMaiId.idChiTietSanPham";
+             String hql = "SELECT SUM((c.chiTietKhuyenMaiId.idKhuyenMai.mucGiamGiaPhanTram)*c.chiTietKhuyenMaiId.idChiTietSanPham.donGia/100 + c.chiTietKhuyenMaiId.idKhuyenMai.mucGiamGiaTienMat) FROM ChiTietKhuyenMai c  WHERE c.chiTietKhuyenMaiId.idChiTietSanPham.ma = :ma GROUP BY c.chiTietKhuyenMaiId.idChiTietSanPham";
              Query query = session.createQuery(hql);
-             query.setParameter("imei", imei);
+             query.setParameter("ma", ma);
              return (double) query.getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();

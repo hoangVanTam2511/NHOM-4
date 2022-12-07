@@ -47,7 +47,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public HoaDonChiTiet findOneByMaSanPhamAndMaHoaDon(String ma, String maSanPham) {
         HoaDonChiTiet dongSp = new HoaDonChiTiet();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id and p.idChiTietSanPham.idSanPham.soImei = :maSanPham";
+            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id and p.idChiTietSanPham.ma = :maSanPham";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             query.setParameter("maSanPham", maSanPham);
@@ -158,8 +158,8 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlHoaDonChiTietReponce> listQlHoaDonChiTiets = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new "
-                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,"
-                    + "p.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
+                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.ma,"
+                    + "p.idChiTietSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
                     + "WHERE  p.idHoaDon.ma = :ma "
                     + "GROUP BY p.idChiTietSanPham.idSanPham.soImei,p.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
             Query query = session.createQuery(hql, QlHoaDonChiTietReponce.class);
@@ -189,12 +189,12 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlThongKeResponce> qlThongKeResponces = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new infrastructure.responce.QlThongKeResponce( "
-                    + " p.idChiTietSanPham.idSanPham.ten,"
+                    + " p.idChiTietSanPham.ten,"
                     + "SUM(p.soLuong) as so_luong_theo_thang,p.donGia,"
                     + "SUM(p.tongTien) as tong_tien_theo_thang ) "
                     + "FROM HoaDonChiTiet p "
                     + "WHERE p.idHoaDon.created > :ngayBatDau AND  p.idHoaDon.created < :ngayKetThuc "
-                    + " GROUP BY p.donGia,p.idChiTietSanPham.idSanPham.ten";
+                    + " GROUP BY p.donGia,p.idChiTietSanPham.ten";
             Query query = session.createQuery(hql);
             query.setParameter("ngayBatDau", ngayBatDau);
             query.setParameter("ngayKetThuc", ngayKetThuc);
@@ -277,8 +277,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
 //    }
 
     public static void main(String[] args) {
-        QlThongKeChartReponce qlThongKeChartReponce = new QlThongKeChartReponce(2, "2300");
-
+        System.out.println(new HoaDonChiTietReponsitoryImpl().findOneByMaSanPhamAndMaHoaDon("HD00", "SP1"));
     }
 
 }

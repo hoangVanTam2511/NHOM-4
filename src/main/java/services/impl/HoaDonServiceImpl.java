@@ -50,9 +50,9 @@ public class HoaDonServiceImpl implements IHoaDonService {
     }
 
     @Override
-    public List<QlHoaDon> findAll(int status) {
+    public List<QlHoaDon> findAll(int status,String maNhanVien) {
         listQlHoaDon.clear();
-        this.hoaDonReponsitory.findAll(status).forEach(hoaDon -> {
+        this.hoaDonReponsitory.findAll(status,maNhanVien).forEach(hoaDon -> {
             listQlHoaDon.add(FormUtil.convertFromHoaDonToQlHoaDon(hoaDon));
         });
         return listQlHoaDon;
@@ -140,7 +140,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
     }
 
     public static void main(String[] args) {
-        System.out.println("Toorng doanh thu la :" + new HoaDonServiceImpl().genMaTuDong());
+        System.out.println(new HoaDonServiceImpl().findOne("HD00"));
     }
 
 }

@@ -49,8 +49,8 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
     
-     public QlChiTietSanPham findOneByImei(String imei) {
-        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByImei(imei);
+     public QlChiTietSanPham findOneByMa(String ma) {
+        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByMa(ma);
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
 
@@ -106,6 +106,14 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
 
     public boolean setDelected(){
         return this.chiTietSanPhamReponsitoryImpl.setDeleted();
+    }
+    
+    public Imei getOneImei(String soImei) {
+        return this.chiTietSanPhamReponsitoryImpl.getOneImei(soImei);
+    }
+    
+    public String updateImei(Imei imei) {
+         return this.chiTietSanPhamReponsitoryImpl.updateImei(imei) == true ? "Sửa thành công" : "Sửa thất bại";
     }
 
     public static void main(String[] args) {

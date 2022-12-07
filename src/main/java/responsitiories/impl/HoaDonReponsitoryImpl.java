@@ -25,12 +25,13 @@ import org.hibernate.query.Query;
 public class HoaDonReponsitoryImpl implements IHoaDonReponsitory {
 
     @Override
-    public List<HoaDon> findAll(int status) {
+    public List<HoaDon> findAll(int status,String maNhanVien) {
         List<HoaDon> listHoaDons = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT c FROM HoaDon c WHERE c.tinhTrang = :tinhTrang ORDER BY c.ma ASC";
+            String hql = "SELECT c FROM HoaDon c WHERE c.tinhTrang = :tinhTrang AND c.idNhanVien.ma = :ma ORDER BY c.ma ASC";
             TypedQuery typedQuery = session.createQuery(hql, HoaDon.class);
             typedQuery.setParameter("tinhTrang", status);
+            typedQuery.setParameter("ma", maNhanVien);
             listHoaDons = typedQuery.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
