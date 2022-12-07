@@ -46,6 +46,8 @@ public class QlUser {
     
     private ChucVu idChucVu;
     
+    private String gmail;
+    
     public String getStringGioiTinh(){
         return this.gioiTinh == true ?"Nam" :"Nữ";
     }
@@ -56,7 +58,7 @@ public class QlUser {
 
     public Object getData(int stt) {
         return new Object[]{
-           stt,this.ma,this.ten ,this.diaChi,this.sdt,getStringGioiTinh(),this.cccd,getStringTrangThai(),this.matKhau,this.idChucVu.getTen()
+           stt,this.ma,this.ten ,this.diaChi,this.sdt,getStringGioiTinh(),this.cccd,this.matKhau,this.idChucVu.getTen(),this.anh,this.gmail
         };
     }
 }

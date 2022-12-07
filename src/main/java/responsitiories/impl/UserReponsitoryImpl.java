@@ -28,7 +28,7 @@ public class UserReponsitoryImpl implements IReponsitory<User> {
         List<User> listNhanVien = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            Query query = session.createQuery("SELECT n FROM User n");
+            Query query = session.createQuery("SELECT n FROM User n order by n.ma");
             listNhanVien = query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();

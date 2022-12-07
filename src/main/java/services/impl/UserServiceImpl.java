@@ -108,18 +108,15 @@ public class UserServiceImpl {
     public String genMaTuDong() {
         List<User> listUsers = this.userReponsitoryImpl.findAll();
         if (listUsers.size() == 0) {
-            return "NV00";
+            return "NV0";
         }
-        String maHoaDonHienTai = listUsers.get(listUsers.size() - 1).getMa();
-        int index = Integer.parseInt(maHoaDonHienTai.substring(2));
+        String manhanvienhientai = listUsers.get(listUsers.size() - 1).getMa();
+        int index = Integer.parseInt(manhanvienhientai.substring(2));
         index++;
         String ma = "NV";
-        if (index > 1 && index < 10) {
-            ma += "0" + index;
-        } else {
-            ma += index;
-        }
+        ma += index;
         return ma;
+        
     }
 
     public static void main(String[] args) {

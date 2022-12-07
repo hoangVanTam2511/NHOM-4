@@ -57,6 +57,9 @@ public class User extends PrimaryEntity implements IsIdentified, Serializable {
 
     @Column(name = "mat_khau")
     private String matKhau;
+    
+    @Column(name = "gmail")
+    private String email;
 
     @Column(name = "img")
     private String anh;
