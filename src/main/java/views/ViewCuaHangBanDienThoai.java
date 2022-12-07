@@ -28,7 +28,11 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
+import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -38,10 +42,12 @@ import javax.persistence.ManyToOne;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -78,6 +84,14 @@ import static views.test.getCell10fLeft;
 import static views.test.getHeaderTextCell;
 import static views.test.getHeaderTextCellValue;
 import javax.swing.table.TableCellRenderer;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -381,6 +395,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         tableKhachHangCaNhan = new javax.swing.JTable();
         jLabel53 = new javax.swing.JLabel();
         txtKhachHangTimKiem = new javax.swing.JTextField();
+        btnExportExcel = new javax.swing.JButton();
         pannelThongKe = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -2050,9 +2065,9 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+            .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE)
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -2081,20 +2096,33 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
             }
         });
 
+        btnExportExcel.setText("Xuất file Excel");
+        btnExportExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportExcelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtKhachHangTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel18Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(txtKhachHangTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(btnExportExcel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2103,8 +2131,10 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
                     .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtKhachHangTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExportExcel)
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout pannelKhachHangLayout = new javax.swing.GroupLayout(pannelKhachHang);
@@ -3018,7 +3048,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         this.labelKhachHang.setOpaque(true);
         loadDataKhachHang();
         this.txtKhachHangMa.setText(this.khachHangServiceImpl.genMaTuDong());
-        JOptionPane.showMessageDialog(this, this.khachHangServiceImpl.genMaTuDong());
         txtKhachHangMa.setVisible(true);
     }//GEN-LAST:event_labelKhachHangMousePressed
 
@@ -3333,6 +3362,45 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         findDataOnKhachHang(name);
     }//GEN-LAST:event_txtKhachHangTimKiemCaretUpdate
 
+    private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportExcelActionPerformed
+        // TODO add your handling code here:
+        try {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.showSaveDialog(this);
+            File saveFile = fileChooser.getSelectedFile();
+            if (saveFile != null) {
+                saveFile = new File(saveFile.toString() + ".xlsx");
+                Workbook wb = new XSSFWorkbook();
+                Sheet sheet = wb.createSheet("Khach Hang");
+                
+                Row rowCol = sheet.createRow(0);
+                for (int i = 0; i < tableKhachHangCaNhan.getColumnCount(); i++) {
+                    org.apache.poi.ss.usermodel.Cell cell = rowCol.createCell(i);
+                    cell.setCellValue(tableKhachHangCaNhan.getColumnName(i));
+                }
+                for (int j = 0; j < tableKhachHangCaNhan.getRowCount(); j++) {
+                    Row row = sheet.createRow(j);
+                    for (int k = 0; k < tableKhachHangCaNhan.getColumnCount(); k++) {
+                        org.apache.poi.ss.usermodel.Cell cell = row.createCell(k);
+                        if (tableKhachHangCaNhan.getValueAt(j, k) != null) {
+                            cell.setCellValue(tableKhachHangCaNhan.getValueAt(j, k).toString());
+                        }
+                    }
+                }
+                FileOutputStream out = new FileOutputStream(new File(saveFile.toString()));
+                wb.write(out);
+                wb.close();
+                out.close();
+                JOptionPane.showMessageDialog(this, "Xuat file thanh cong");
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex);
+
+        } catch (IOException io) {
+            System.out.println(io);
+        }
+    }//GEN-LAST:event_btnExportExcelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3373,6 +3441,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     private javax.swing.JButton btnBanHangThanhToan;
     private javax.swing.JButton btnBanHangThemKhachHang;
     private javax.swing.JButton btnBanHangXoaSanPham;
+    private javax.swing.JButton btnExportExcel;
     private javax.swing.JButton btnKhachHangSua;
     private javax.swing.JButton btnKhachHangThem;
     private javax.swing.JButton btnKhachHangXoa;
@@ -3696,7 +3765,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
         String titleHoaDonHoaDonChiTiet[] = {"STT", "Số Imei", "Tên sản phẩm", "Số lượng", "Đơn giá", "Thành tiền"};
         String titleKhuyenMaiKhuyenMai[] = {"Mã chương trình", "Tên chương trình", "Hình thức giảm giá", "Giả m giá", "Sản phẩm", "Ngày bắt đầu", "Ngày kết thúc", "Trạng thái", "Mô tả"};
         String titleThongKeThongKe[] = {"STT", "Sản phẩm", "Số lượng đã bán", "Giá bán hiện tại", "Doanh thu"};
-        String titleKhachHangCaNhan[] = {"Stt", "Mã", "Tên", "Địa chỉ","Số điện thoại"};
+        String titleKhachHangCaNhan[] = {"Stt", "Mã", "Tên", "Địa chỉ", "Số điện thoại"};
         String titleNhanVienNhanVien[] = {"STT", "Mã", "Tên", "Địa chỉ", "Số điện thoại", "Giới tính", "cccd", "Trạng thái", "Mật khẩu", "Chức vụ"};
         // default table model
         // set column identifier111
@@ -3799,7 +3868,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
     }
 
     private void loadDataOnHoaDonDangCho() {
-       
+
         tableModelBanHangDonHangCho.setRowCount(0);
         List<QlHoaDon> listQlHoaDons = this.hoaDonServiceImpl.findAll(1, qlUser.getMa());
 
@@ -3823,7 +3892,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
                 this.txtBanHangMaKhachHang.setText(qlKhachHang.getMa() + "-" + qlKhachHang.getTen());
             }
             if (this.qlKhachHang.getMa().equalsIgnoreCase("NVOO")) {
-                setUIKhachLe(); 
+                setUIKhachLe();
             } else {
                 setUIKhachMua();
                 rbKhachMua.setSelected(true);
@@ -4045,7 +4114,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 //        cbBaoHanhGoiBaoHanh.setModel(comBoBoxBaoHanhGoiBaoHanh);
     }
 
-
     private QlPhieuBaoHanh getDataFromPhieuBaoHanh() {
 //        String maPhieuBaoHanh = this.txtBaoHanhMaGoiBaoHanh.getText().trim();
 //        String tenPhieuBaoHanh = this.txtBaoHanhTenGoiBaoHanh.getText().trim();
@@ -4060,8 +4128,6 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
 //        }
         return null;
     }
-
-
 
     private void createKhuyenMaiChiTiet(String maKhuyenMai, QlChiTietSanPham qlChiTietSanPham) {
         QlKhuyenMai qlKhuyenMai = this.khuyenMaiServiceImpl.findOne(maKhuyenMai);
@@ -4174,6 +4240,7 @@ public class ViewCuaHangBanDienThoai extends javax.swing.JFrame {
             i++;
         }
     }
+
     private void findDataOnKhachHang(String name) {
         tableModelKhachHangCaNhan.setRowCount(0);
         int i = 1;
