@@ -26,7 +26,10 @@ import lombok.Setter;
 public class HeDieuHanh  extends PrimaryEntity{
  
     @Column(name = "ten_he_dieu_hanh")
-    private String tenHeDieuHanh;
+    private String ten;
+    
+    @Column(name = "ma")
+    private String ma;
     
     
 }

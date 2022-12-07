@@ -27,7 +27,8 @@ public class Rom extends PrimaryEntity{
     
     @Column(name = "kich_thuoc")
     private int kichThuoc;
-    
     @Column(name = "ma_rom")
-    private String maRom;
+    private String ma;
+    @Column(name = "bo_nho")
+    private String boNho;
 }

@@ -103,6 +103,6 @@ public class KhachHangRepositoryImpl implements IReponsitory<KhachHang> {
     }
 
     public static void main(String[] args) {
-        System.out.println(new KhachHangRepositoryImpl().getMa());
+        System.out.println(new KhachHangRepositoryImpl().findOneByMa("KH0"));
     }
 }

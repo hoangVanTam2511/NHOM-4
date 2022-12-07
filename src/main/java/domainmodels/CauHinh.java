@@ -56,5 +56,7 @@ public class CauHinh extends PrimaryEntity {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_camera", referencedColumnName = "id")
     private Camera idCamera;
+    
+    
 
 }

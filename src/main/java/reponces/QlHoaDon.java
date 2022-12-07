@@ -83,7 +83,7 @@ public class QlHoaDon {
     
     public Object getData(int stt){
         return new Object[]{
-          stt,this.ma,this.created,this.idNhanVien.getMa(),this.idKhachHang.getMa()
+          this.ma,this.created,this.idNhanVien.getMa(),this.idKhachHang.getMa(),getTrangThai()
         };
     }
 }

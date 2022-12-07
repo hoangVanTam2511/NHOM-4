@@ -26,10 +26,10 @@ import lombok.Setter;
 public class Camera  extends PrimaryEntity{
     
     @Column(name = "ma_camera")
-    private String maChip;
+    private String ma;
     
     @Column(name = "ten_camera")
-    private String tenChip;
+    private String ten;
     
     @Column(name = "kich_thuoc")
     private int kichThuoc;

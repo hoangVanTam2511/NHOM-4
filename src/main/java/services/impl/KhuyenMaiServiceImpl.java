@@ -113,7 +113,7 @@ public class KhuyenMaiServiceImpl implements IService<QlKhuyenMai> {
                         }
                     }
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(100000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

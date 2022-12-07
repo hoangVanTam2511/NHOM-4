@@ -29,7 +29,7 @@ public class Pin  extends PrimaryEntity{
     private String maPin;
     
     @Column(name = "ten_pin")
-    private String tenChip;
+    private String tenPin;
     
     @Column(name = "kich_thuoc")
     private int kichThuoc;

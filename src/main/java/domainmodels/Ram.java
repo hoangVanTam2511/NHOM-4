@@ -25,9 +25,11 @@ import org.hibernate.mapping.PrimaryKey;
 @NoArgsConstructor
 @Table(name = "ram")
 public class Ram  extends PrimaryEntity{   
-    @Column(name = "kich_thuoc")
-    private int kichThuoc;
     
     @Column(name = "ma_ram")
-    private String maRam; 
+    private String ma;
+    @Column(name = "toc_do_ram")
+    private String tocDoRam;
+    @Column(name = "kich_thuoc")
+    private int kichThuoc;
 }
