@@ -49,7 +49,7 @@ public class QlKhachHang {
 
      public Object getData(int stt) {
         return new Object[]{
-           stt,this.ma,this.ten ,this.diaChi
+           stt,this.ma,this.ten ,this.diaChi,this.sdt
         };
     }
 ;

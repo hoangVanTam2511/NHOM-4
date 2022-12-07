@@ -117,9 +117,6 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\logo.jpg"/>
-            </Property>
             <Property name="alignmentX" type="float" value="0.5"/>
           </Properties>
         </Component>
@@ -141,9 +138,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-shopping-cart-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="B&#xe1;n h&#xe0;ng"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
@@ -157,9 +151,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-smartphone-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ea3;n Ph&#x1ea9;m"/>
           </Properties>
           <Events>
@@ -172,9 +163,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-cheque-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="H&#xf3;a&#x110;&#x1a1;n"/>
           </Properties>
           <Events>
@@ -187,9 +175,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-staff-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Khuy&#x1ebf;n m&#x1ea1;i"/>
           </Properties>
           <Events>
@@ -202,9 +187,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-cheque-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Th&#x1ed1;ng k&#xea;"/>
           </Properties>
           <Events>
@@ -219,9 +201,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-staff-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Kh&#xe1;ch H&#xe0;ng"/>
           </Properties>
           <Events>
@@ -234,9 +213,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-staff-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nh&#xe2;n vi&#xea;n"/>
           </Properties>
           <Events>
@@ -249,9 +225,6 @@
               <Font name="Dialog" size="12" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\New folder (5)\du_an_1\src\main\java\images\icons8-cheque-24.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
           </Properties>
           <Events>
@@ -1258,9 +1231,6 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="cc" green="cc" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\New folder (3)\du_an_1_nhom_4_tamhv\src\main\java\images\icons8-shopping-cart-24.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="ADD TO CART"/>
                   </Properties>
                   <Events>
@@ -1629,7 +1599,7 @@
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="73" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="85" max="32767" attributes="0"/>
                                               <Component id="seperatorBanHangKhachHang" min="-2" pref="268" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -2983,19 +2953,17 @@
                               <Component id="btnKhachHangThem" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtKhachHangMaKhachHang" max="32767" attributes="0"/>
-                                  <Component id="txtKhachHangTenKhachHang" max="32767" attributes="0"/>
-                                  <Component id="txtKhachHangSoDienThoai" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane12" alignment="0" pref="224" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtKhachHangTenKhachHang" max="32767" attributes="0"/>
+                              <Component id="txtKhachHangSoDienThoai" max="32767" attributes="0"/>
+                              <Component id="jScrollPane12" alignment="0" pref="224" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Component id="btnKhachHangSua" min="-2" pref="66" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnKhachHangXoa" min="-2" pref="79" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="txtKhachHangMa" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
@@ -3004,12 +2972,15 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel50" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="txtKhachHangMaKhachHang" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel50" min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                                  <Component id="txtKhachHangMa" min="-2" pref="29" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel46" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="txtKhachHangTenKhachHang" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -3042,11 +3013,6 @@
                       <Font name="Dialog" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="T&#xea;n kh&#xe1;ch h&#xe0;ng:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtKhachHangMaKhachHang">
-                  <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel50">
@@ -3116,6 +3082,8 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnKhachHangXoaActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JTextField" name="txtKhachHangMa">
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel19">
@@ -3134,7 +3102,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane14" max="32767" attributes="0"/>
+                          <Component id="jScrollPane14" pref="878" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -3298,6 +3266,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtKhachHangTimKiem">
+                  <Events>
+                    <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="txtKhachHangTimKiemCaretUpdate"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

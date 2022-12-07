@@ -40,6 +40,13 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
         return listKhachHang;
     }
 
+    public List<QlKhachHang> findAllByName(String name) {
+        List<QlKhachHang> listKhachHangs = new ArrayList<>();
+        this.khachHangReponsitoryImpl.findAllByName(name).forEach(khachHang -> {
+            listKhachHangs.add(FormUtil.convertFromKhachHangToQlKhachHang(khachHang));
+        });
+        return listKhachHangs;
+    }
     @Override
     public QlKhachHang findOne(String ma) {
         KhachHang khachHang = this.khachHangReponsitoryImpl.findOneByMa(ma);
@@ -72,7 +79,7 @@ public class KhachHangServiceImpl implements IService<QlKhachHang> {
             return "Bạn phải nhập đủ các ô có trên bảng";
         } else if (ten.matches("\\d+")) {
             return "Bạn phải nhập tên là chữ ";
-        } else if (!soDienThoai.matches("0+\\d{9}")) {
+        } else if (!soDienThoai.matches("0\\d{10}")) {
             return "Bạn phải nhập đúng định dạng số điện thoại 10 số";
         } else if (diaChi.matches("\\d+")) {
             return "Bạn phải nhập địa chỉ là chữ ";

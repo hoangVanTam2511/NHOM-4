@@ -31,6 +31,20 @@ public class KhachHangRepositoryImpl implements IReponsitory<KhachHang> {
         return query.getResultList();
     }
 
+    public List<KhachHang> findAllByName(String ten) {
+        List<KhachHang> khachHangs = new ArrayList<>();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "SELECT kh FROM KhachHang kh "                    
+                    + "WHERE kh.ten like CONCAT('%',:ten,'%') ";
+            TypedQuery query = session.createQuery(hql, KhachHang.class);
+            query.setParameter("ten", ten);
+            khachHangs = query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return khachHangs;
+    }
     @Override
     public KhachHang findOneByMa(String ma) {
         String sql = "From KhachHang WHERE ma =: ma";
