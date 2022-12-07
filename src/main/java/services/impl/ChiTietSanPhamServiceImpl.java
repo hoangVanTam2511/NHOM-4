@@ -5,6 +5,7 @@
 package services.impl;
 
 import domainmodels.ChiTietSanPham;
+import domainmodels.Imei;
 import responsitiories.impl.ChiTietSanPhamReponsitoryImpl;
 import services.IService;
 import reponces.QlChiTietSanPham;
@@ -48,8 +49,8 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
     
-     public QlChiTietSanPham findOneByImei(String imei) {
-        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByImei(imei);
+     public QlChiTietSanPham findOneByMa(String ma) {
+        ChiTietSanPham chiTietSanPham = this.chiTietSanPhamReponsitoryImpl.findOneByMa(ma);
         return FormUtil.convertFromChiTietSanPhamToQlChiTietSanPham(chiTietSanPham);
     }
 
@@ -90,12 +91,32 @@ public class ChiTietSanPhamServiceImpl implements IService<QlChiTietSanPham> {
         }
     }
     
+     public Long getSoLuongTonTheoTungMaSanPham(String maSP){
+         return this.chiTietSanPhamReponsitoryImpl.getSoLuongTonTheoTungMaSanPham(maSP);
+     }
+     
+     public List<Imei> getDanhSachImeiTheoTungMaSanPham(String maSP){
+         return this.chiTietSanPhamReponsitoryImpl.getDanhSachImeiTheoTungMaSanPham(maSP);
+     }
+     
+      public void setTinhTrangImeiKhiMuaHang(String imei){
+          this.chiTietSanPhamReponsitoryImpl.setTinhTrangImeiKhiMuaHang(imei);
+      }
     
+
     public boolean setDelected(){
         return this.chiTietSanPhamReponsitoryImpl.setDeleted();
     }
+    
+    public Imei getOneImei(String soImei) {
+        return this.chiTietSanPhamReponsitoryImpl.getOneImei(soImei);
+    }
+    
+    public String updateImei(Imei imei) {
+         return this.chiTietSanPhamReponsitoryImpl.updateImei(imei) == true ? "Sửa thành công" : "Sửa thất bại";
+    }
 
     public static void main(String[] args) {
-        System.out.println(new ChiTietSanPhamServiceImpl().setDelected());
+        System.out.println(new ChiTietSanPhamServiceImpl().getDanhSachImeiTheoTungMaSanPham("SP1"));
     }
 }

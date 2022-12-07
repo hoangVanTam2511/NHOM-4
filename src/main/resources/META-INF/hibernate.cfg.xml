@@ -42,6 +42,10 @@
         <mapping class="domainmodels.MauSac" />
         <mapping class="domainmodels.Ram" />
         <mapping class="domainmodels.Rom" />
+        <mapping class="domainmodels.Chip" />
+        <mapping class="domainmodels.HeDieuHanh" />
+        <mapping class="domainmodels.Pin" />
+        <mapping class="domainmodels.Camera" />
         <mapping class="domainmodels.CauHinh" />
         <mapping class="domainmodels.DongSp" />
         <mapping class="domainmodels.NSX" />
@@ -49,13 +53,12 @@
         <mapping class="domainmodels.ChucVu" />
         <mapping class="domainmodels.ChiTietSanPham" />
         <mapping class="domainmodels.ChiTietKhuyenMai" />
-        <mapping class="domainmodels.PhieuBaoHanh" />
-        <mapping class="domainmodels.SanPham" />
+        <mapping class="domainmodels.Imei" />
         <mapping class="domainmodels.HoaDon" />
         <mapping class="domainmodels.KhachHang" />
         <mapping class="domainmodels.HoaDonChiTiet" />
         <mapping class="domainmodels.Chip" />
-        <mapping class="domainmodels.ChiTietBaoHanh" />
         <mapping class="domainmodels.HinhThucThanhToan" />
+        <mapping class="domainmodels.ImeiDaBan" />
     </session-factory>
 </hibernate-configuration>

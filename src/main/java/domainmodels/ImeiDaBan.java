@@ -9,7 +9,11 @@ import domainmodels.base.PrimaryEntity;
 import infrastructure.constant.EntityProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,14 +31,17 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name ="san_pham")
-public class SanPham extends PrimaryEntity implements IsIdentified,Serializable{
-    
-    @Column(name = "so_imei",length = EntityProperties.LENGTH_MA)
+@Table(name = "imei_da_ban")
+public class ImeiDaBan extends PrimaryEntity implements IsIdentified, Serializable {
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_hoa_don_chi_tiet", nullable = true)
+    private HoaDonChiTiet idHoaDonChiTiet;
+
+    @Column(name = "so_imei", length = EntityProperties.LENGTH_MA)
     private String soImei;
-    
-    @Column(name = "ten",length = EntityProperties.LENGT_SHORT_NAME)
-    private String ten;
-     
-    
+
+    @Column(name = "trang_thai", length = EntityProperties.LENGT_SHORT_NAME)
+    private boolean trangThai;
 }

@@ -8,10 +8,12 @@ import domainmodels.ChiTietSanPham;
 import domainmodels.HoaDon;
 import infrastructure.convert.FormUtil;
 import java.math.BigDecimal;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import responsitiories.impl.ImeiDaBanReponsitoryImpl;
 
 /**
  *
@@ -23,6 +25,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class QlHoaDonChiTiet {
 
+    private UUID id;
+    private int delected;
     private HoaDon idHoaDon;
     private ChiTietSanPham idChiTietSanPham;
     private double donGia;
@@ -30,6 +34,7 @@ public class QlHoaDonChiTiet {
     private double tongTien;
 
     public QlHoaDonChiTiet(HoaDon idHoaDon, ChiTietSanPham idChiTietSanPham,double donGia,int soLuong) {
+        this.delected =1;
         this.idHoaDon = idHoaDon;
         this.idChiTietSanPham = idChiTietSanPham;
         this.soLuong = soLuong;
@@ -40,12 +45,12 @@ public class QlHoaDonChiTiet {
 
     public Object getData1() {
         return new Object[]{
-          this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,this.donGia,this.tongTien
+          this.idHoaDon.getMa(),this.idChiTietSanPham.getMa(),this.idChiTietSanPham.getTen(),new ImeiDaBanReponsitoryImpl().getSoLuongDaBan(id),this.donGia,this.tongTien
         };
     }
-     public Object getData(int stt) {
+     public Object getData() {
         return new Object[]{
-          stt,this.idHoaDon.getMa(),this.idChiTietSanPham.getIdSanPham().getSoImei(),this.idChiTietSanPham.getIdSanPham().getTen(),this.soLuong,FormUtil.convertNumber(donGia),FormUtil.convertNumber(tongTien)
+          this.idHoaDon.getMa(),this.idChiTietSanPham.getMa(),this.idChiTietSanPham.getTen(),new ImeiDaBanReponsitoryImpl().getSoLuongDaBan(id),FormUtil.convertNumber(donGia),FormUtil.convertNumber(tongTien)
         };
     }
 

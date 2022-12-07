@@ -20,7 +20,6 @@ public class ViewKhachHang extends javax.swing.JDialog {
     private KhachHangServiceImpl khachHangServiceImpl;
     private DefaultTableModel tableModel;
     private QlUser qlUser = null;
-
     /**
      * Creates new form ViewNhanVien
      */
@@ -246,7 +245,7 @@ public class ViewKhachHang extends javax.swing.JDialog {
         String ma = (String) tableModel.getValueAt(row, 1);
         QlKhachHang qlKhachHang = this.khachHangServiceImpl.findOne(ma);
         this.dispose();
-        new ViewCuaHangBanDienThoai(this.qlUser, qlKhachHang).setVisible(true);
+        new ViewCuaHangBanDienThoai(qlUser, qlKhachHang).setVisible(true);
     }//GEN-LAST:event_btnChonActionPerformed
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
@@ -264,13 +263,13 @@ public class ViewKhachHang extends javax.swing.JDialog {
         String ma = khachHangServiceImpl.genMaTuDong();
         //validate
         String check = this.khachHangServiceImpl.validate(ten, diaChi, soDienThoai);
-        if (check == "") {
+        if (check == null) {
             QlKhachHang qlKhachHang = new QlKhachHang(1, ma, ten, diaChi, soDienThoai, soDienThoai);
             String text = this.khachHangServiceImpl.save(qlKhachHang);
             JOptionPane.showMessageDialog(rootPane, text);
             this.dispose();
             qlKhachHang = this.khachHangServiceImpl.findOne(qlKhachHang.getMa());
-            new ViewCuaHangBanDienThoai(this.qlUser, qlKhachHang).setVisible(true);
+            new ViewCuaHangBanDienThoai(qlUser, qlKhachHang).setVisible(true);
         } else {
             // trường hợp validate khách hàng khong đúng định dạng
             JOptionPane.showMessageDialog(rootPane, check);

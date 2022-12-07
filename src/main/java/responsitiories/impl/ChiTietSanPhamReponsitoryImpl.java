@@ -5,6 +5,7 @@
 package responsitiories.impl;
 
 import domainmodels.ChiTietSanPham;
+import domainmodels.Imei;
 import responsitiories.IReponsitory;
 import ultilities.HibernateUtil;
 import java.util.ArrayList;
@@ -55,9 +56,8 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         List<ChiTietSanPham> chiTietSanPhams = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             session.clear();
-            String hql = "SELECT ct FROM ChiTietSanPham ct JOIN  "
-                    + "SanPham b ON b.id =ct.idSanPham "
-                    + "WHERE b.ten like CONCAT('%',:ten,'%') ";
+            String hql = "SELECT ct FROM ChiTietSanPham ct   "
+                    + "WHERE ct.ten like CONCAT('%',:ten,'%') ";
             TypedQuery query = session.createQuery(hql, ChiTietSanPham.class);
             query.setParameter("ten", ten);
             chiTietSanPhams = query.getResultList();
@@ -71,7 +71,7 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
     public ChiTietSanPham findOneByMa(String ma) {
         ChiTietSanPham chiTietSanPham = new ChiTietSanPham();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT ct FROM ChiTietSanPham ct WHERE ct.idSanPham.ma = :ma";
+            String hql = "SELECT ct FROM ChiTietSanPham ct WHERE ct.ma = :ma";
             Query query = session.createQuery(hql);
             query.setParameter("ma", ma);
             chiTietSanPham = query.getSingleResult() == null ? null : (ChiTietSanPham) query.getSingleResult();
@@ -145,8 +145,76 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
         return false;
     }
 
+    public Long getSoLuongTonTheoTungMaSanPham(String maSP) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  count(a.id) FROM Imei a "
+                    + " WHERE a.idChiTietSanPham.ma = :ma AND a.trangThai = 0 "
+                    + " GROUP BY a.idChiTietSanPham.ma";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", maSP);
+            if (query.getSingleResult() == null) {
+                return 0l;
+            }
+            return (Long) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public List<Imei> getDanhSachImeiTheoTungMaSanPham(String maSP) {
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hql = "SELECT  a FROM Imei a "
+                    + " WHERE a.idChiTietSanPham.ma = :ma AND a.trangThai = 0 ";
+            Query query = session.createQuery(hql);
+            query.setParameter("ma", maSP);
+            if (query.getResultList() == null) {
+                return null;
+            }
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Imei getOneImei(String soImei) {
+        Imei imei = new Imei();
+        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.clear();
+            String hql = "SELECT ct FROM Imei ct where ct.soImei = :imei";
+            TypedQuery query = session.createQuery(hql, Imei.class);
+            query.setParameter("imei", soImei);
+            return (Imei) query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return imei;
+    }
+    
+     public boolean updateImei(Imei imei) {
+         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction trans = session.getTransaction();
+            trans.begin();
+            try {
+                session.update(imei);
+                trans.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+                trans.rollback();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setTinhTrangImeiKhiMuaHang(String soImei) {
+        Imei imei = new ChiTietSanPhamReponsitoryImpl().getOneImei(soImei);
+        imei.setTrangThai(true);
+        new ChiTietSanPhamReponsitoryImpl().updateImei(imei);
+    }
+
     public static void main(String[] args) {
-       boolean check =  new ChiTietSanPhamReponsitoryImpl().setDeleted();
-        System.out.println(check);
+        new ChiTietSanPhamReponsitoryImpl().setTinhTrangImeiKhiMuaHang("926593465555");
     }
 }

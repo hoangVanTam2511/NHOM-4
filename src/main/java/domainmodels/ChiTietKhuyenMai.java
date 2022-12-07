@@ -26,6 +26,8 @@ import lombok.Setter;
  */
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "chi_tiet_khuyen_mai")
 public class ChiTietKhuyenMai implements Serializable {
 

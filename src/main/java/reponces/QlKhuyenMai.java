@@ -31,6 +31,7 @@ public class QlKhuyenMai {
     private String moTa;
     private Date ngayBatDau;
     private Date ngayKetThuc;
+    private boolean  tinhTrang;
 
     public QlKhuyenMai(int delected, double mucGiamGiaPhanTram, double mucGiamGiaTienMat,String maKhuyenMai, String ten, String moTa, Date ngayBatDau, Date ngayKetThuc) {
         this.delected = delected;

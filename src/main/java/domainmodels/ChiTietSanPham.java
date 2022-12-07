@@ -38,6 +38,9 @@ public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serial
     @Column(name = "ma")
     private String ma;
     
+    @Column(name = "ten")
+    private String ten;
+    
     @Column(name = "don_gia")
     private double donGia;
     
@@ -63,10 +66,6 @@ public class ChiTietSanPham extends PrimaryEntity implements IsIdentified,Serial
     @JoinColumn(name = "id_nsx",nullable = true)
     private NSX idNsx;
     
-    @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
-    @JoinColumn(name = "idsp",nullable = true)
-    private SanPham idSanPham;
-
     @ManyToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     @JoinColumn(name = "id_anh",nullable = true)
     private Anh idAnh;               

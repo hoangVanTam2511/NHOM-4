@@ -6,6 +6,7 @@ package services.impl;
 
 import infrastructure.convert.FormUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import reponces.QlChiTietKhuyenMai;
 import reponces.QlChiTietSanPham;
@@ -53,8 +54,8 @@ public class ChiTietKhuyenMaiServiceImpl implements IService<QlChiTietKhuyenMai>
     public String update(QlChiTietKhuyenMai t) {
         return this.chiTietKhuyenMaiReponsitoryImpl.update(FormUtil.convertQlChiTietKhuyenMaiToChiTietKhuyenMai(t)) == true ? "Thành công" : "Thất bại.Vui lòng thử lại";
     }
-    
-    public double getSoTienSauKhuyenMai(String imei){
+
+    public double getSoTienSauKhuyenMai(String imei) {
         return this.chiTietKhuyenMaiReponsitoryImpl.getSoTienSauKhiTruKhuyenMai(imei);
     }
 
@@ -67,6 +68,30 @@ public class ChiTietKhuyenMaiServiceImpl implements IService<QlChiTietKhuyenMai>
         }
         QlChiTietKhuyenMai qlChiTietKhuyenMai = new QlChiTietKhuyenMai(FormUtil.convertFromQlChiTietSanPhamToChiTietSanPham(qlChiTietSanPham), FormUtil.convertKhuyenMaiToQlKhuyenMai(qlKhuyenMai), qlChiTietSanPham.getDonGia(), soTienConLai);
         return qlChiTietKhuyenMai;
+    }
+    
+    public void checkKhuyenMai(){
+       Date date  = new Date();
+       Thread thread = new Thread(){
+           @Override
+           public void run() {
+                while(true){
+                    List<QlKhuyenMai> qlKhuyenMais = new KhuyenMaiServiceImpl().findAll();
+                    for(QlKhuyenMai qlKhuyenMai : qlKhuyenMais){
+                        if(qlKhuyenMai.getNgayKetThuc().after(date)){
+                            qlKhuyenMai.setTinhTrang(false);
+                        }
+                    }
+                    try {
+                        Thread.sleep(1000000000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+           }
+           
+       };
+       thread.start();
     }
 
 }

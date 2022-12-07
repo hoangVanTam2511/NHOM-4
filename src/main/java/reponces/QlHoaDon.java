@@ -59,7 +59,7 @@ public class QlHoaDon {
     public QlHoaDon(String ma, Date date, int i, User user, KhachHang khachHang) {
      this.ma = ma;
      this.created = date;
-     this.delected  =i;
+     this.delected  =1;
      this.tinhTrang = i;
      this.idNhanVien = user;
      this.idKhachHang = khachHang;

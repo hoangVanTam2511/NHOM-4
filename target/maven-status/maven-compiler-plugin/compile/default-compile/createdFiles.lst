@@ -25,9 +25,7 @@ responsitiories\impl\HoaDonChiTietReponsitoryImpl.class
 views\ViewCuaHangBanDienThoai$21.class
 DomainModels\Ram.class
 infrastructure\config\ModelMapperConfig.class
-reponces\QlSanPham.class
 Services\impl\UserServiceImpl.class
-DomainModels\SanPham.class
 Services\INSXService.class
 responsitiories\impl\RamReponsitory.class
 responsitiories\impl\SanPhamReponsitoryImpl.class
@@ -36,7 +34,6 @@ reponces\QlManHinh.class
 reponces\QlNhaSanXuat.class
 DomainModels\ChucVu.class
 reponces\QlGioHang.class
-DomainModels\PhieuBaoHanh.class
 reponces\QlCauHinh.class
 views\ViewCuaHangBanDienThoai$11.class
 responsitiories\impl\DongSPReponsitoryImpl.class

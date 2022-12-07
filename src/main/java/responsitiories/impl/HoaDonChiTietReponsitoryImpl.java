@@ -10,10 +10,12 @@ import infrastructure.convert.FormUtil;
 import responsitiories.IHoaDonChiTietReponsitory;
 import ultilities.HibernateUtil;
 import infrastructure.responce.QlHoaDonChiTietReponce;
+import infrastructure.responce.QlThongKeChartReponce;
 import infrastructure.responce.QlThongKeResponce;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -45,7 +47,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public HoaDonChiTiet findOneByMaSanPhamAndMaHoaDon(String ma, String maSanPham) {
         HoaDonChiTiet dongSp = new HoaDonChiTiet();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id and p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei = :maSanPham";
+            String hql = "SELECT p FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id and p.idChiTietSanPham.ma = :maSanPham";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             query.setParameter("maSanPham", maSanPham);
@@ -66,7 +68,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public List<HoaDonChiTiet> getAllByMaHoaDon(String ma) {
         List<HoaDonChiTiet> listDongSp = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT p FROM HoaDonChiTiet p  WHERE p.HoaDonChiTietId.idHoaDon.ma = :id ";
+            String hql = "SELECT p FROM HoaDonChiTiet p  WHERE p.idHoaDon.ma = :id ";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             listDongSp = query.getResultList();
@@ -80,7 +82,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public double tinhTongTien(String ma) {
         double tongTien = 0;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT SUM(p.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id";
+            String hql = "SELECT SUM(p.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id";
             Query query = session.createQuery(hql);
             query.setParameter("id", ma);
             if (query.getSingleResult() == null) {
@@ -156,10 +158,10 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         List<QlHoaDonChiTietReponce> listQlHoaDonChiTiets = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new "
-                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,"
-                    + "p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
-                    + "WHERE  p.HoaDonChiTietId.idHoaDon.ma = :ma "
-                    + "GROUP BY p.HoaDonChiTietId.idChiTietSanPham.idSanPham.soImei,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
+                    + "infrastructure.responce.QlHoaDonChiTietReponce(p.HoaDonChiTietId.idChiTietSanPham.ma,"
+                    + "p.idChiTietSanPham.ten,p.soLuong,p.donGia,SUM(p.soLuong * p.donGia)) FROM HoaDonChiTiet p "
+                    + "WHERE  p.idHoaDon.ma = :ma "
+                    + "GROUP BY p.idChiTietSanPham.idSanPham.soImei,p.idChiTietSanPham.idSanPham.ten,p.soLuong,p.donGia";
             Query query = session.createQuery(hql, QlHoaDonChiTietReponce.class);
             query.setParameter("ma", ma);
             listQlHoaDonChiTiets = query.getResultList();
@@ -170,7 +172,7 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
     public double tinhTongTienBanDau(String maHoaDon) {
         double tongTien = 0;
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hql = "SELECT SUM(p.HoaDonChiTietId.idChiTietSanPham.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.HoaDonChiTietId.idHoaDon.ma = :id";
+            String hql = "SELECT SUM(p.idChiTietSanPham.donGia * p.soLuong) FROM HoaDonChiTiet p WHERE p.idHoaDon.ma = :id";
             Query query = session.createQuery(hql);
             query.setParameter("id", maHoaDon);
             if (query.getSingleResult() == null) {
@@ -182,27 +184,100 @@ public class HoaDonChiTietReponsitoryImpl implements IHoaDonChiTietReponsitory {
         }
         return tongTien;
     }
-    
-    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(int month,int year){
+
+    public List<QlThongKeResponce> getSanPhamThongKeTheoThang(Date ngayBatDau, Date ngayKetThuc) {
         List<QlThongKeResponce> qlThongKeResponces = new ArrayList<>();
         try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
             String hql = "SELECT new infrastructure.responce.QlThongKeResponce( "
-                    + " p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten,"
+                    + " p.idChiTietSanPham.ten,"
                     + "SUM(p.soLuong) as so_luong_theo_thang,p.donGia,"
                     + "SUM(p.tongTien) as tong_tien_theo_thang ) "
                     + "FROM HoaDonChiTiet p "
-                    + "WHERE MONTH(p.HoaDonChiTietId.idHoaDon.created) = :month AND  YEAR(p.HoaDonChiTietId.idHoaDon.created) = :year "
-                    + " GROUP BY p.donGia,p.HoaDonChiTietId.idChiTietSanPham.idSanPham.ten";
+                    + "WHERE p.idHoaDon.created > :ngayBatDau AND  p.idHoaDon.created < :ngayKetThuc "
+                    + " GROUP BY p.donGia,p.idChiTietSanPham.ten";
             Query query = session.createQuery(hql);
-            query.setParameter("month", month);
-            query.setParameter("year", year);
-            qlThongKeResponces  = query.getResultList();
+            query.setParameter("ngayBatDau", ngayBatDau);
+            query.setParameter("ngayKetThuc", ngayKetThuc);
+            qlThongKeResponces = query.getResultList();
         }
         return qlThongKeResponces;
     }
 
+//    public List<Long> getSanPhamThongKeTheoThangToChartSoLuong(Date ngayBatDau, Date ngayKetThuc) {
+//        List<Long> qlThongKeResponces = new ArrayList<>();
+//        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+//            String hql = "SELECT "
+//                    + " SUM(p.soLuong) as so_luong "
+//                    + " FROM HoaDonChiTiet p "
+//                    + "WHERE p.HoaDonChiTietId.idHoaDon.created > :ngayBatDau AND  p.HoaDonChiTietId.idHoaDon.created < :ngayKetThuc "
+//                    + " GROUP BY FORMAT(p.HoaDonChiTietId.idHoaDon.created, 'd') order by FORMAT(p.HoaDonChiTietId.idHoaDon.created, 'd') desc";
+//            Query query = session.createQuery(hql);
+//            query.setParameter("ngayBatDau", ngayBatDau);
+//            query.setParameter("ngayKetThuc", ngayKetThuc);
+//            qlThongKeResponces = query.getResultList();
+//        }
+//        return qlThongKeResponces;
+//    }
+//
+//    public List<Long> getSanPhamThongKeTheoThangToChartNgay(Date ngayBatDau, Date ngayKetThuc) {
+//        List<Long> qlThongKeResponces = new ArrayList<>();
+//        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+//            String hql = "SELECT "
+//                    + " Day(p.HoaDonChiTietId.idHoaDon.created) as so_luong "
+//                    + " FROM HoaDonChiTiet p "
+//                    + "WHERE p.HoaDonChiTietId.idHoaDon.created > :ngayBatDau AND  p.HoaDonChiTietId.idHoaDon.created < :ngayKetThuc "
+//                    + " GROUP BY Day(p.HoaDonChiTietId.idHoaDon.created) order by Day(p.HoaDonChiTietId.idHoaDon.created) asc";
+//            Query query = session.createQuery(hql);
+//            query.setParameter("ngayBatDau", ngayBatDau);
+//            query.setParameter("ngayKetThuc", ngayKetThuc);
+//            qlThongKeResponces = query.getResultList();
+//        }
+//        return qlThongKeResponces;
+//    }
+//
+//    public List<String> getSanPhamThongKeTheoThangToChartThang(Date ngayBatDau, Date ngayKetThuc) {
+//        List<String> qlThongKeResponces = new ArrayList<>();
+//        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+//            String hql = "SELECT "
+//                    + " Convert(nvarchar(50),p.HoaDonChiTietId.idHoaDon.created, 103) "
+//                    + " FROM HoaDonChiTiet p "
+//                    + "WHERE p.HoaDonChiTietId.idHoaDon.created > :ngayBatDau AND  p.HoaDonChiTietId.idHoaDon.created < :ngayKetThuc "
+//                    + " GROUP BY Convert(nvarchar(50),p.HoaDonChiTietId.idHoaDon.created, 103) order by Convert(nvarchar(50),p.HoaDonChiTietId.idHoaDon.created, 103) asc";
+//            Query query = session.createQuery(hql);
+//            query.setParameter("ngayBatDau", ngayBatDau);
+//            query.setParameter("ngayKetThuc", ngayKetThuc);
+//            qlThongKeResponces = query.getResultList();
+//        }
+//        return qlThongKeResponces;
+//    }
+//
+//    public List<Long> getSanPhamThongKeTheoThangToChartNam(Date ngayBatDau, Date ngayKetThuc) {
+//        List<Long> qlThongKeResponces = new ArrayList<>();
+//        try ( Session session = HibernateUtil.getSessionFactory().openSession()) {
+//            String hql = "SELECT "
+//                    + " Year(p.HoaDonChiTietId.idHoaDon.created) as so_luong "
+//                    + " FROM HoaDonChiTiet p "
+//                    + "WHERE p.HoaDonChiTietId.idHoaDon.created > :ngayBatDau AND  p.HoaDonChiTietId.idHoaDon.created < :ngayKetThuc "
+//                    + " GROUP BY Year(p.HoaDonChiTietId.idHoaDon.created) order by Year(p.HoaDonChiTietId.idHoaDon.created) asc";
+//            Query query = session.createQuery(hql);
+//            query.setParameter("ngayBatDau", ngayBatDau);
+//            query.setParameter("ngayKetThuc", ngayKetThuc);
+//            qlThongKeResponces = query.getResultList();
+//        }
+//        return qlThongKeResponces;
+//    }
+
+//    public List<QlThongKeChartReponce> getSanPhamThongKeTheoThangToChar(Date ngayBatDau,Date ngayKetThuc) {
+//        List<QlThongKeChartReponce> getDataToCharts = new ArrayList<>();
+//        List<Long> soluongs = getSanPhamThongKeTheoThangToChartSoLuong(ngayBatDau, ngayKetThuc);
+//        List<Long> ngays = getSanPhamThongKeTheoThangToChartNgay(ngayBatDau, ngayKetThuc);
+//        List<Long> thangs = getSanPhamThongKeTheoThangToChartThang(ngayBatDau, ngayKetThuc);
+//        List<Long> nams = getSanPhamThongKeTheoThangToChartNam(ngayBatDau, ngayKetThuc);
+//      
+//    }
+
     public static void main(String[] args) {
-        System.out.println(new HoaDonChiTietReponsitoryImpl().getSanPhamThongKeTheoThang(11, 2022));       
+        System.out.println(new HoaDonChiTietReponsitoryImpl().findOneByMaSanPhamAndMaHoaDon("HD00", "SP1"));
     }
 
 }

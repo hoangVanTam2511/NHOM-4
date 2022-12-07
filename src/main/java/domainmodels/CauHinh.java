@@ -44,5 +44,17 @@ public class CauHinh extends PrimaryEntity {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_chip", referencedColumnName = "id")
     private Chip idChip;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_pin", referencedColumnName = "id")
+    private Pin idPin;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_he_dieu_hanh", referencedColumnName = "id")
+    private HeDieuHanh idHeDieuHanh;
+    
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_camera", referencedColumnName = "id")
+    private Camera idCamera;
 
 }

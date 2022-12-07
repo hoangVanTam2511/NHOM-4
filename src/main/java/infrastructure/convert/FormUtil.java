@@ -20,9 +20,9 @@ import domainmodels.Anh;
 import domainmodels.ChiTietKhuyenMai;
 import domainmodels.HinhThucThanhToan;
 import domainmodels.KhuyenMai;
-import domainmodels.PhieuBaoHanh;
 import domainmodels.User;
-import domainmodels.SanPham;
+import domainmodels.Imei;
+import domainmodels.ImeiDaBan;
 import java.text.NumberFormat;
 import reponces.QlChiTietSanPham;
 import reponces.QlChucVu;
@@ -35,7 +35,7 @@ import reponces.QlKhachHang;
 import reponces.QlMauSac;
 import reponces.QlNhaSanXuat;
 import reponces.QlUser;
-import reponces.QlSanPham;
+import reponces.QlImei;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,6 +47,7 @@ import reponces.QlAnh;
 import reponces.QlCauHinh;
 import reponces.QlChiTietKhuyenMai;
 import reponces.QlHinhThucThanhToan;
+import reponces.QlImeiDaBan;
 import reponces.QlKhuyenMai;
 import reponces.QlManHinh;
 import reponces.QlPhieuBaoHanh;
@@ -137,15 +138,15 @@ public class FormUtil {
         return khachHang;
     }
 
-    public static QlSanPham convertFromSanPhamToQlSanPham(SanPham sanPham) {
+    public static QlImei convertFromSanPhamToQlSanPham(Imei sanPham) {
         ModelMapper mapper = new ModelMapper();
-        QlSanPham qlSanPham = mapper.map(sanPham, QlSanPham.class);
+        QlImei qlSanPham = mapper.map(sanPham, QlImei.class);
         return qlSanPham;
     }
 
-    public static SanPham convertFromQlSanPhamToSanPham(QlSanPham qlSanPham) {
+    public static Imei convertFromQlSanPhamToSanPham(QlImei qlSanPham) {
         ModelMapper mapper = new ModelMapper();
-        SanPham sanPham = mapper.map(qlSanPham, SanPham.class);
+        Imei sanPham = mapper.map(qlSanPham, Imei.class);
         sanPham.setId(qlSanPham.getId());
         return sanPham;
     }
@@ -287,18 +288,6 @@ public class FormUtil {
         return khuyenMai;
     }
 
-    public static QlPhieuBaoHanh convertQlPhieuBaoHanhToBaoHanh(PhieuBaoHanh phieuBaoHanh) {
-        ModelMapper mapper = new ModelMapper();
-        QlPhieuBaoHanh qlPhieuBaoHanh = mapper.map(phieuBaoHanh, QlPhieuBaoHanh.class);
-        return qlPhieuBaoHanh;
-    }
-
-    public static PhieuBaoHanh convertPhieuBaoHanhToQlPhieuBaoHanh(QlPhieuBaoHanh qlPhieuBaoHanh) {
-        ModelMapper mapper = new ModelMapper();
-        PhieuBaoHanh phieuBaoHanh = mapper.map(qlPhieuBaoHanh, PhieuBaoHanh.class);
-        return phieuBaoHanh;
-    }
-
     public static String convertNumber(double i) {
         NumberFormat currentLocale = NumberFormat.getInstance();
         String str = currentLocale.format(i);
@@ -328,5 +317,18 @@ public class FormUtil {
         QlHinhThucThanhToan hinhThucThanhToan1 = mapper.map(hinhThucThanhToan, QlHinhThucThanhToan.class);
         return hinhThucThanhToan1;
     }
+    
+    public static ImeiDaBan covertImeiDabanToQlImeiDaBan(QlImeiDaBan hinhThucThanhToan) {
+        ModelMapper mapper = new ModelMapper();
+        ImeiDaBan hinhThucThanhToan1 = mapper.map(hinhThucThanhToan, ImeiDaBan.class);
+        return hinhThucThanhToan1;
+    }
 
+    public static QlImeiDaBan covertQlImeiDaBanToImeiDaBan(ImeiDaBan hinhThucThanhToan) {
+        ModelMapper mapper = new ModelMapper();
+        QlImeiDaBan hinhThucThanhToan1 = mapper.map(hinhThucThanhToan, QlImeiDaBan.class);
+        return hinhThucThanhToan1;
+    }
+    
+   
 }
