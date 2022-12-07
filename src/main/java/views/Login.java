@@ -8,6 +8,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import services.impl.UserServiceImpl;
 import reponces.QlUser;
+import services.impl.KhachHangServiceImpl;
 /**
  *
  * @author Admin
@@ -208,7 +209,7 @@ public class Login extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(rootPane, "Bạn đã nhập sai sdt hoặc mật khẩu .Vui lòng đăng nhập lại");
       } else{
           this.dispose();
-          new ViewCuaHangBanDienThoai(user,null).setVisible(true);
+          new ViewCuaHangBanDienThoai(user,new KhachHangServiceImpl().findOne("KH0")).setVisible(true);
       }
     }
 }

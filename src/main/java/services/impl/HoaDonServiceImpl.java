@@ -107,7 +107,7 @@ public class HoaDonServiceImpl implements IHoaDonService {
         int index = Integer.parseInt(maHoaDonHienTai.substring(2));
         index++;
         String ma = "HD";
-        if (index > 1 && index < 10) {
+        if (index > 0 && index < 10) {
             ma += "0" + index;
         } else {
             ma += index;

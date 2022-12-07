@@ -23,11 +23,12 @@ public class KhachHangRepositoryImpl implements IReponsitory<KhachHang> {
 
     private Session session = HibernateUtil.getSessionFactory().openSession();
 
-    private String fromTable = "FROM KhachHang"; 
+    private String fromTable = "FROM KhachHang  "; 
 
     @Override
     public List<KhachHang> findAll() {
-        Query query = session.createQuery(fromTable, KhachHang.class);
+        String listKhachHangs = "FROM KhachHang c WHERE c.delected = 1  ";
+        Query query = session.createQuery(listKhachHangs, KhachHang.class);
         return query.getResultList();
     }
 

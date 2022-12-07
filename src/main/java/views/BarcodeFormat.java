@@ -147,4 +147,7 @@ public class BarcodeFormat extends JFrame {
 //        // TODO Auto-generated method stub
 //        super.fireEditingStopped();
 //    }
+    
+    
+   
 }

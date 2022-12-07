@@ -24,11 +24,17 @@ import lombok.ToString;
  */
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 public class QlChiTietKhuyenMai {
 
+    public QlChiTietKhuyenMai(ChiTietSanPham idChiTietSanPham, KhuyenMai idKhuyenMai, Double donGia, Double soTienConLai) {
+        this.idChiTietSanPham = idChiTietSanPham;
+        this.idKhuyenMai = idKhuyenMai;
+        this.donGia = donGia;
+        this.soTienConLai = soTienConLai;
+    }
+    
     private ChiTietSanPham idChiTietSanPham;
 
     private KhuyenMai idKhuyenMai;

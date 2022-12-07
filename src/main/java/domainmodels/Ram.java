@@ -8,7 +8,9 @@ import domainmodels.base.PrimaryEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.mapping.PrimaryKey;
 
@@ -19,6 +21,8 @@ import org.hibernate.mapping.PrimaryKey;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "ram")
 public class Ram  extends PrimaryEntity{   
     @Column(name = "kich_thuoc")

@@ -215,6 +215,6 @@ public class ChiTietSanPhamReponsitoryImpl implements IReponsitory<ChiTietSanPha
     }
 
     public static void main(String[] args) {
-        new ChiTietSanPhamReponsitoryImpl().setTinhTrangImeiKhiMuaHang("926593465555");
+        new ChiTietSanPhamReponsitoryImpl().findAll();
     }
 }

@@ -22,6 +22,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QlKhuyenMai {
+    
     private UUID id;
     private int delected;
     private double mucGiamGiaPhanTram;
